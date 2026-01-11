@@ -12,17 +12,17 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Open Sans",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --default-font: "Nunito", "Open Sans",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Jost",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --nav-font: "Nunito-Bold",  sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #9c0001; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #f8a519; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --heading-color: #a3202b; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #c9a401; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -30,11 +30,11 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #ffffff;  /* The default color of the main navmenu links */
-  --nav-hover-color: #f8a519; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-hover-color: var(--accent-color); /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #f8a519; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: var(--accent-color); /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -143,11 +143,11 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #3d4d6a;
+  --background-color: var(--heading-color);
   --heading-color: #ffffff;
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 15px 0;
+  padding: 18px 0;
   transition: all 0.5s;
   z-index: 997;
 }
@@ -214,8 +214,8 @@ h6 {
 /* Index Page Header on Scroll
 ------------------------------*/
 .index-page.scrolled .header {
-  --background-color: rgba(156, 0, 1, 0.9);
-  padding: 0;
+  --background-color: #a3202b;
+  padding: 12px 0;
 }
 
 /*--------------------------------------------------------------
@@ -242,7 +242,7 @@ h6 {
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-color);
-    padding: 18px 15px;
+    padding: 0px 15px;
     font-size: 15px;
     font-family: var(--nav-font);
     font-weight: 400;
@@ -849,7 +849,7 @@ section,
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  min-height: 80vh;
+  min-height: 100vh;
   position: relative;
   padding: 120px 0 60px 0;
   display: flex;
@@ -1568,7 +1568,6 @@ section,
 }
 
 .team .team-member .member-info h4 {
-  font-weight: 300;
   font-size: 1.5rem;
   margin-bottom: 8px;
   color: var(--heading-color);
@@ -1579,9 +1578,9 @@ section,
   display: block;
   font-size: 0.9rem;
   color: var(--accent-color);
-  font-weight: 400;
   margin-bottom: 20px;
   letter-spacing: 0.5px;
+  font-family: var(--default-font);
 }
 
 .team .team-member .member-info p {
@@ -2065,7 +2064,7 @@ section,
 .news .post-item .post-title {
   color: var(--heading-color);
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   transition: 0.3s;
   margin-bottom: 15px;
 }
@@ -2078,6 +2077,13 @@ section,
 .news .post-item .meta span {
   font-size: 15px;
   color: color-mix(in srgb, var(--default-color), transparent 50%);
+}
+
+.news .post-item .meta p {
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0;
 }
 
 .news .post-item hr {
@@ -3676,6 +3682,7 @@ section,
   margin-bottom: 15px;
   font-size: 20px;
   line-height: 1.3;
+  font-weight: 600;
 }
 
 .programs h3 a {
@@ -3825,5 +3832,32 @@ section,
   }
 }
 
+@font-face{
+    font-family:Nunito;
+    src:url(../fonts/Nunito-Light.eot);
+    src:local("Nunito Light"),local("Nunito-Light"),url(../fonts/Nunito-Lightd41d.eot?#iefix) format("embedded-opentype"),url(../fonts/Nunito-Light.woff) format("woff"),url(../fonts/Nunito-Light.ttf) format("truetype"),url(../fonts/Nunito-Light.svg#Roboto) format("svg");
+    font-weight:300;
+    font-style:normal
+}
+@font-face{
+    font-family:Nunito;
+    src:url(../fonts/Nunito-Regular.eot);
+    src:local("Nunito Regular"),local("Nunito-Regular"),url(../fonts/Nunito-Regulard41d.eot?#iefix) format("embedded-opentype"),url(../fonts/Nunito-Regular.woff) format("woff"),url(../fonts/Nunito-Regular.ttf) format("truetype"),url(../fonts/Nunito-Regular.svg#Roboto) format("svg");
+    font-weight:400;
+    font-style:normal
+}
+@font-face{
+    font-family:Nunito;
+    src:url(../fonts/Nunito-SemiBold.eot);
+    src:local("Nunito SemiBold"),local("Nunito-SemiBold"),url(../fonts/Nunito-SemiBoldd41d.eot?#iefix) format("embedded-opentype"),url(../fonts/Nunito-SemiBold.woff) format("woff"),url(../fonts/Nunito-SemiBold.ttf) format("truetype"),url(../fonts/Nunito-SemiBold.svg#Roboto) format("svg");
+    font-weight:600;
+    font-style:normal
+}
+@font-face{
+    font-family:Nunito-Bold;
+    src:url(../fonts/Nunito-Bold.eot);
+    src:local("Nunito Bold"),local("Nunito-Bold"),url(../fonts/Nunito-Boldd41d.eot?#iefix) format("embedded-opentype"),url(../fonts/Nunito-Bold.woff) format("woff"),url(../fonts/Nunito-Bold.ttf) format("truetype"),url(../fonts/Nunito-Bold.svg#Roboto) format("svg");
+    font-weight:700;
+}
 
 

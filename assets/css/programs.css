@@ -1,10 +1,7 @@
 /* Programs Page Header
 ------------------------------*/
 .programs-page .header {
-  --background-color: #9c0001;
-  --heading-color: #ffffff;
-  --nav-color: #ffffff;
-  padding: 0;
+  padding: 12px 0;
 }
 
 /*--------------------------------------------------------------
@@ -428,10 +425,7 @@
 /* Program Details Page Header
 ------------------------------*/
 .program-details-page .header {
-  --background-color: #9c0001;
-  --heading-color: #ffffff;
-  --nav-color: #ffffff;
-  padding: 0;
+  padding: 12px 0;
 }
 
 /*--------------------------------------------------------------
@@ -990,6 +984,7 @@
   font-size: 36px;
   font-weight: 700;
   color: var(--heading-color);
+  font-family: var(--heading-font);
 }
 
 .program-details .enrollment-card .card-header .price-display .original-price {
