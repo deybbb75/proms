@@ -142,12 +142,15 @@ h6 {
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
+.main{
+  padding-top: 60px;
+}
+
 .header {
   --background-color: var(--heading-color);
-  --heading-color: #ffffff;
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 18px 0;
+  padding: 12px 0;
   transition: all 0.5s;
   z-index: 997;
 }
@@ -165,7 +168,7 @@ h6 {
   font-size: 30px;
   margin: 0;
   font-weight: 500;
-  color: var(--heading-color);
+  color: var(--surface-color);
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -205,15 +208,21 @@ h6 {
 
 /* Index Page Header
 ------------------------------*/
-.index-page .header {
+.index-page.header {
   --background-color: rgba(255, 255, 255, 0);
   --heading-color: #ffffff;
   --nav-color: #ffffff;
+  padding: 18px 0;
+}
+
+
+.index-main{
+  padding-top: 0px !important;
 }
 
 /* Index Page Header on Scroll
 ------------------------------*/
-.index-page.scrolled .header {
+.scrolled .index-page.header {
   --background-color: #a3202b;
   padding: 12px 0;
 }
@@ -845,9 +854,9 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Hero Section
+# Banner Section
 --------------------------------------------------------------*/
-.hero {
+.banner {
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -857,14 +866,14 @@ section,
   background: url("../img/background.jpg") center / cover no-repeat;
 }
 
-.hero h1 {
+.banner h1 {
   margin: 0;
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
 }
 
-.hero p {
+.banner p {
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   margin: 5px 0 30px 0;
   font-size: 22px;
@@ -872,7 +881,7 @@ section,
   font-weight: 600;
 }
 
-.hero .btn-get-started {
+.banner .btn-get-started {
   color: var(--contrast-color);
   background: var(--accent-color);
   font-family: var(--heading-font);
@@ -885,12 +894,12 @@ section,
   transition: 0.5s;
 }
 
-.hero .btn-get-started:hover {
+.banner .btn-get-started:hover {
   color: var(--contrast-color);
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
-.hero .btn-watch-video {
+.banner .btn-watch-video {
   font-size: 16px;
   transition: 0.5s;
   margin-left: 25px;
@@ -898,7 +907,7 @@ section,
   font-weight: 600;
 }
 
-.hero .btn-watch-video i {
+.banner .btn-watch-video i {
   color: var(--contrast-color);
   font-size: 32px;
   transition: 0.3s;
@@ -906,32 +915,32 @@ section,
   margin-right: 8px;
 }
 
-.hero .btn-watch-video:hover {
+.banner .btn-watch-video:hover {
   color: var(--accent-color);
 }
 
-.hero .btn-watch-video:hover i {
+.banner .btn-watch-video:hover i {
   color: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
-.hero .animated {
+.banner .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
 
 @media (max-width: 640px) {
-  .hero h1 {
+  .banner h1 {
     font-size: 28px;
     line-height: 36px;
   }
 
-  .hero p {
+  .banner p {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
   }
 
-  .hero .btn-get-started,
-  .hero .btn-watch-video {
+  .banner .btn-get-started,
+  .banner .btn-watch-video {
     font-size: 13px;
   }
 }
@@ -2482,7 +2491,7 @@ section,
   margin: 0 auto;
 }
 
-.blog-details .hero-img {
+.blog-details .banner-img {
   position: relative;
   width: 100%;
   height: 500px;
@@ -2491,13 +2500,13 @@ section,
   overflow: hidden;
 }
 
-.blog-details .hero-img img {
+.blog-details .banner-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.blog-details .hero-img .meta-overlay {
+.blog-details .banner-img .meta-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2506,7 +2515,7 @@ section,
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
 }
 
-.blog-details .hero-img .meta-overlay .meta-categories .category {
+.blog-details .banner-img .meta-overlay .meta-categories .category {
   color: var(--contrast-color);
   background-color: var(--accent-color);
   padding: 0.4rem 1rem;
@@ -2516,26 +2525,26 @@ section,
   transition: all 0.3s ease;
 }
 
-.blog-details .hero-img .meta-overlay .meta-categories .category:hover {
+.blog-details .banner-img .meta-overlay .meta-categories .category:hover {
   background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
-.blog-details .hero-img .meta-overlay .meta-categories .divider {
+.blog-details .banner-img .meta-overlay .meta-categories .divider {
   color: var(--contrast-color);
   margin: 0 0.75rem;
 }
 
-.blog-details .hero-img .meta-overlay .meta-categories .reading-time {
+.blog-details .banner-img .meta-overlay .meta-categories .reading-time {
   color: var(--contrast-color);
   font-size: 0.9rem;
 }
 
-.blog-details .hero-img .meta-overlay .meta-categories .reading-time i {
+.blog-details .banner-img .meta-overlay .meta-categories .reading-time i {
   margin-right: 0.3rem;
 }
 
 @media (max-width: 768px) {
-  .blog-details .hero-img {
+  .blog-details .banner-img {
     height: 350px;
     margin-top: -30px;
     margin-bottom: 2rem;
