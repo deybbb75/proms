@@ -1,5 +1,6 @@
 <?php
-include 'header.php';
+include '../includes/init.php';
+include '../header.php';
 ?>
 
 <main class="main">
@@ -318,5 +319,5 @@ include 'header.php';
 </main>
 
 <?php
-include 'footer.php';
+include '../footer.php';
 ?>

@@ -1,0 +1,6 @@
+[2026-01-28 11:28:10] SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(103): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(137): DB->__construct(Array, 'default')
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\index.php(4): DB::getInstance()
+#3 {main}
+

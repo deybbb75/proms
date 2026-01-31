@@ -18,7 +18,7 @@ define('__SITE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/proms');
 date_default_timezone_set('Asia/Kuala_Lumpur');
 define('IS_DEV', true);  // set to false in production
 
-$GLOBALS['INF_CONFIG']['sitehost']   = 'http://localhost/proms/';
+$GLOBALS['INF_CONFIG']['sitehost']   = 'http://localhost/proms';
 $GLOBALS['INF_CONFIG']['root']       = '/proms/';
 $GLOBALS['INF_CONFIG']['dbUser']     = 'root';
 $GLOBALS['INF_CONFIG']['dbPass']     = '';

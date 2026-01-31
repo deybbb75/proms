@@ -1,20 +1,20 @@
 <?php
-include 'includes/init.php';
-include 'header.php';
-$db = DB::getInstance();
+    include 'includes/init.php';
+    include 'header.php';
+    $db = DB::getInstance();
 ?>
 
 <main class="main index-main">
   <?php
-    include 'sections/banner.php';
-    include 'sections/about.php';
-    include 'sections/team.php';
-    include 'sections/programs.php';
-    include 'sections/news.php';
-    include 'sections/contact.php';
+    include 'pages/section-banner.php';
+    include 'pages/section-about.php';
+    include 'pages/section-team.php';
+    include 'pages/section-programs.php';
+    include 'pages/section-news.php';
+    include 'pages/section-contact.php';
   ?>
 </main>
 
 <?php
-include 'footer.php';
+    include 'footer.php';
 ?>

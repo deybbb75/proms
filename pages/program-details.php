@@ -1,6 +1,25 @@
 <?php
-include 'header.php';
+include '../includes/init.php';
+include '../header.php';
 ?>
+
+<style>
+#calendar a {
+    color: #000 !important;
+}
+.calendar-section{
+    margin-top: 40px;
+    width: 80%;
+    margin-inline: auto;
+}
+.range-highlight {
+    background-color: #009749 !important;
+}
+
+.fc-day-today {
+  background: none !important;
+}
+</style>
 
 <main class="main">
 
@@ -23,7 +42,7 @@ include 'header.php';
             <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
                 <div class="banner-content">
                 <div class="banner-image">
-                    <img src="assets/img/education/courses-8.webp" alt="Course Preview" class="img-fluid">
+                    <img src="../assets/img/education/courses-8.webp" alt="Course Preview" class="img-fluid">
                 </div>
                 <h1>Full Stack JavaScript Mastery</h1>
                 <div class="course-badge">
@@ -42,71 +61,74 @@ include 'header.php';
                 <div class="tab-pane fade show active" id="program-detailsoverview" role="tabpanel">
 
                     <div class="overview-section">
-                    <h3>Course Description</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                        <h3>Course Description</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
                     </div>
 
                     <div class="skills-grid">
                     <h3>Skills You'll Gain</h3>
                     <div class="row">
                         <div class="col-md-6">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                            <i class="bi bi-code-slash"></i>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="bi bi-code-slash"></i>
+                                </div>
+                                <div class="skill-content">
+                                    <h5>Frontend Development</h5>
+                                    <p>React, JavaScript ES6+, HTML5 &amp; CSS3</p>
+                                </div>
                             </div>
-                            <div class="skill-content">
-                            <h5>Frontend Development</h5>
-                            <p>React, JavaScript ES6+, HTML5 &amp; CSS3</p>
-                            </div>
-                        </div>
                         </div>
                         <div class="col-md-6">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                            <i class="bi bi-server"></i>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="bi bi-server"></i>
+                                </div>
+                                <div class="skill-content">
+                                    <h5>Backend Development</h5>
+                                    <p>Node.js, Express.js, RESTful APIs</p>
+                                </div>
                             </div>
-                            <div class="skill-content">
-                            <h5>Backend Development</h5>
-                            <p>Node.js, Express.js, RESTful APIs</p>
-                            </div>
-                        </div>
                         </div>
                         <div class="col-md-6">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                            <i class="bi bi-database"></i>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="bi bi-database"></i>
+                                </div>
+                                <div class="skill-content">
+                                    <h5>Database Management</h5>
+                                    <p>MongoDB, Mongoose, Data Modeling</p>
+                                </div>
                             </div>
-                            <div class="skill-content">
-                            <h5>Database Management</h5>
-                            <p>MongoDB, Mongoose, Data Modeling</p>
-                            </div>
-                        </div>
                         </div>
                         <div class="col-md-6">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                            <i class="bi bi-shield-check"></i>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <div class="skill-content">
+                                    <h5>Security &amp; Testing</h5>
+                                    <p>Authentication, JWT, Unit Testing</p>
+                                </div>
                             </div>
-                            <div class="skill-content">
-                            <h5>Security &amp; Testing</h5>
-                            <p>Authentication, JWT, Unit Testing</p>
-                            </div>
-                        </div>
                         </div>
                     </div>
                     </div>
 
                     <div class="requirements-section">
-                    <h3>Requirements</h3>
-                    <ul class="requirements-list">
-                        <li><i class="bi bi-check2"></i>Basic understanding of HTML and CSS</li>
-                        <li><i class="bi bi-check2"></i>Familiarity with JavaScript fundamentals</li>
-                        <li><i class="bi bi-check2"></i>Computer with internet connection</li>
-                        <li><i class="bi bi-check2"></i>Text editor or IDE installed</li>
-                    </ul>
+                        <h3>Requirements</h3>
+                        <ul class="requirements-list">
+                            <li><i class="bi bi-check2"></i>Basic understanding of HTML and CSS</li>
+                            <li><i class="bi bi-check2"></i>Familiarity with JavaScript fundamentals</li>
+                            <li><i class="bi bi-check2"></i>Computer with internet connection</li>
+                            <li><i class="bi bi-check2"></i>Text editor or IDE installed</li>
+                        </ul>
                     </div>
 
+                    <div class="calendar-section">
+                        <div id='calendar'></div>
+                    </div>
                 </div><!-- End Overview Tab -->
 
                 <!-- Curriculum Tab -->
@@ -243,7 +265,7 @@ include 'header.php';
                     <div class="reviews-list">
                     <div class="review-item">
                         <div class="reviewer-info">
-                        <img src="assets/img/person/person-f-12.webp" alt="Reviewer" class="reviewer-avatar">
+                        <img src="../assets/img/person/person-f-12.webp" alt="Reviewer" class="reviewer-avatar">
                         <div class="reviewer-details">
                             <h6>Jessica Chen</h6>
                             <div class="review-rating">
@@ -261,7 +283,7 @@ include 'header.php';
 
                     <div class="review-item">
                         <div class="reviewer-info">
-                        <img src="assets/img/person/person-m-5.webp" alt="Reviewer" class="reviewer-avatar">
+                        <img src="../assets/img/person/person-m-5.webp" alt="Reviewer" class="reviewer-avatar">
                         <div class="reviewer-details">
                             <h6>David Thompson</h6>
                             <div class="review-rating">
@@ -342,6 +364,28 @@ include 'header.php';
     </section><!-- /Program Details Section -->
 
 </main>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('calendar')
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        showNonCurrentDates: false,
+        fixedWeekCount: false,
+        events: [
+            {
+                start: '2026-01-10',
+                end: '2026-01-15',
+                display: 'background',
+                classNames: ['range-highlight']
+            }
+        ]
+    })
+    calendar.render()
+})
+
+</script>
 <?php
-include 'footer.php';
+include '../footer.php';
 ?>
