@@ -87,6 +87,9 @@
         </div><!-- End post item -->
 
     </div>
+    <div class="more-news text-center" data-aos="fade-up" data-aos-delay="500">
+        <a href="templates/blog.html" class="btn-more">View More News</a>
+    </div>
 
     </div>
 

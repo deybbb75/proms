@@ -1,0 +1,314 @@
+/*--------------------------------------------------------------
+# Login Page
+--------------------------------------------------------------*/
+.login .card{
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px 
+    color-mix(in srgb, #444444, transparent 85%);
+    border: 1px solid
+    color-mix(in srgb, #444444, transparent 90%);
+}
+
+.login .btn-login {
+  background: var(--primary-color);
+  color: var(--ct-white);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login .btn-login:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, color-mix(in srgb, var(--ct-white), transparent 80%), transparent);
+  transition: left 0.5s;
+}
+
+.login .btn-login:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px color-mix(in srgb, var(--secondary-color), transparent 60%);
+}
+
+.login .btn-login:hover:before {
+  left: 100%;
+}
+
+.login .btn-login:active {
+  transform: translateY(-1px);
+}
+
+.login .btn-login .bi {
+  font-size: 1.2rem;
+}
+
+.login .login-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  font-family: "Jost",  sans-serif;
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; */
+}
+
+@media (max-width: 768px) {
+  .login .login-header h2 {
+    font-size: 2rem;
+  }
+}
+
+.login .login-header p {
+  font-size: 0.9rem;
+  color: #565e62;
+  line-height: 1.6;
+}
+
+
+/*--------------------------------------------------------------
+# Sign-up Page
+--------------------------------------------------------------*/
+.signup {
+  background: transparent;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.signup .signup-form-wrapper {
+  background: var(--surface-color);
+  border-radius: 20px;
+  padding: 50px 40px;
+  box-shadow: 0 20px 60px color-mix(in srgb, var(--default-color), transparent 85%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+@media (max-width: 768px) {
+  .signup .signup-form-wrapper {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+}
+
+.signup .signup-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; */
+}
+
+@media (max-width: 768px) {
+  .signup .signup-header h2 {
+    font-size: 2rem;
+  }
+}
+
+.signup .signup-header p {
+  font-size: 0.9rem;
+  color: #565e62;
+  line-height: 1.6;
+}
+
+.signup .signup-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.signup .signup-form .form-group .form-label {
+  font-weight: 600;
+  /* color: var(--heading-color); */
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.signup .signup-form .form-group .form-control,
+.signup .signup-form .form-group .form-select {
+  background-color: var(--surface-color);
+  border: 2px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  color: var(--default-color);
+}
+
+/* .signup .signup-form .form-group .form-control:focus,
+.signup .signup-form .form-group .form-select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--accent-color), transparent 80%);
+  outline: none;
+} */
+
+.signup .signup-form .form-group .form-control.is-valid,
+.signup .signup-form .form-group .form-select.is-valid,
+.signup .signup-form .form-group .form-control.is-valid:focus,
+.signup .signup-form .form-group .form-selectis-valid:focus{
+  border-color: var(--bs-success);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--bs-success), transparent 80%);
+  outline: none;
+  padding-right: calc(1.5em + .75rem) !important;
+}
+
+.signup .signup-form .form-group .form-control.is-invalid,
+.signup .signup-form .form-group .form-select.is-invalid,
+.signup .signup-form .form-group .form-control.is-invalid:focus,
+.signup .signup-form .form-group .form-select.is-invalid:focus {
+  border-color: var(--heading-color);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--heading-color), transparent 80%);
+  outline: none;
+  padding-right: calc(1.5em + .75rem) !important;
+}
+
+.signup .signup-form .form-group .form-check-input.is-invalid~.form-check-label{
+  color: unset !important;
+}
+
+.signup .signup-form .form-group .form-control::placeholder,
+.signup .signup-form .form-group .form-select::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 60%);
+}
+
+.signup .signup-form .form-group textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.signup .signup-form .schedule-options .form-check {
+  margin-bottom: 12px;
+  padding: 15px 20px;
+  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  border-radius: 10px;
+  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+  transition: all 0.3s ease;
+}
+
+.signup .signup-form .schedule-options .form-check:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.signup .signup-form .schedule-options .form-check .form-check-input {
+  margin-top: 3px;
+  margin-left: 0px;
+}
+
+.signup .signup-form .schedule-options .form-check .form-check-input:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.signup .signup-form .schedule-options .form-check .form-check-label {
+  font-weight: 500;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.signup .signup-form .agreement-section {
+  background: color-mix(in srgb, var(--heading-color), transparent 95%);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid var(--accent-color);
+}
+
+.signup .signup-form .agreement-section .form-check {
+  margin-bottom: 15px;
+}
+
+.signup .signup-form .agreement-section .form-check:last-child {
+  margin-bottom: 0;
+}
+
+.signup .signup-form .agreement-section .form-check .form-check-input:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.signup .signup-form .agreement-section .form-check .form-check-label {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.signup .signup-form .agreement-section .form-check .form-check-label a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.signup .signup-form .agreement-section .form-check .form-check-label a:hover {
+  color: var(--heading-color);
+}
+
+.signup .signup-form .btn-signup {
+  background: var(--heading-color);
+  color: var(--contrast-color);
+  border: none;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.signup .signup-form .btn-signup:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, color-mix(in srgb, var(--contrast-color), transparent 80%), transparent);
+  transition: left 0.5s;
+}
+
+.signup .signup-form .btn-signup:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px color-mix(in srgb, var(--accent-color), transparent 60%);
+}
+
+.signup .signup-form .btn-signup:hover:before {
+  left: 100%;
+}
+
+.signup .signup-form .btn-signup:active {
+  transform: translateY(-1px);
+}
+
+.signup .signup-form .btn-signup .bi {
+  font-size: 1.2rem;
+}
+
+.signup .signup-form .signup-note {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  font-style: italic;
+}
+
+.signup .signup-form .signup-note .bi {
+  color: var(--accent-color);
+  margin-right: 5px;
+}
+
+.signup .required {
+  color: #ff0000;
+}
+
+.signup .login-link {
+  color:var(--bs-secondary-color) !important;
+}

@@ -66,8 +66,8 @@
 
 .reserve .reservation-form .form-group .form-control:focus,
 .reserve .reservation-form .form-group .form-select:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--accent-color), transparent 80%);
+  border-color: var(--heading-color);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--heading-color), transparent 80%);
   outline: none;
 }
 
