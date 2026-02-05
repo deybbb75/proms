@@ -2,6 +2,7 @@
 include 'includes/init.php';
 include 'head.php';
 ?>    
+
 <main class="loading authentication-bg login" data-layout-config='{"darkMode":false}'>
     <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
         <div class="container">
@@ -18,14 +19,14 @@ include 'head.php';
 
                         <div class="card-body p-4">
                             
-                            <div class="text-center w-75 m-auto login-header">
+                            <div class="text-center m-auto login-header">
                                 <h2 class="text-dark-50 text-center pb-0 fw-bold">Forget Password?</h2>
                                 <p class="text-muted mb-4">Enter your email address and we'll send you an email with instructions to reset your password.</p>
                             </div>
 
                             <form action="#" id="form_validation">
 
-                                <div class="mb-3">
+                                <div class="mb-4">
                                     <label for="emailaddress" class="form-label">Email address</label>
                                     <input class="form-control" type="email" name="email" id="emailaddress" required="" placeholder="Enter your email">
                                 </div>

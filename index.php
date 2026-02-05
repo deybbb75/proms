@@ -1,6 +1,5 @@
 <?php
 include 'includes/init.php';
-include 'head.php';
 include 'header.php';
 ?>
 
@@ -17,5 +16,4 @@ include 'pages/section-contact.php';
 
 <?php
 include 'footer.php';
-include 'scripts.php';
 ?>

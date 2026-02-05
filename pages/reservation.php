@@ -1,6 +1,5 @@
 <?php
 include '../includes/init.php';
-include '../head.php';
 include '../header.php';
 ?>
 
@@ -191,5 +190,4 @@ include '../header.php';
 
 <?php
 include '../footer.php';
-include '../scripts.php';
 ?>

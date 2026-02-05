@@ -1,4 +1,6 @@
 <?php
+include 'head.php';
+
 if (strpos($_SERVER['REQUEST_URI'], 'index.php') !== false) {
   $page_type = 'index-page';
 }

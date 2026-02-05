@@ -1,6 +1,5 @@
 <?php
 include '../includes/init.php';
-include '../head.php';
 include '../header.php';
 ?>
 
@@ -222,5 +221,4 @@ function SubmitForm(){
 </script>
 <?php
 include '../footer.php';
-include '../scripts.php';
 ?>

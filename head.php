@@ -24,11 +24,6 @@
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <!-- App css -->
-    <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/default.min.css" rel="stylesheet" type="text/css"/>
-    <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style"/>
-
     <!-- Main CSS File -->
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/main.css" rel="stylesheet">
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/programs.css" rel="stylesheet">

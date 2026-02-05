@@ -1,6 +1,24 @@
+main.authentication-bg{
+    background-image:url(../img/login-bg.jpg);
+    background-size:cover;
+    background-position:center
+}
+main.authentication-bg .account-pages{
+    -webkit-box-align:center;
+    -ms-flex-align:center;
+    align-items:center;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    min-height:100vh
+}
+
 /*--------------------------------------------------------------
 # Login Page
 --------------------------------------------------------------*/
+.login{
+    font-size: 0.9rem !important;
+}
 .login .card{
     background: #ffffff;
     border-radius: 20px;
@@ -8,11 +26,12 @@
     color-mix(in srgb, #444444, transparent 85%);
     border: 1px solid
     color-mix(in srgb, #444444, transparent 90%);
+    margin-bottom: 24px;
 }
 
 .login .btn-login {
-  background: var(--primary-color);
-  color: var(--ct-white);
+  background: var(--heading-color);
+  color: var(--contrast-color);
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
@@ -32,13 +51,13 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, transparent, color-mix(in srgb, var(--ct-white), transparent 80%), transparent);
+  background: linear-gradient(45deg, transparent, color-mix(in srgb, var(--contrast-color), transparent 80%), transparent);
   transition: left 0.5s;
 }
 
 .login .btn-login:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px color-mix(in srgb, var(--secondary-color), transparent 60%);
+  box-shadow: 0 15px 35px color-mix(in srgb, var(--accent-color), transparent 60%);
 }
 
 .login .btn-login:hover:before {
@@ -57,7 +76,7 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 15px;
-  color: var(--primary-color);
+  color: var(--heading-color);
   font-family: "Jost",  sans-serif;
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -70,12 +89,36 @@
   }
 }
 
+.login .login-header {
+  width: 85% !important;
+}
+
 .login .login-header p {
   font-size: 0.9rem;
   color: #565e62;
   line-height: 1.6;
 }
 
+.login label{
+    font-weight: 600;
+}
+
+.login .mb-3{
+    margin-bottom: 1.5rem !important;
+}
+
+.login .mb-4{
+    margin-bottom: 2.25rem !important;
+}
+
+.login .p-4{
+    padding: 2.25rem !important;
+}
+
+.login b{
+    font-weight: 700;
+    color: var(--heading-color)
+}
 
 /*--------------------------------------------------------------
 # Sign-up Page
