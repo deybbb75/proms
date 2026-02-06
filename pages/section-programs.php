@@ -9,10 +9,8 @@
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row gy-5">
-
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="steps-item">
+            <div class="program-grid">
+                <div class="steps-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="steps-image">
                         <img src="assets/img/steps/steps-1.webp" alt="Step 1" class="img-fluid" loading="lazy">
                     </div>
@@ -23,10 +21,8 @@
                         <a href="pages/program-list.php" class="btn-course">View</a>
                     </div>
                 </div><!-- End Steps Item -->
-            </div>
 
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="steps-item">
+                <div class="steps-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="steps-image">
                         <img src="assets/img/steps/steps-2.webp" alt="Step 2" class="img-fluid" loading="lazy">
                     </div>
@@ -37,10 +33,8 @@
                         <a href="enroll.html" class="btn-course">View</a>
                     </div>
                 </div><!-- End Steps Item -->
-            </div>
 
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="steps-item">
+                <div class="steps-item" data-aos="fade-up" data-aos-delay="400">
                     <div class="steps-image">
                         <img src="assets/img/steps/steps-3.webp" alt="Step 3" class="img-fluid" loading="lazy">
                     </div>
@@ -51,14 +45,8 @@
                         <a href="enroll.html" class="btn-course">View</a>
                     </div>
                 </div><!-- End Steps Item -->
-            </div>
-
-        </div>
-
-        <div class="row gy-5" style="justify-content: center;">
-
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="steps-item">
+            
+                <div class="steps-item" data-aos="fade-up" data-aos-delay="500">
                     <div class="steps-image">
                         <img src="assets/img/steps/steps-1.webp" alt="Step 1" class="img-fluid" loading="lazy">
                     </div>
@@ -69,10 +57,9 @@
                         <a href="enroll.html" class="btn-course">View</a>
                     </div>
                 </div><!-- End Steps Item -->
-            </div>
+            
 
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="steps-item">
+                <div class="steps-item" data-aos="fade-up" data-aos-delay="600">
                     <div class="steps-image">
                         <img src="assets/img/steps/steps-2.webp" alt="Step 2" class="img-fluid" loading="lazy">
                     </div>
@@ -84,8 +71,6 @@
                     </div>
                 </div><!-- End Steps Item -->
             </div>
-
-        </div>
 
     </div>
 

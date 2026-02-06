@@ -1,0 +1,81 @@
+/*--------------------------------------------------------------
+# Font & Color Variables
+# Help: https://bootstrapmade.com/color-system/
+--------------------------------------------------------------*/
+/* Fonts */
+:root {
+  --default-font: "Nunito", "Open Sans",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Jost",  sans-serif;
+  --nav-font: "Nunito-Bold",  sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root{
+    --primary-color: #a3202b;
+    --primary-hover-color: #b22f3a;
+    --primary-border-color: #85140f;
+    --primary-active-border-color: #780008;
+    --primary-rgb: 163, 32, 43;
+
+    --secondary-color: #c9a401;
+    --secondary-hover-color: #d9b51a;
+    --secondary-border-color: #a88500;
+    --secondary-active-border-color: #907200;
+    --secondary-rgb: 201, 164, 1;
+
+    --success-color: #21B027;               
+    --success-hover-color: #4CC556;         
+    --success-border-color: #1A8C1F;       
+    --success-active-border-color: #16731A;
+    --success-rgb: 33, 176, 39;
+
+    --info-color: #1E88E5;
+    --info-hover-color: #3599F0;
+    --info-border-color: #1565C0;
+    --info-active-border-color: #145BA8;
+    --info-rgb: 30, 136, 229;
+
+    --warning-color: #ffbc00;
+    --warning-hover-color:#ffc626;
+    --warning-border-color: #ffc31a;
+    --warning-active-border-color: #ffc933;
+    --warning-rgb:255,188,0;
+
+    --danger-color: #FF2121;              
+    --danger-hover-color: #FF4D4D;        
+    --danger-border-color: #CC1A1A;       
+    --danger-active-border-color: #B31717;
+    --danger-rgb: 255, 33, 33;
+
+    --text-color: #444444;
+
+    --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+    --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
+    --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: #ffffff;  /* The default color of the main navmenu links */
+  --nav-hover-color: var(--secondary-color); /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: var(--secondary-color); /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f5f6f8;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #37517e;
+  --default-color: #ffffff;
+  --primary-color: #ffffff;
+  --surface-color: #4668a2;
+  --contrast-color: #ffffff;
+}

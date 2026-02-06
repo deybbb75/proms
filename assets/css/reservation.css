@@ -2,7 +2,7 @@
 # Reserve Section
 --------------------------------------------------------------*/
 .reserve {
-  background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
+  background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--secondary-color), transparent 95%) 100%);
 }
 
 .reserve .reservation-form-wrapper {
@@ -24,7 +24,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 15px;
-  color: var(--heading-color);
+  color: var(--primary-color);
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text; */
@@ -48,7 +48,7 @@
 
 .reserve .reservation-form .form-group .form-label {
   font-weight: 600;
-  color: var(--heading-color);
+  color: var(--primary-color);
   margin-bottom: 8px;
   font-size: 0.95rem;
 }
@@ -66,8 +66,8 @@
 
 .reserve .reservation-form .form-group .form-control:focus,
 .reserve .reservation-form .form-group .form-select:focus {
-  border-color: var(--heading-color);
-  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--heading-color), transparent 80%);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--primary-color), transparent 80%);
   outline: none;
 }
 
@@ -84,15 +84,15 @@
 .reserve .reservation-form .schedule-options .form-check {
   margin-bottom: 12px;
   padding: 15px 20px;
-  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  background: color-mix(in srgb, var(--secondary-color), transparent 95%);
   border-radius: 10px;
-  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+  border: 2px solid color-mix(in srgb, var(--secondary-color), transparent 85%);
   transition: all 0.3s ease;
 }
 
 .reserve .reservation-form .schedule-options .form-check:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+  background: color-mix(in srgb, var(--secondary-color), transparent 90%);
+  border-color: color-mix(in srgb, var(--secondary-color), transparent 70%);
 }
 
 .reserve .reservation-form .schedule-options .form-check .form-check-input {
@@ -101,8 +101,8 @@
 }
 
 .reserve .reservation-form .schedule-options .form-check .form-check-input:checked {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 
 .reserve .reservation-form .schedule-options .form-check .form-check-label {
@@ -112,10 +112,10 @@
 }
 
 .reserve .reservation-form .agreement-section {
-  background: color-mix(in srgb, var(--heading-color), transparent 95%);
+  background: color-mix(in srgb, var(--primary-color), transparent 95%);
   padding: 20px;
   border-radius: 10px;
-  border-left: 4px solid var(--accent-color);
+  border-left: 4px solid var(--secondary-color);
 }
 
 .reserve .reservation-form .agreement-section .form-check {
@@ -127,8 +127,8 @@
 }
 
 .reserve .reservation-form .agreement-section .form-check .form-check-input:checked {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 
 .reserve .reservation-form .agreement-section .form-check .form-check-label {
@@ -137,17 +137,17 @@
 }
 
 .reserve .reservation-form .agreement-section .form-check .form-check-label a {
-  color: var(--accent-color);
+  color: var(--secondary-color);
   text-decoration: underline;
   font-weight: 600;
 }
 
 .reserve .reservation-form .agreement-section .form-check .form-check-label a:hover {
-  color: var(--heading-color);
+  color: var(--primary-color);
 }
 
 .reserve .reservation-form .btn-reserve {
-  background: var(--accent-color);
+  background: var(--secondary-color);
   color: var(--contrast-color);
   border: none;
   padding: 16px 40px;
@@ -174,7 +174,7 @@
 
 .reserve .reservation-form .btn-reserve:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px color-mix(in srgb, var(--accent-color), transparent 60%);
+  box-shadow: 0 15px 35px color-mix(in srgb, var(--secondary-color), transparent 60%);
 }
 
 .reserve .reservation-form .btn-reserve:hover:before {
@@ -196,7 +196,7 @@
 }
 
 .reserve .reservation-form .reservation-note .bi {
-  color: var(--accent-color);
+  color: var(--secondary-color);
   margin-right: 5px;
 }
 
@@ -215,7 +215,7 @@
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 30px;
-  color: var(--heading-color);
+  color: var(--primary-color);
   text-align: center;
 }
 
@@ -224,18 +224,18 @@
   align-items: flex-start;
   margin-bottom: 25px;
   padding: 20px;
-  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  background: color-mix(in srgb, var(--secondary-color), transparent 95%);
   border-radius: 15px;
   transition: all 0.3s ease;
 }
 
 .reserve .reservation-benefits .benefit-item:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  background: color-mix(in srgb, var(--secondary-color), transparent 90%);
   transform: translateX(5px);
 }
 
 .reserve .reservation-benefits .benefit-item .benefit-icon {
-  background: var(--accent-color);
+  background: var(--secondary-color);
   color: var(--contrast-color);
   width: 50px;
   height: 50px;
@@ -252,7 +252,7 @@
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 5px;
-  color: var(--heading-color);
+  color: var(--primary-color);
 }
 
 .reserve .reservation-benefits .benefit-item .benefit-content p {
@@ -263,7 +263,7 @@
 }
 
 .reserve .reservation-benefits .reservation-stats {
-  background: var(--accent-color);
+  background: var(--secondary-color);
   padding: 25px;
   border-radius: 15px;
   text-align: center;
