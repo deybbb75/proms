@@ -25,7 +25,8 @@
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Main CSS File -->
-     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/default.css" rel="stylesheet">
+    <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/default.css" rel="stylesheet">
+    <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/main.css" rel="stylesheet">
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/programs.css" rel="stylesheet">
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/auth.css" rel="stylesheet" type="text/css" />
@@ -41,3 +42,6 @@
 </head>
 
 <body>
+    <div class="preloader" id="main-preloader">
+        <span class="loader"></span>
+    </div>

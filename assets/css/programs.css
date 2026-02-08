@@ -173,6 +173,26 @@
   }
 }
 
+@media (max-width: 768px) {
+  /* Tablet (2 items per row) */
+  .programs .steps-item {
+    flex: 0 0 calc(50% - 30px);
+    max-width: calc(50% - 30px);
+  }
+}
+
+@media (max-width: 426px) {
+  /* Mobile (1 item per row) */
+  .programs .steps-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .programs .program-grid{
+    padding-inline: 30px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Programs 2 Section
 --------------------------------------------------------------*/

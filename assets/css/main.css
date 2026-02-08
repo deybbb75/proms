@@ -92,10 +92,39 @@ h6 {
   padding-top: 60px;
 }
 
+.bg-primary{
+  background-color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: var(--primary-hover-color);
+    border-color: var(--primary-border-color);
+}
+
+.btn-light {
+    color: #313a46;
+    background-color: #eef2f7;
+    border-color: #eef2f7;
+}
+
+.btn-light:hover{
+    color:#313a46;
+    background-color:#f1f4f8;
+    border-color:#f0f3f8
+}
+
 .header {
   color: var(--default-color);
-  background-color: var(--primary-active-border-color);
+  --background-color: var(--primary-active-border-color);
   padding: 12px 0;
+  background-color: var(--background-color);
   transition: all 0.5s;
   z-index: 997;
 }
@@ -619,37 +648,89 @@ h6 {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
-#preloader {
+#main-preloader {
   position: fixed;
   inset: 0;
-  z-index: 999999;
-  overflow: hidden;
-  background: var(--background-color);
-  transition: all 0.6s ease-out;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  align-items: center;
+  z-index: 9999999;
 }
 
-#preloader:before {
+.loader {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 50px;
+  height: 80px;
+  border-top: 5px solid #4b4b4b;
+  border-bottom: 5px solid #4b4b4b;
+  position: relative;
+  background: linear-gradient(var(--primary-color) 30px, transparent 0) no-repeat;
+  background-size: 2px 40px;
+  background-position: 50% 0px;
+  animation: spinx 5s linear infinite;
+}
+.loader:before, .loader:after {
   content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--secondary-color) transparent var(--secondary-color) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
+  width: 40px;
+  left: 50%;
+  height: 35px;
+  position: absolute;
+  top: 0;
+  transform: translatex(-50%);
+  background: rgba(100, 100, 100, 0.4);
+  border-radius: 0 0 20px 20px;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 0 0px;
+  animation: lqt 5s linear infinite;
 }
-
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
+.loader:after {
+  top: auto;
+  bottom: 0;
+  border-radius: 20px 20px 0 0;
+  animation: lqb 5s linear infinite;
+}
+@keyframes lqt {
+  0%, 100% {
+    background-image: linear-gradient(var(--primary-color) 40px, transparent 0);
+    background-position: 0% 0px;
   }
-
+  50% {
+    background-image: linear-gradient(var(--primary-color) 40px, transparent 0);
+    background-position: 0% 40px;
+  }
+  50.1% {
+    background-image: linear-gradient(var(--primary-color) 40px, transparent 0);
+    background-position: 0% -40px;
+  }
+}
+@keyframes lqb {
+  0% {
+    background-image: linear-gradient(var(--primary-color) 40px, transparent 0);
+    background-position: 0 40px;
+  }
+  100% {
+    background-image: linear-gradient(var(--primary-color) 40px, transparent 0);
+    background-position: 0 -40px;
+  }
+}
+@keyframes spinx {
+  0%, 49% {
+    transform: rotate(0deg);
+    background-position: 50% 36px;
+  }
+  51%, 98% {
+    transform: rotate(180deg);
+    background-position: 50% 4px;
+  }
   100% {
     transform: rotate(360deg);
+    background-position: 50% 36px;
   }
 }
+
 
 /*--------------------------------------------------------------
 # Scroll Top Button
@@ -2235,7 +2316,7 @@ section,
 
 .contact .php-email-form button[type=submit] {
   color: var(--contrast-color);
-  background: var(--secondary-color);
+  background: var(--primary-color);
   border: 0;
   padding: 10px 30px;
   transition: 0.4s;
@@ -2243,7 +2324,7 @@ section,
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--secondary-color), transparent 25%);
+  background: color-mix(in srgb, var(--primary-color), transparent 25%);
 }
 
 /*--------------------------------------------------------------

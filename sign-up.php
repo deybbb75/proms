@@ -101,7 +101,7 @@ include 'head.php';
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-muted">Already have an account? <a href="login.php" class="ms-1"><b>Log in</b></a></p>
+                            <p class="text-muted">Already have an account? <a href="login.php" class="ms-1" id="login-link"><b>Log in</b></a></p>
                         </div> <!-- end col -->
                     </div>
                 </div><!-- End Form Column -->

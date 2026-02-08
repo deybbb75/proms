@@ -8,7 +8,6 @@ include '../header.php';
     color: #000 !important;
 }
 .calendar-section{
-    margin-top: 40px;
     width: 80%;
     margin-inline: auto;
 }
@@ -25,7 +24,7 @@ include '../header.php';
 }
 
 .fc-day-selected {
-  background-color: var(--accent-color) !important;
+  background-color: var(--secondary-color) !important;
 }
 
 .fc-day-selected .fc-daygrid-day-number {
@@ -33,7 +32,9 @@ include '../header.php';
   font-weight: bold;
 }
 
-
+.modal-title {
+    color: #fff !important;
+}
 </style>
 
 <main class="main">
@@ -91,13 +92,6 @@ include '../header.php';
                                 <li><i class="bi bi-check2"></i>Training Certificate or Certificate of Employment</li>
                             </ul>
                         </div>
-
-                        <div class="schedule-section">
-                            <h3>Select schedule</h3>
-                            <div class="calendar-section">
-                                <div id='calendar'></div>
-                            </div>
-                        </div>
                         
                     </div><!-- End Overview Tab -->
 
@@ -128,7 +122,7 @@ include '../header.php';
 
                 <div class="card-body">
                     <div class="action-buttons">
-                        <button class="btn-primary" onclick="SubmitForm()">Apply Now</button>
+                        <button class="btn-primary" data-bs-toggle="modal" data-bs-target="#primary-header-modal">Apply Now</button>
                         <button class="btn-secondary">Go Back</button>
                     </div>
                 </div>
@@ -143,59 +137,89 @@ include '../header.php';
 
     </section><!-- /Program Details Section -->
 
+    <div id="primary-header-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form action="controller/ctr-system-user.php" method="POST" id="form_validation">
+                    <div class="modal-header modal-colored-header bg-primary">
+                        <h4 class="modal-title" id="primary-header-modalLabel">Select Schedule</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                         <div class="schedule-section">
+                            <div class="calendar-section">
+                                <div id='calendar'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="save_changes" onclick="SubmitForm()">Submit</button>
+                    </div>
+                    <input type="hidden" id="delete_id" value="">
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
 </main>
 
 <script>
 
-document.addEventListener('DOMContentLoaded', function () {
-  const calendarEl = document.getElementById('calendar')
+let calendar; // keep it outside so it doesn't re-create every time
 
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
+const modalEl = document.getElementById('primary-header-modal');
 
-  const blockedUntil = new Date(today)
-  blockedUntil.setDate(today.getDate() + 5)
+modalEl.addEventListener('shown.bs.modal', function () {
+  if (calendar) {
+    calendar.updateSize();
+    return;
+  }
 
-  let selectedDayEl = null
+  const calendarEl = document.getElementById('calendar');
 
-  const calendar = new FullCalendar.Calendar(calendarEl, {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const blockedUntil = new Date(today);
+  blockedUntil.setDate(today.getDate() + 5);
+
+  let selectedDayEl = null;
+
+  calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
     showNonCurrentDates: false,
     fixedWeekCount: false,
 
-    dateClick: function (info) {
-      const clickedDate = new Date(info.date)
-      clickedDate.setHours(0, 0, 0, 0)
+    dateClick(info) {
+      const clickedDate = new Date(info.date);
+      clickedDate.setHours(0, 0, 0, 0);
 
-      // ❌ block past dates + next 5 days
-      if (clickedDate < blockedUntil) {
-        return
-      }
+      if (clickedDate < blockedUntil) return;
 
-      // remove previous highlight
       if (selectedDayEl) {
-        selectedDayEl.classList.remove('fc-day-selected')
+        selectedDayEl.classList.remove('fc-day-selected');
       }
 
-      // highlight new date
-      info.dayEl.classList.add('fc-day-selected')
-      selectedDayEl = info.dayEl
+      info.dayEl.classList.add('fc-day-selected');
+      selectedDayEl = info.dayEl;
 
-      console.log('Clicked date:', info.dateStr)
+      console.log('Clicked date:', info.dateStr);
     },
 
-    dayCellDidMount: function (info) {
-      const cellDate = new Date(info.date)
-      cellDate.setHours(0, 0, 0, 0)
+    dayCellDidMount(info) {
+      const cellDate = new Date(info.date);
+      cellDate.setHours(0, 0, 0, 0);
 
       if (cellDate < blockedUntil) {
-        info.el.classList.add('fc-day-disabled-custom')
+        info.el.classList.add('fc-day-disabled-custom');
       }
     }
-  })
+  });
 
-  calendar.render()
-})
+  calendar.render();
+});
+
 
 function SubmitForm(){
     Swal.fire({

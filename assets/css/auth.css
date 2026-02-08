@@ -13,6 +13,20 @@ main.authentication-bg .account-pages{
     min-height:100vh
 }
 
+.password-eye:before{
+    font-family:"Material Design Icons";
+    content:"\f06d0";
+    font-style:normal;
+    font-weight:400;
+    font-variant:normal;
+    vertical-align:middle;
+    line-height:1.2;
+    font-size:16px
+}
+.show-password .password-eye:before{
+    content:"\f06d1"
+}
+
 /*--------------------------------------------------------------
 # Login Page
 --------------------------------------------------------------*/
@@ -30,7 +44,7 @@ main.authentication-bg .account-pages{
 }
 
 .login .btn-login {
-  background: var(--heading-color);
+  background: var(--primary-color);
   color: var(--contrast-color);
   border: none;
   padding: 10px 20px;
@@ -57,7 +71,7 @@ main.authentication-bg .account-pages{
 
 .login .btn-login:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px color-mix(in srgb, var(--accent-color), transparent 60%);
+  box-shadow: 0 15px 35px color-mix(in srgb, var(--secondary-color), transparent 60%);
 }
 
 .login .btn-login:hover:before {
@@ -76,7 +90,7 @@ main.authentication-bg .account-pages{
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 15px;
-  color: var(--heading-color);
+  color: var(--primary-color);
   font-family: "Jost",  sans-serif;
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -117,7 +131,7 @@ main.authentication-bg .account-pages{
 
 .login b{
     font-weight: 700;
-    color: var(--heading-color)
+    color: var(--primary-color)
 }
 
 /*--------------------------------------------------------------
@@ -148,7 +162,7 @@ main.authentication-bg .account-pages{
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 15px;
-  color: var(--heading-color);
+  color: var(--primary-color);
   /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text; */
@@ -172,7 +186,7 @@ main.authentication-bg .account-pages{
 
 .signup .signup-form .form-group .form-label {
   font-weight: 600;
-  /* color: var(--heading-color); */
+  /* color: var(--primary-color); */
   margin-bottom: 8px;
   font-size: 0.95rem;
 }
@@ -190,8 +204,8 @@ main.authentication-bg .account-pages{
 
 /* .signup .signup-form .form-group .form-control:focus,
 .signup .signup-form .form-group .form-select:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--accent-color), transparent 80%);
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--secondary-color), transparent 80%);
   outline: none;
 } */
 
@@ -209,8 +223,8 @@ main.authentication-bg .account-pages{
 .signup .signup-form .form-group .form-select.is-invalid,
 .signup .signup-form .form-group .form-control.is-invalid:focus,
 .signup .signup-form .form-group .form-select.is-invalid:focus {
-  border-color: var(--heading-color);
-  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--heading-color), transparent 80%);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--primary-color), transparent 80%);
   outline: none;
   padding-right: calc(1.5em + .75rem) !important;
 }
@@ -232,15 +246,15 @@ main.authentication-bg .account-pages{
 .signup .signup-form .schedule-options .form-check {
   margin-bottom: 12px;
   padding: 15px 20px;
-  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  background: color-mix(in srgb, var(--secondary-color), transparent 95%);
   border-radius: 10px;
-  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+  border: 2px solid color-mix(in srgb, var(--secondary-color), transparent 85%);
   transition: all 0.3s ease;
 }
 
 .signup .signup-form .schedule-options .form-check:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
+  background: color-mix(in srgb, var(--secondary-color), transparent 90%);
+  border-color: color-mix(in srgb, var(--secondary-color), transparent 70%);
 }
 
 .signup .signup-form .schedule-options .form-check .form-check-input {
@@ -249,8 +263,8 @@ main.authentication-bg .account-pages{
 }
 
 .signup .signup-form .schedule-options .form-check .form-check-input:checked {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 
 .signup .signup-form .schedule-options .form-check .form-check-label {
@@ -260,10 +274,10 @@ main.authentication-bg .account-pages{
 }
 
 .signup .signup-form .agreement-section {
-  background: color-mix(in srgb, var(--heading-color), transparent 95%);
+  background: color-mix(in srgb, var(--primary-color), transparent 95%);
   padding: 20px;
   border-radius: 10px;
-  border-left: 4px solid var(--accent-color);
+  border-left: 4px solid var(--secondary-color);
 }
 
 .signup .signup-form .agreement-section .form-check {
@@ -275,8 +289,8 @@ main.authentication-bg .account-pages{
 }
 
 .signup .signup-form .agreement-section .form-check .form-check-input:checked {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 
 .signup .signup-form .agreement-section .form-check .form-check-label {
@@ -285,17 +299,17 @@ main.authentication-bg .account-pages{
 }
 
 .signup .signup-form .agreement-section .form-check .form-check-label a {
-  color: var(--accent-color);
+  color: var(--secondary-color);
   text-decoration: underline;
   font-weight: 600;
 }
 
 .signup .signup-form .agreement-section .form-check .form-check-label a:hover {
-  color: var(--heading-color);
+  color: var(--primary-color);
 }
 
 .signup .signup-form .btn-signup {
-  background: var(--heading-color);
+  background: var(--primary-color);
   color: var(--contrast-color);
   border: none;
   padding: 16px 40px;
@@ -322,7 +336,7 @@ main.authentication-bg .account-pages{
 
 .signup .signup-form .btn-signup:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px color-mix(in srgb, var(--accent-color), transparent 60%);
+  box-shadow: 0 15px 35px color-mix(in srgb, var(--secondary-color), transparent 60%);
 }
 
 .signup .signup-form .btn-signup:hover:before {
@@ -344,7 +358,7 @@ main.authentication-bg .account-pages{
 }
 
 .signup .signup-form .signup-note .bi {
-  color: var(--accent-color);
+  color: var(--secondary-color);
   margin-right: 5px;
 }
 
@@ -352,6 +366,6 @@ main.authentication-bg .account-pages{
   color: #ff0000;
 }
 
-.signup .login-link {
-  color:var(--bs-secondary-color) !important;
+.signup #login-link {
+  color:var(--primary-color) !important;
 }

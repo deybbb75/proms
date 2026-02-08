@@ -24,7 +24,7 @@ include 'head.php';
                                 <p class="text-muted mb-4">Enter your email address and password</p>
                             </div>
 
-                            <form action="#" id="form_validation">
+                            <form action="index.php" id="form_validation">
 
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email address</label>
@@ -43,7 +43,7 @@ include 'head.php';
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <button class="btn btn-primary btn-login" type="submit"> Log In </button>
+                                    <button type="submit" class="btn btn-primary btn-login"> Log In </button>
                                 </div>
 
                             </form>

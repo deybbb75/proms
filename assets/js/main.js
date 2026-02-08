@@ -65,12 +65,17 @@
   /**
    * Preloader
    */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
-  }
+  // const preloader = document.querySelector('#preloader');
+  // if (preloader) {
+  //   window.addEventListener('load', () => {
+  //     preloader.remove();
+  //   });
+  // }
+  $(function () {
+    setTimeout(function () {
+      $("#main-preloader").fadeOut();
+    }, 50);
+  });
 
   /**
    * Scroll top button
