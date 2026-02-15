@@ -1,6 +1,8 @@
 <?php
 include '../includes/init.php';
 include '../header.php';
+
+setActiveLink('index.php#programs');
 ?>
 
 <main class="main">
@@ -12,30 +14,21 @@ include '../header.php';
     </div><!-- End Page Title -->
 
     <!-- Programs 2 Section -->
-    <section id="program-list" class="program-list section" style="padding-top: 40px;">
+    <section id="program-list" class="program-list section">
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="programs-header" data-aos="fade-left" data-aos-delay="100">
-                        <div class="search-box">
-                            <i class="bi bi-search"></i>
-                            <input type="text" placeholder="Search programs...">
-                        </div>
-                    </div>
-
                     <div class="programs-grid" data-aos="fade-up" data-aos-delay="200">
                         <div class="row">
                         <div class="col-lg-4 col-md-4 card-padding">
                             <div class="course-card">
                             <div class="course-image">
-                                <img src="../assets/img/education/courses-3.webp" alt="Course" class="img-fluid">
-                                <div class="course-badge">Best Seller</div>
-                                <div class="course-price">$89</div>
+                                <img src="../assets/img/tesda/1.jpg" alt="Course" class="img-fluid">
                             </div>
                             <div class="course-content">
-                                <h3>Advanced JavaScript Development</h3>
+                                <h3>Barista NC II</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <div class="button-section">
                                     <a href="program-details.php" class="btn-course">View Details</a>
@@ -48,11 +41,10 @@ include '../header.php';
                         <div class="col-lg-4 col-md-4 card-padding">
                             <div class="course-card">
                             <div class="course-image">
-                                <img src="../assets/img/education/courses-7.webp" alt="Course" class="img-fluid">
-                                <div class="course-badge badge-free">Free</div>
+                                <img src="../assets/img/tesda/2.jpg" alt="Course" class="img-fluid">
                             </div>
                             <div class="course-content">
-                                <h3>UI/UX Design Fundamentals</h3>
+                                <h3>Bartending NC II</h3>
                                 <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet.</p>
                                 <div class="button-section">
                                     <a href="enroll.html" class="btn-course">View Details</a>
@@ -64,12 +56,10 @@ include '../header.php';
                         <div class="col-lg-4 col-md-4 card-padding">
                             <div class="course-card">
                             <div class="course-image">
-                                <img src="../assets/img/education/courses-12.webp" alt="Course" class="img-fluid">
-                                <div class="course-badge badge-new">New</div>
-                                <div class="course-price">$149</div>
+                                <img src="../assets/img/tesda/3.jpg" alt="Course" class="img-fluid">
                             </div>
                             <div class="course-content">
-                                <h3>Digital Marketing Strategies</h3>
+                                <h3>Bookkeeping NC II</h3>
                                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas vestibulum tortor.</p>
                                 <div class="button-section">
                                     <a href="enroll.html" class="btn-course">View Details</a>
@@ -81,11 +71,10 @@ include '../header.php';
                         <div class="col-lg-4 col-md-4 card-padding">
                             <div class="course-card">
                             <div class="course-image">
-                                <img src="../assets/img/education/courses-5.webp" alt="Course" class="img-fluid">
-                                <div class="course-price">$199</div>
+                                <img src="../assets/img/tesda/4.jpg" alt="Course" class="img-fluid">
                             </div>
-                            <div class="course-content">>
-                                <h3>Machine Learning with Python</h3>
+                            <div class="course-content">
+                                <h3>Bread and Pastry Production NC II</h3>
                                 <p>Donec rutrum congue leo eget malesuada. Cras ultricies ligula sed magna dictum porta nulla facilisi morbi tempus.</p>
                                 <div class="button-section">
                                     <a href="enroll.html" class="btn-course">View Details</a>
@@ -97,12 +86,10 @@ include '../header.php';
                         <div class="col-lg-4 col-md-4 card-padding">
                             <div class="course-card">
                             <div class="course-image">
-                                <img src="../assets/img/education/courses-9.webp" alt="Course" class="img-fluid">
-                                <div class="course-badge">Popular</div>
-                                <div class="course-price">$59</div>
+                                <img src="../assets/img/tesda/5.jpg" alt="Course" class="img-fluid">
                             </div>
                             <div class="course-content">
-                                <h3>Social Media Marketing</h3>
+                                <h3>Commercial Cooking NC III</h3>
                                 <p>Sed porttitor lectus nibh vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
                                 <div class="button-section">
                                     <a href="enroll.html" class="btn-course">View Details</a>
@@ -114,12 +101,10 @@ include '../header.php';
                         <div class="col-lg-4 col-md-4 card-padding">
                             <div class="course-card">
                             <div class="course-image">
-                                <img src="../assets/img/education/courses-14.webp" alt="Course" class="img-fluid">
-                                <div class="course-badge badge-certificate">Certificate</div>
-                                <div class="course-price">$99</div>
+                                <img src="../assets/img/tesda/6.jpg" alt="Course" class="img-fluid">
                             </div>
                             <div class="course-content">
-                                <h3>Graphic Design Mastery</h3>
+                                <h3>Computer System Services NC II</h3>
                                 <p>Curabitur aliquet quam id dui posuere blandit mauris blandit aliquet elit eget tincidunt nibh pulvinar.</p>
                                 <div class="button-section">
                                     <a href="enroll.html" class="btn-course">View Details</a>

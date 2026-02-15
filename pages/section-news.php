@@ -4,7 +4,7 @@
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
         <h2>News & Events</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Stay informed about our latest updates and upcoming activities. From announcements and achievements to workshops and special events, this is where you’ll find what’s happening and what’s next.</p>
     </div><!-- End Section Title -->
 
     <div class="container">
@@ -29,7 +29,7 @@
 
             <hr>
 
-            <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            <a href="pages/news.php" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
 
             </div>
 
@@ -88,7 +88,7 @@
 
     </div>
     <div class="more-news text-center" data-aos="fade-up" data-aos-delay="500">
-        <a href="templates/blog.html" class="btn-more">View More News</a>
+        <a href="pages/news-list.php" class="btn-more">View More News</a>
     </div>
 
     </div>

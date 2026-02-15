@@ -3,37 +3,53 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-    <h2>About Us</h2>
+        <h2>About Us</h2>
+        <p style="text-align: justify;">
+            Established in 2017, the Center for Technical Education and Lifelong Learning (CTEL) serves as the university’s 
+            dedicated department for the implementation and management of short-term programs and courses. It plays a pivotal 
+            role in equipping learners with industry-relevant skills and knowledge through innovative, flexible, and comprehensive 
+            learning opportunities.
+
+            As an accredited Assessment Center by the Technical Education and Skills Development Authority (TESDA), CTEL offers 
+            standardized competency assessments and certification programs for various qualifications, ensuring adherence to 
+            national and global standards. It also provides specialized certifications designed to address specific industry 
+            needs and emerging trends. These certifications provide students and adult learners with enhanced job opportunities, 
+            career advancement, and the competitive edge needed in today’s dynamic workforce.
+
+            Beyond training and assessments, the department supports the university’s vision and mission of producing globally 
+            competent individuals ready to contribute meaningfully to their communities and industries in the service of God and 
+            country. 
+
     </div><!-- End Section Title -->
 
     <div class="container">
 
-    <div class="row gy-4">
+        <div class="row gy-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="container" data-aos="fade-up">
+                        <h2>Vision</h2>
+                    </div>
+                    <p style="text-align: justify;">
+                        To be a leading and an industry-driven Center for Training, Assessment and Certification in the Philippines by 2030.
+                    </p>
+                </div>
 
-        <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-        <div class="container" data-aos="fade-up">
-            <h2>Mission</h2>
-        </div>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua.
-        </p>
-        <ul>
-            <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-            <li><i class="bi bi-check2-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-            <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo</span></li>
-        </ul>
-        </div>
+                <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+                    <div class="container" data-aos="fade-up">
+                        <h2>Mission</h2>
+                    </div>
+                    <p style="text-align: justify;">
+                        LPU-B Center for Technical Education and Lifelong Learning is dedicated to deliver innovative and 
+                        industry responsive programs and conduct standardized competency assessments and certifications with 
+                        integrity. It is committed to provide flexible and high-quality learning opportunities that equip 
+                        individuals with relevant, globally competitive skills for lifelong learning, workforce adaptability and 
+                        professional advancement.
+                    </p>
+                </div>
 
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="container" data-aos="fade-up">
-            <h2>Vision</h2>
-        </div>
-        <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-        <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-        </div>
+            
 
-    </div>
+        </div>
 
     </div>
 

@@ -27,7 +27,7 @@
     <!-- Main CSS File -->
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/default.css" rel="stylesheet">
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/main.css" rel="stylesheet">
+    <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/main.css" rel="stylesheet" id="app-style">
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/programs.css" rel="stylesheet">
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/auth.css" rel="stylesheet" type="text/css" />
 
@@ -39,9 +39,20 @@
 
     <!-- JQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- EmailJS API -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "pr94tQJGbGM6rvPgo",
+            });
+        })();
+    </script>
 </head>
 
 <body>
-    <div class="preloader" id="main-preloader">
+    <!-- <div class="preloader" id="main-preloader">
         <span class="loader"></span>
-    </div>
+    </div> -->

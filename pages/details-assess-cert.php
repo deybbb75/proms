@@ -1,6 +1,8 @@
 <?php
 include '../includes/init.php';
 include '../header.php';
+
+setActiveLink('index.php#programs');
 ?>
 
 <style>
@@ -58,9 +60,9 @@ include '../header.php';
             <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
                 <div class="banner-content">
                 <div class="banner-image">
-                    <img src="../assets/img/education/courses-8.webp" alt="Course Preview" class="img-fluid">
+                    <img src="../assets/img/tesda/1.jpg" alt="Course Preview" class="img-fluid">
                 </div>
-                <h1>Full Stack JavaScript Mastery</h1>
+                <h1>Barista NC II</h1>
                 </div>
             </div><!-- End Course Banner -->
 
@@ -77,9 +79,9 @@ include '../header.php';
                             <p>Candidates must have training in the said assessment or an industry worker. Minimum 10 candidates / applicants per assessment. </p>
                         </div>
 
-                        <div class="requirements-section">
+                        <div class="details-section">
                             <h3>Requirements</h3>
-                            <ul class="requirements-list">
+                            <ul class="details-list">
                                 <li><i class="bi bi-check2"></i>Application Form</li>
                                 <li><i class="bi bi-check2"></i>Passport size picture - 2 pcs (name at the bottom, white background & with collar attire)</li>
                                 <li><i class="bi bi-check2"></i>Assessment and Processing Fee – will be done after submission of hard copy of the requirements listed above  </li>
@@ -123,7 +125,7 @@ include '../header.php';
                 <div class="card-body">
                     <div class="action-buttons">
                         <button class="btn-primary" data-bs-toggle="modal" data-bs-target="#primary-header-modal">Apply Now</button>
-                        <button class="btn-secondary">Go Back</button>
+                        <button class="btn-secondary" onclick="window.location='program-list.php'">Go Back</button>
                     </div>
                 </div>
 

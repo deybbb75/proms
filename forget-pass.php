@@ -24,7 +24,7 @@ include 'head.php';
                                 <p class="text-muted mb-4">Enter your email address and we'll send you an email with instructions to reset your password.</p>
                             </div>
 
-                            <form action="#" id="form_validation">
+                            <form action="pages/controller/ctr-forget-pass.php" method="POST" id="form_validation">
 
                                 <div class="mb-4">
                                     <label for="emailaddress" class="form-label">Email address</label>

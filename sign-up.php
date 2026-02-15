@@ -17,11 +17,11 @@ include 'head.php';
                             <p>Please complete the required information to proceed.</p>
                         </div>
 
-                        <form class="signup-form" id="form_validation" data-aos="fade-up" data-aos-delay="300">
+                        <form class="signup-form" id="form_validation" action="pages/controller/ctr-sign-up.php" method="POST" data-aos="fade-up" data-aos-delay="300">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="firstName" class="form-label">First Name <span class="required">*</span></label>
+                                        <label for="firstName" class="form-label required">First Name</label>
                                         <input type="text" id="firstName" name="fname" class="form-control">
                                     </div>
                                 </div>
@@ -30,7 +30,16 @@ include 'head.php';
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="lastName" class="form-label">Last Name <span class="required">*</span></label>
+                                        <label for="middleName" class="form-label">Middle Name</label>
+                                        <input type="text" id="middleName" name="mname" class="form-control" placeholder="(Optional)">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="lastName" class="form-label required">Last Name</label>
                                         <input type="text" id="lastName" name="lname" class="form-control">
                                     </div>
                                 </div>
@@ -39,7 +48,7 @@ include 'head.php';
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+                                        <label for="email" class="form-label required">Email Address</label>
                                         <input type="email" id="email" name="email" class="form-control">
                                     </div>
                                 </div>
@@ -48,7 +57,7 @@ include 'head.php';
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="mobile_no" class="form-label">Mobile Number <span class="required">*</span></label>
+                                        <label for="mobile_no" class="form-label required">Mobile Number</label>
                                         <input type="tel" id="mobile_no" name="mobile_no" class="form-control" maxlength="11">
                                     </div>
                                 </div>
@@ -57,7 +66,7 @@ include 'head.php';
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="birthday" class="form-label">Birthday <span class="required">*</span></label>
+                                        <label for="birthday" class="form-label required">Birthday</label>
                                         <input type="date" id="birthday" name="birthday" class="form-control">
                                     </div>
                                 </div>
@@ -66,8 +75,22 @@ include 'head.php';
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="fb_link" class="form-label">Facebook Link <span class="required">*</span></label>
+                                        <label for="fb_link" class="form-label required">Facebook Link</label>
                                         <input type="text" id="fb_link" name="fb_link" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="create_password" class="form-label required">Password</label>
+                                        <div class="input-group input-group-merge">
+                                            <input type="password" id="create_password" name="create_password" class="form-control" placeholder="Enter your password">
+                                            <div class="input-group-text" data-password="false">
+                                                <span class="password-eye"></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

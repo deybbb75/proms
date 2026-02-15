@@ -1,0 +1,143 @@
+<?php
+include '../includes/init.php';
+include '../header.php';
+
+setActiveLink('index.php#programs');
+?>
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+        <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Program Details</h1>
+        </div>
+    </div><!-- End Page Title -->
+
+    <!-- Program Details Section -->
+    <section id="program-details" class="program-details section" style="padding-bottom: 30px;">
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+            <div class="col-lg-8">
+
+            <!-- Course Banner -->
+            <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
+                <div class="banner-content">
+                <div class="banner-image">
+                    <img src="../assets/img/tesda/1.jpg" alt="Course Preview" class="img-fluid">
+                </div>
+                <h1>FOREIGN LANGUAGE PROGRAM</h1>
+                </div>
+            </div><!-- End Course Banner -->
+
+            <!-- Course Navigation Tabs -->
+            <div class="course-nav-tabs" data-aos="fade-up" data-aos-delay="300">
+
+                <div class="tab-content" id="program-detailsCourseTabContent">
+
+                    <!-- Overview Tab -->
+                    <div class="tab-pane fade show active" id="program-detailsoverview" role="tabpanel">
+                        <div class="details-section">
+                            <h3>Program Offerings</h3>
+                            <ul class="details-list">
+                                <li><i class="bi bi-dash"></i>Mandarin</li>
+                                <li><i class="bi bi-dash"></i>French</li>
+                                <li><i class="bi bi-dash"></i>Spanish</li>
+                                <li><i class="bi bi-dash"></i>Nihongo</li>
+                                <li><i class="bi bi-dash"></i>English Proficiency Program</li>
+                            </ul>
+
+                            <p style="font-style: italic;">*In coordination with the Center for Language and Applied Media</p>
+                        </div>
+
+                        <div class="details-section">
+                            <h3>Competency Levels</h3>
+                            <ul class="details-list">
+                                <li><i class="bi bi-dash"></i>Basic</li>
+                                <li><i class="bi bi-dash"></i>Intermediate</li>
+                                <li><i class="bi bi-dash"></i>Advance</li>
+                            </ul>
+                        </div>
+
+                        <div class="details-section">
+                            <h3>Program Duration</h3>
+                            <ul class="details-list">
+                                <li><i class="bi bi-dash"></i>20 hours</li>
+                                <li><i class="bi bi-dash"></i>40 hours</li>
+                                <li><i class="bi bi-dash"></i>60 hours</li>
+                                <li><i class="bi bi-dash"></i>** or depending upon the needs of the client</li>
+                            </ul>
+                        </div>
+
+                        <div class="details-section">
+                            <h3>Mode of Study</h3>
+                            <ul class="details-list">
+                                <li><i class="bi bi-dash"></i>Tutorial (one-on-one session)</li>
+                                <li><i class="bi bi-dash"></i>Pair</li>
+                                <li><i class="bi bi-dash"></i>Group</li>
+                            </ul>
+                        </div>
+
+                        <div class="details-section">
+                            <h3>Note</h3>
+                            <ul class="details-list">
+                                <li><i class="bi bi-dash"></i>The tuition fees are based on the competency levels, Program duration, and Mode of study.</li>
+                                <li><i class="bi bi-dash"></i>The schedule is based upon the process of application, availability of the students, and the proctor/tutor.</li>
+                            </ul>
+                        </div>
+                    </div><!-- End Overview Tab -->
+
+                </div>
+            </div><!-- End Course Navigation Tabs -->
+
+            </div>
+
+            <div class="col-lg-4">
+
+            <!-- Enrollment Card -->
+            <div class="enrollment-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-body">
+                    <div class="action-buttons">
+                        <button class="btn-primary" onclick="SubmitForm()">Reserve Now</button>
+                        <button class="btn-secondary" onclick="window.location='program-list.php'">Go Back</button>
+                    </div>
+                </div>
+
+            </div><!-- End Enrollment Card -->
+
+            </div>
+
+        </div>
+
+        </div>
+
+    </section><!-- /Program Details Section -->
+</main>
+
+<script>
+function SubmitForm(){
+    Swal.fire({
+        title: 'Are you sure you want to reserve?',
+        text: 'You won’t be able to revert this!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, proceed',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Successfully Reserved!',
+                text: 'Kindly proceed to the CTEL office for more information.',
+                icon: 'success'
+            }).then(() => {
+                window.location.href = '../index.php';
+            });
+        }
+    });
+}
+
+</script>
+<?php
+include '../footer.php';
+?>

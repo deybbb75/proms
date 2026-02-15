@@ -1,0 +1,193 @@
+<?php
+include '../includes/init.php';
+include '../header.php';
+
+setActiveLink('index.php#news');
+?>
+
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+        <div class="container">
+            <h1>News & Events</h1>
+        </div>
+    </div><!-- End Page Title -->
+
+    <div class="container">
+        <div class="row">
+
+        <div class="col-lg-12">
+
+            <!-- Blog Posts Section -->
+            <section id="news-list" class="news-list section">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+
+                <div class="col-lg-4">
+                    <article>
+
+                    <div class="post-img">
+                        <img src="../assets/img/blog/blog-post-1.webp" alt="" class="img-fluid">
+                    </div>
+
+                    <h2 class="title">
+                        <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
+                    </h2>
+
+                    <div class="meta-top">
+                        <ul>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="content">
+                        <p>
+                        Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta..
+                        </p>
+
+                        <div class="read-more">
+                        <a href="news.php">Read More</a>
+                        </div>
+                    </div>
+
+                    </article>
+                </div><!-- End post list item -->
+
+                <div class="col-lg-4">
+
+                    <article>
+
+                    <div class="post-img">
+                        <img src="../assets/img/blog/blog-post-2.webp" alt="" class="img-fluid">
+                    </div>
+
+                    <h2 class="title">
+                        <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
+                    </h2>
+
+                    <div class="meta-top">
+                        <ul>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="content">
+                        <p>
+                        Incidunt voluptate sit temporibus aperiam. Quia vitae aut sint ullam quis illum voluptatum et. Quo libero rerum voluptatem pariatur nam.
+                        Ad impedit qui officiis est</p>
+                        <div class="read-more">
+                        <a href="blog-details.html">Read More</a>
+                        </div>
+                    </div>
+
+                    </article>
+
+                </div><!-- End post list item -->
+
+                <div class="col-lg-4">
+
+                    <article>
+
+                    <div class="post-img">
+                        <img src="../assets/img/blog/blog-post-3.webp" alt="" class="img-fluid">
+                    </div>
+
+                    <h2 class="title">
+                        <a href="blog-details.html">Possimus soluta ut id suscipit ea ut. In quo quia et soluta libero sit sint.</a>
+                    </h2>
+
+                    <div class="meta-top">
+                        <ul>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="content">
+                        <p>
+                        Aut iste neque ut illum qui perspiciatis similique recusandae non. Fugit autem dolorem labore omnis et. Eum temporibus fugiat voluptate enim tenetur sun</p>
+                        <div class="read-more">
+                        <a href="blog-details.html">Read More</a>
+                        </div>
+                    </div>
+
+                    </article>
+
+                </div><!-- End post list item -->
+
+                <div class="col-lg-4">
+
+                    <article>
+
+                    <div class="post-img">
+                        <img src="../assets/img/blog/blog-post-4.webp" alt="" class="img-fluid">
+                    </div>
+
+                    <h2 class="title">
+                        <a href="blog-details.html">Non rem rerum nam cum quo minus. Dolor distinctio deleniti explicabo eius exercitationem.</a>
+                    </h2>
+
+                    <div class="meta-top">
+                        <ul>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="content">
+                        <p>
+                        Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque quae. Rem veritatis rerum enim et autem. Saepe atque cum eligendi eaque iste omnis a qui.
+                        Quia sed sunt. Ea asperiores expedita <br></p>
+                        <div class="read-more">
+                        <a href="blog-details.html">Read More</a>
+                        </div>
+                    </div>
+
+                    </article>
+
+                </div><!-- End post list item -->
+
+                </div><!-- End blog posts list -->
+
+            </div>
+
+            </section><!-- /Blog Posts Section -->
+
+            <!-- Pagination 2 Section -->
+            <section id="pagination-2" class="pagination-2 section">
+
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                <ul>
+                    <li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#" class="active">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li>...</li>
+                    <li><a href="#">10</a></li>
+                    <li><a href="#"><i class="bi bi-chevron-right"></i></a></li>
+                </ul>
+                </div>
+            </div>
+
+            </section><!-- /Pagination 2 Section -->
+
+        </div>
+        </div>
+    </div>
+
+</main>
+
+<?php
+include '../footer.php';
+?>

@@ -1,6 +1,8 @@
 <?php
 include '../includes/init.php';
 include '../header.php';
+
+setActiveLink('index.php#news');
 ?>
 
 <main class="main">

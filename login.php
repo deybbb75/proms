@@ -24,7 +24,7 @@ include 'head.php';
                                 <p class="text-muted mb-4">Enter your email address and password</p>
                             </div>
 
-                            <form action="index.php" id="form_validation">
+                            <form action="pages/controller/ctr-login.php" method="POST" id="form_validation">
 
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email address</label>
@@ -65,8 +65,28 @@ include 'head.php';
         <!-- end container -->
     </div>
     <!-- end page -->
-
 </main>
+
+<script>
+<?php
+    if(isset($_SESSION['proms']['reset_email'])) {
+?>
+    var params = {
+        email: '<?= $_SESSION['proms']['reset_email']['email'] ?>',
+        link: '<?= $GLOBALS['INF_CONFIG']['sitehost']. '/reset-pass.php?token=' . $_SESSION['proms']['reset_email']['token'] ?>',
+    };
+
+    emailjs.send("service_tvzu0wq", "template_wwkq2vc", params)
+    .then(function(response) {
+        console.log("Success:", response);
+    }, function(error) {
+        console.error("Error:", error);
+    });
+<?php
+    unset($_SESSION['proms']['reset_email']);
+    }
+?>
+</script>
 
 <?php
 include 'scripts.php';

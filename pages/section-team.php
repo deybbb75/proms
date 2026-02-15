@@ -4,89 +4,69 @@
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
         <h2>Team</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
+        <p>Meet the people behind our mission. Our team brings together diverse skills, experience, and passion to drive impact and deliver meaningful results.</p>
     </div><!-- End Section Title -->
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="leader-container">
             <div class="team-member" data-aos="fade-up" data-aos-delay="200">
                 <div class="member-img">
-                    <img src="assets/img/person/person-f-8.webp" class="img-fluid" alt="Sarah Johnson" loading="lazy">
+                    <img src="assets/img/team/1.jpg" class="img-fluid" loading="lazy">
                 </div>
                 <div class="member-info">
-                    <h4>Sarah Johnson</h4>
-                    <span>Chief Executive Officer</span>
+                    <h4>Dr. Rhea Corina B. Mejia</h4>
+                    <span>Dean/AC Manager</span>
                 </div>
             </div><!-- End Team Member -->
         </div>
         <div class="team-grid">
             <div class="team-member" data-aos="fade-up" data-aos-delay="200">
                 <div class="member-img">
-                    <img src="assets/img/person/person-f-8.webp" class="img-fluid" alt="Sarah Johnson" loading="lazy">
+                    <img src="assets/img/team/2.jpg" class="img-fluid" loading="lazy">
                 </div>
                 <div class="member-info">
-                    <h4>Sarah Johnson</h4>
-                    <span>Chief Executive Officer</span>
+                    <h4>Mrs. Rovelyn U. Vallejo</h4>
+                    <span>Assistant AC Manager</span>
                 </div>
             </div><!-- End Team Member -->
 
             <div class="team-member" data-aos="fade-up" data-aos-delay="250">
                 <div class="member-img">
-                    <img src="assets/img/person/person-m-12.webp" class="img-fluid" alt="Michael Chen" loading="lazy">
+                    <img src="assets/img/team/3.jpg" class="img-fluid" loading="lazy">
                 </div>
                 <div class="member-info">
-                    <h4>Michael Chen</h4>
-                    <span>Chief Technology Officer</span>
+                    <h4>Mrs. Ana Marie I. Tañola</h4>
+                    <span>Processing Officer</span>
                 </div>
             </div><!-- End Team Member -->
 
             <div class="team-member" data-aos="fade-up" data-aos-delay="300">
                 <div class="member-img">
-                    <img src="assets/img/person/person-f-3.webp" class="img-fluid" alt="Emily Rodriguez" loading="lazy">
+                    <img src="assets/img/team/4.jpg" class="img-fluid" loading="lazy">
                 </div>
                 <div class="member-info">
-                    <h4>Emily Rodriguez</h4>
-                    <span>Creative Director</span>
+                    <h4>Mrs. Marjorie E. Malibiran</h4>
+                    <span>Liasson Officer</span>
                 </div>
             </div><!-- End Team Member -->
 
             <div class="team-member" data-aos="fade-up" data-aos-delay="350">
                 <div class="member-img">
-                    <img src="assets/img/person/person-m-7.webp" class="img-fluid" alt="David Thompson" loading="lazy">
+                    <img src="assets/img/team/5.png" class="img-fluid" loading="lazy">
                 </div>
                 <div class="member-info">
-                    <h4>David Thompson</h4>
-                    <span>Head of Operations</span>
+                    <h4>Ms. Arnie Ann Hernandez</h4>
+                    <span>Data Encoder</span>
                 </div>
             </div><!-- End Team Member -->
 
             <div class="team-member" data-aos="fade-up" data-aos-delay="350">
                 <div class="member-img">
-                    <img src="assets/img/person/person-m-7.webp" class="img-fluid" alt="David Thompson" loading="lazy">
+                    <img src="assets/img/team/6.jpg" class="img-fluid" loading="lazy">
                 </div>
                 <div class="member-info">
-                    <h4>David Thompson</h4>
-                    <span>Head of Operations</span>
-                </div>
-            </div><!-- End Team Member -->
-
-            <div class="team-member" data-aos="fade-up" data-aos-delay="350">
-                <div class="member-img">
-                    <img src="assets/img/person/person-m-7.webp" class="img-fluid" alt="David Thompson" loading="lazy">
-                </div>
-                <div class="member-info">
-                    <h4>David Thompson</h4>
-                    <span>Head of Operations</span>
-                </div>
-            </div><!-- End Team Member -->
-
-            <div class="team-member" data-aos="fade-up" data-aos-delay="350">
-                <div class="member-img">
-                    <img src="assets/img/person/person-m-7.webp" class="img-fluid" alt="David Thompson" loading="lazy">
-                </div>
-                <div class="member-info">
-                    <h4>David Thompson</h4>
-                    <span>Head of Operations</span>
+                    <h4>Mrs. Esperanza Fe Liwag-Dejello</h4>
+                    <span>Department Secretary</span>
                 </div>
             </div><!-- End Team Member -->
         </div>

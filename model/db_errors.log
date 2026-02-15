@@ -4,3 +4,24 @@
 #2 C:\Users\Dave\Documents\xampp\htdocs\proms\index.php(4): DB::getInstance()
 #3 {main}
 
+[2026-02-11 12:36:24] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'reserver_id' cannot be null
+#0 C:\xampp\htdocs\proms\model\pdo.class.php(243): PDOStatement->execute()
+#1 C:\xampp\htdocs\proms\model\pdo.class.php(264): DB->query('INSERT INTO `tb...', Array)
+#2 C:\xampp\htdocs\proms\model\pdo.class.php(363): DB->run('INSERT INTO `tb...', Array)
+#3 C:\xampp\htdocs\proms\pages\controller\ctr-login.php(28): DB->executeInsert(Array, 'tbl_login_logs')
+#4 {main}
+
+[2026-02-14 22:27:23] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'student_id' in 'field list'
+#0 C:\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('INSERT INTO `tb...')
+#1 C:\xampp\htdocs\proms\model\pdo.class.php(264): DB->query('INSERT INTO `tb...', Array)
+#2 C:\xampp\htdocs\proms\model\pdo.class.php(363): DB->run('INSERT INTO `tb...', Array)
+#3 C:\xampp\htdocs\proms\pages\controller\ctr-login.php(28): DB->executeInsert(Array, 'tbl_login_logs')
+#4 {main}
+
+[2026-02-14 22:27:40] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'student_id' in 'field list'
+#0 C:\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('INSERT INTO `tb...')
+#1 C:\xampp\htdocs\proms\model\pdo.class.php(264): DB->query('INSERT INTO `tb...', Array)
+#2 C:\xampp\htdocs\proms\model\pdo.class.php(363): DB->run('INSERT INTO `tb...', Array)
+#3 C:\xampp\htdocs\proms\pages\controller\ctr-login.php(28): DB->executeInsert(Array, 'tbl_login_logs')
+#4 {main}
+

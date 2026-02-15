@@ -32,8 +32,19 @@ function validateForm() {
             rules: { required: true, noWhitespace: true, email: true }
         },
         {
-            fields: ["birthday", "fb_link", "terms", "password", "confirm_password"],
+            fields: ["birthday", "fb_link", "terms", "password"],
             rules: { required: true }
+        },
+        {
+            fields: ['create_password'],
+            rules: { required: true, noWhitespace: true, strongPassword: true }
+        },
+        {
+            fields: ["confirm_password"],
+            rules: { required: true, noWhitespace: true, equalTo: "#create_password" },
+            messages: {
+                equalTo: "Passwords do not match. Please try again."
+            }
         },
         {
             fields: [],
@@ -127,10 +138,14 @@ function validateForm() {
     // =========================================================================
 
     let finalRules = {};
+    let finalMessages = {};
 
     groupedRules.forEach(group => {
         group.fields.forEach(field => {
             finalRules[field] = group.rules;
+            if (group.messages) {
+                finalMessages[field] = group.messages;
+            }
         });
     });
 
@@ -141,7 +156,7 @@ function validateForm() {
     $("#form_validation").validate({
         ignore: ":hidden:not(.form-control):not(.form-select):not(.form-check-input)",
         rules: finalRules,
-        messages: {},
+        messages: finalMessages,
 
         invalidHandler(event, validator) {
             if (validator.numberOfInvalids()) {
@@ -235,6 +250,12 @@ function validateForm() {
     $.validator.addMethod("mobileNumber", function (value, element) {
         return this.optional(element) || /^\d{11}$/.test(value);
     }, "Please enter a valid 11-digit mobile number.");
+
+    $.validator.addMethod("strongPassword", function(value, element) {
+        return this.optional(element) ||
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value);
+    }, "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.");
+
 }
 
 $(function () {

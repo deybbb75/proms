@@ -27,6 +27,12 @@ main.authentication-bg .account-pages{
     content:"\f06d1"
 }
 
+label.required::after {
+	content: " *";
+	color: red;
+	font-weight: bold;
+}
+
 /*--------------------------------------------------------------
 # Login Page
 --------------------------------------------------------------*/
@@ -362,10 +368,26 @@ main.authentication-bg .account-pages{
   margin-right: 5px;
 }
 
-.signup .required {
-  color: #ff0000;
-}
-
 .signup #login-link {
   color:var(--primary-color) !important;
+}
+
+main .error-404{
+  background-image:url(../img/login-bg.jpg);
+  background-size:cover;
+  background-position:center;
+  height: 100vh;
+}
+
+.logout-icon{
+  order: 3;
+  color: #fff;
+  font-size: 25px;
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.logout-icon:hover{
+  color: var(--secondary-color);
 }
