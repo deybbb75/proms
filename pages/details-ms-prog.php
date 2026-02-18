@@ -60,6 +60,8 @@ setActiveLink('index.php#programs');
                             <p>The Certificate in Culinary Arts program aims to provide the students with practical and theoretical knowledge about basic culinary, basic food preparation and food presentation. It also provides the opportunity to apply the theoretical knowledge into practice commonly found in an operational environment. </p>
                             <p>The program covers mise en place, food preparation, storage of food products, food infection and intoxication, hygiene and cleanliness, methods and techniques of cooking, stocks, sauces and soups, eggs, vegetables and farinaceous products, poultry and meat butchery and cooking, product knowledge and occupational health and safety, weight measure as applied to cooking, unit and temperature conversion, proper knife usage skills, basic cutting and butchering, standard kitchen hand tools, operations of equipment in a commercial kitchen and culinary terminology.</p>
                         </div>
+
+                        <img src="../assets/img/cert.jpg" alt="Course Preview" class="img-fluid mb-5">
                         
                         <div class="details-section">
                             <h3>Learning materials for Microsoft Office Specialist certifications</h3>
@@ -76,7 +78,7 @@ setActiveLink('index.php#programs');
                             <h3>Certify in Microsoft Office</h3>
                             <h5>Microsoft 365 Apps</h5>
                             <p>Microsoft 365 Apps combines familiar Microsoft Office apps with cloud connectivity, collaboration tools, and intelligent services. These 50-minute certifications use Certiport’s Live-in-the-Application (LITA) testing for real-world skill validation. They are continually updated to reflect the latest Microsoft 365 features and workforce needs.</p>
-
+                            <br>
                             <h5 class="mb-4">Microsoft 365 Apps Certifications</h5>
 
                             <h6>I. Microsoft Excel</h6>
@@ -90,30 +92,30 @@ setActiveLink('index.php#programs');
                         </div>
 
                         <div class="details-section">
-                            <h3>Program Duration</h3>
-                            <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>20 hours</li>
-                                <li><i class="bi bi-dash"></i>40 hours</li>
-                                <li><i class="bi bi-dash"></i>60 hours</li>
-                                <li><i class="bi bi-dash"></i>** or depending upon the needs of the client</li>
-                            </ul>
-                        </div>
+                            <h3>Advance with Stackable Certifications</h3>
+                            <p>Maximize your Microsoft Office proficiency with MOS Associate or Expert certifications, showcasing advanced skills through stacked credentials.</p>
+                            <br>
+                            <h5>Earn a Microsoft Office Specialist: Associate (Microsoft 365 Apps) certification</h5>
+                            <p>Pass three of the following exams*:</p>
 
-                        <div class="details-section">
-                            <h3>Mode of Study</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>Tutorial (one-on-one session)</li>
-                                <li><i class="bi bi-dash"></i>Pair</li>
-                                <li><i class="bi bi-dash"></i>Group</li>
+                                <li><i class="bi bi-dash"></i>Microsoft Word (Microsoft 365 Apps)</li>
+                                <li><i class="bi bi-dash"></i>Microsoft Excel (Microsoft 365 Apps)</li>
+                                <li><i class="bi bi-dash"></i>Microsoft PowerPoint (Microsoft 365 Apps)</li>
+                                <li><i class="bi bi-dash"></i>Microsoft Outlook (Microsoft 365 Apps) - To be released</li>
                             </ul>
-                        </div>
+                            <br>
+                            <h5>Earn a Microsoft Office Specialist: Expert (Microsoft 365 Apps) certification</h5>
+                            <p>Earn your Microsoft Office Specialist: Associate certification (outlined above) plus pass two of the following exams*: </p>
 
-                        <div class="details-section">
-                            <h3>Note</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>The tuition fees are based on the competency levels, Program duration, and Mode of study.</li>
-                                <li><i class="bi bi-dash"></i>The schedule is based upon the process of application, availability of the students, and the proctor/tutor.</li>
+                                <li><i class="bi bi-dash"></i>Microsoft Word (Microsoft 365 Apps)</li>
+                                <li><i class="bi bi-dash"></i>Microsoft Excel (Microsoft 365 Apps)</li>
+                                <li><i class="bi bi-dash"></i>Microsoft PowerPoint (Microsoft 365 Apps)</li>
+                                <li><i class="bi bi-dash"></i>Microsoft Outlook (Microsoft 365 Apps) - To be released</li>
                             </ul>
+
+                            <p style="font-style: italic;">*All exams must be in different programs and at least one exam must be a Microsoft 365 Apps exam.</p>
                         </div>
                     </div><!-- End Overview Tab -->
 
