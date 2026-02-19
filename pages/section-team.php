@@ -8,67 +8,51 @@
     </div><!-- End Section Title -->
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <?php
+            $first_member = $db->queryUniqueObject('SELECT * FROM tbl_member WHERE status = "Active" AND member_id = 1');
+            if ($first_member) {
+                $member_id      = encrypt_data($first_member->member_id);
+                $name    = e($first_member->name);
+                $position       = e($first_member->position);
+                $status         = e($first_member->status);
+                $image          = $first_member->img;
+                $image_data     = base64_encode($image);
+                $image_type     = $first_member->img_type;
+                $image_src      = "data:{$image_type};base64,{$image_data}";
+            }
+        ?>
         <div class="leader-container">
             <div class="team-member" data-aos="fade-up" data-aos-delay="200">
                 <div class="member-img">
-                    <img src="assets/img/team/1.jpg" class="img-fluid" loading="lazy">
+                    <img src="<?= $image_src ?? '' ?>" class="img-fluid" loading="lazy">
                 </div>
                 <div class="member-info">
-                    <h4>Dr. Rhea Corina B. Mejia</h4>
-                    <span>Dean/AC Manager</span>
+                    <h4><?= e($name) ?></h4>
+                    <span><?= e($position) ?></span>
                 </div>
             </div><!-- End Team Member -->
         </div>
         <div class="team-grid">
+            <?php
+                $member_query = $db->query('SELECT * FROM tbl_member WHERE status = "Active" AND member_id != 1');
+                while ($line = $db->fetchNextObject($member_query)) {
+                    $image          = $line->img;
+                    $image_data     = base64_encode($image);
+                    $image_type     = $line->img_type;
+                    $image_src      = "data:{$image_type};base64,{$image_data}";
+            ?>
             <div class="team-member" data-aos="fade-up" data-aos-delay="200">
                 <div class="member-img">
-                    <img src="assets/img/team/2.jpg" class="img-fluid" loading="lazy">
+                    <img src="<?= $image_src ?? '' ?>" class="img-fluid" loading="lazy">
                 </div>
                 <div class="member-info">
-                    <h4>Mrs. Rovelyn U. Vallejo</h4>
-                    <span>Assistant AC Manager</span>
+                    <h4><?= e($line->name) ?></h4>
+                    <span><?= e($line->position) ?></span>
                 </div>
             </div><!-- End Team Member -->
-
-            <div class="team-member" data-aos="fade-up" data-aos-delay="250">
-                <div class="member-img">
-                    <img src="assets/img/team/3.jpg" class="img-fluid" loading="lazy">
-                </div>
-                <div class="member-info">
-                    <h4>Mrs. Ana Marie I. Tañola</h4>
-                    <span>Processing Officer</span>
-                </div>
-            </div><!-- End Team Member -->
-
-            <div class="team-member" data-aos="fade-up" data-aos-delay="300">
-                <div class="member-img">
-                    <img src="assets/img/team/4.jpg" class="img-fluid" loading="lazy">
-                </div>
-                <div class="member-info">
-                    <h4>Mrs. Marjorie E. Malibiran</h4>
-                    <span>Liasson Officer</span>
-                </div>
-            </div><!-- End Team Member -->
-
-            <div class="team-member" data-aos="fade-up" data-aos-delay="350">
-                <div class="member-img">
-                    <img src="assets/img/team/5.png" class="img-fluid" loading="lazy">
-                </div>
-                <div class="member-info">
-                    <h4>Ms. Arnie Ann Hernandez</h4>
-                    <span>Data Encoder</span>
-                </div>
-            </div><!-- End Team Member -->
-
-            <div class="team-member" data-aos="fade-up" data-aos-delay="350">
-                <div class="member-img">
-                    <img src="assets/img/team/6.jpg" class="img-fluid" loading="lazy">
-                </div>
-                <div class="member-info">
-                    <h4>Mrs. Esperanza Fe Liwag-Dejello</h4>
-                    <span>Department Secretary</span>
-                </div>
-            </div><!-- End Team Member -->
+            <?php
+                }
+            ?>
         </div>
     </div>
 </section>

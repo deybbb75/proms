@@ -932,7 +932,7 @@
 
 .program-details .course-nav-tabs .tab-content .details-section .details-list li {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   gap: 15px;
   margin-bottom: 15px;
   font-size: 15px;

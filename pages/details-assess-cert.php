@@ -1,8 +1,25 @@
 <?php
 include '../includes/init.php';
 include '../header.php';
+$db = DB::getInstance();
 
 setActiveLink('index.php#programs');
+
+$id = 1;
+$program = $db->queryUniqueObject('SELECT * FROM tbl_assess_cert WHERE ac_id = :ac_id', ['ac_id' => $id]);
+if ($program) {
+    $ac_id          = encrypt_data($program->ac_id);
+    $title          = e($program->title);
+    $description    = e($program->description);
+    $main_fee       = e(number_format($program->main_fee, 2, '.', ','));
+    $sub_fee        = e(number_format($program->sub_fee, 2, '.', ','));
+    $requirement    = json_decode($program->requirement, true);
+    $status         = e($program->status);
+    $image          = $program->img;
+    $image_data     = base64_encode($image);
+    $image_type     = $program->img_type;
+    $image_src      = "data:{$image_type};base64,{$image_data}";
+}
 ?>
 
 <style>
@@ -60,9 +77,9 @@ setActiveLink('index.php#programs');
             <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
                 <div class="banner-content">
                 <div class="banner-image">
-                    <img src="../assets/img/tesda/1.jpg" alt="Course Preview" class="img-fluid">
+                    <img src="<?= $image_src ?? '' ?>" alt="Course Preview" class="img-fluid">
                 </div>
-                <h1>Barista NC II</h1>
+                <h1><?= strtoupper($title) ?? '' ?></h1>
                 </div>
             </div><!-- End Course Banner -->
 
@@ -75,23 +92,22 @@ setActiveLink('index.php#programs');
                     <div class="tab-pane fade show active" id="program-detailsoverview" role="tabpanel">
 
                         <div class="overview-section">
-                            <p>Lyceum of the Philippines University-Batangas is an accredited TESDA Assessment Center for 21 qualifications. This will be done at one day assessment only.</p>
-                            <p>Candidates must have training in the said assessment or an industry worker. Minimum 10 candidates / applicants per assessment. </p>
+                            <p style="white-space: pre-line;"><?= $description ?? '' ?></p>
                         </div>
 
                         <div class="details-section">
                             <h3>Requirements</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-check2"></i>Application Form</li>
-                                <li><i class="bi bi-check2"></i>Passport size picture - 2 pcs (name at the bottom, white background & with collar attire)</li>
-                                <li><i class="bi bi-check2"></i>Assessment and Processing Fee – will be done after submission of hard copy of the requirements listed above  </li>
-                                <li><i class="bi bi-check2"></i>TESDA Practicing COVID-19 Preventive Measure Certificate (kindly refer to TESDA website)</li>
-                                <p style="padding-left: 50px; margin-bottom: 10px;"><b>Note:</b></p>
-                                <ul style="padding-left: 50px;">
-                                    <li><i class="bi bi-dash"></i>Please print the certificate on A4-size paper in landscape orientation</li>
-                                    <li><i class="bi bi-dash"></i>Please ensure that your full legal name is indicated on your certificate.</li>
-                                </ul>
-                                <li><i class="bi bi-check2"></i>Training Certificate or Certificate of Employment</li>
+                                <?php
+                                foreach ($requirement as $item) {
+                                ?>
+                                <li>
+                                    <i class="bi bi-check2"></i>
+                                    <div style="white-space: pre-line;"><?= e($item) ?></div>
+                                </li>
+                                <?php
+                                }
+                                ?>
                             </ul>
                         </div>
                         
@@ -112,13 +128,13 @@ setActiveLink('index.php#programs');
                         <span>Assessment Fee:</span>
                     </div>
                     <div class="price-display">
-                        <span class="current-price">₱10,000.00</span>
+                        <span class="current-price">₱<?= $main_fee ?? '' ?></span>
                     </div>
                     <div class="enrollment-count">
                         <span>Processing Fee:</span>
                     </div>
                     <div class="price-display">
-                        <span class="current-price">₱5,000.00</span>
+                        <span class="current-price">₱<?= $sub_fee ?? '' ?></span>
                     </div>
                 </div>
 

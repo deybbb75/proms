@@ -1,8 +1,31 @@
 <?php
 include '../includes/init.php';
 include '../header.php';
+$db = DB::getInstance();
 
 setActiveLink('index.php#programs');
+
+$id = 1;
+$program = $db->queryUniqueObject('SELECT * FROM tbl_cert_prog WHERE cp_id = :cp_id', ['cp_id' => $id]);
+if ($program) {
+    $cp_id          = encrypt_data($program->cp_id);
+    $title          = e($program->title);
+    $description    = e($program->description);
+    $class_details  = e($program->class_details);
+    $start_date_1   = e($program->start_date_1);
+    $start_date_2   = e($program->start_date_2);
+    $schedule       = json_decode($program->schedule, true);
+    $venue          = e($program->venue);
+    $main_fee       = number_format($program->main_fee, 2, '.', ',');
+    $sub_fee        = number_format($program->sub_fee, 2, '.', ',');
+    $note           = e($program->note);
+    $requirement    = json_decode($program->requirement, true);
+    $status         = e($program->status);
+    $image          = $program->img;
+    $image_data     = base64_encode($image);
+    $image_type     = $program->img_type;
+    $image_src      = "data:{$image_type};base64,{$image_data}";
+}
 ?>
 <main class="main">
 
@@ -25,9 +48,9 @@ setActiveLink('index.php#programs');
             <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
                 <div class="banner-content">
                 <div class="banner-image">
-                    <img src="../assets/img/tesda/1.jpg" alt="Course Preview" class="img-fluid">
+                    <img src="<?= $image_src ?? '' ?>" alt="Course Preview" class="img-fluid">
                 </div>
-                <h1>CERTIFICATES IN CULINARY ARTS (CCA)</h1>
+                <h1><?= strtoupper($title) ?? '' ?></h1>
                 </div>
             </div><!-- End Course Banner -->
 
@@ -39,50 +62,60 @@ setActiveLink('index.php#programs');
                     <!-- Overview Tab -->
                     <div class="tab-pane fade show active" id="program-detailsoverview" role="tabpanel">
                         <div class="overview-section">
-                            <p>The Certificate in Culinary Arts program aims to provide the students with practical and theoretical knowledge about basic culinary, basic food preparation and food presentation. It also provides the opportunity to apply the theoretical knowledge into practice commonly found in an operational environment. </p>
-                            <p>The program covers mise en place, food preparation, storage of food products, food infection and intoxication, hygiene and cleanliness, methods and techniques of cooking, stocks, sauces and soups, eggs, vegetables and farinaceous products, poultry and meat butchery and cooking, product knowledge and occupational health and safety, weight measure as applied to cooking, unit and temperature conversion, proper knife usage skills, basic cutting and butchering, standard kitchen hand tools, operations of equipment in a commercial kitchen and culinary terminology.</p>
+                            <p style="white-space: pre-line;"><?= $description ?? '' ?></p>
                         </div>
 
                         <div class="details-section">
                             <h3>Class Details</h3>
-                            <p>The Center for Technical Education and Lifelong Learning offers short programs like Certificates in Culinary Arts (CCA). The program’s duration is 6 months and with a TESDA Competency Assessment in COOKERY NCII and is 200 hrs. Internship. Enrollment is now ongoing for the 2nd Semester 2025-2026 batch.</p>
+                            <p style="white-space: pre-line;"><?= $class_details ?></p>
                         </div>
 
                         <div class="details-section">
                             <h3>Start of Classes</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i><b>1st Semester: </b>August 9, 2025</li>
-                                <li><i class="bi bi-dash"></i><b>2nd Semester: </b>February 7, 2026</li>
+                                <li><i class="bi bi-dash"></i><b>1st Semester: </b><?= $start_date_1 ?></li>
+                                <li><i class="bi bi-dash"></i><b>2nd Semester: </b><?= $start_date_2 ?></li>
                             </ul>
                         </div>
 
                         <div class="details-section">
                             <h3>Schedule</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>Monday, 7:00 - 5:00 PM</li>
+                                <?php
+                                foreach ($schedule as $item) {
+                                ?>
+                                <li><i class="bi bi-dash"></i><?= e($item['day']) ?>, <?= e(date("h:i A", strtotime($item['start_time']))) ?> - <?= e(date("h:i A", strtotime($item['end_time']))) ?></li>
+                                <?php
+                                }
+                                ?>
                             </ul>
                         </div>
 
                         <div class="details-section">
                             <h3>Venue</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>Hot Kitchen, Lower Ground Floor, SHL Building, Main Campus</li>
+                                <li><i class="bi bi-dash"></i><?= $venue ?></li>
                             </ul>
                         </div>
 
                         <div class="details-section">
                             <h3>Note</h3>
-                            <p>Tuition fee for the program Certificate in Culinary Arts is inclusive of the ingredients, uniform, and assessment in Cookery NC II.</p>
+                            <p style="white-space: pre-line;"><?= $note ?></p>
                         </div>
 
                         <div class="details-section">
                             <h3>Requirements</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-check2"></i>F-138, TOR (if college graduate)</li>
-                                <li><i class="bi bi-check2"></i>F-137A</li>
-                                <li><i class="bi bi-check2"></i>PSA Authenticated Birth Certificate (Original) </li>
-                                <li><i class="bi bi-check2"></i>Marriage Certificate (if married)</li>
-                                <li><i class="bi bi-check2"></i>Hepa-B Screening Result </li>
+                                <?php
+                                foreach ($requirement as $item) {
+                                ?>
+                                <li>
+                                    <i class="bi bi-check2"></i>
+                                    <div style="white-space: pre-line;"><?= e($item) ?></div>
+                                </li>
+                                <?php
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div><!-- End Overview Tab -->
@@ -102,13 +135,13 @@ setActiveLink('index.php#programs');
                         <span>Tuition Fee:</span>
                     </div>
                     <div class="price-display">
-                        <span class="current-price">₱10,000.00</span>
+                        <span class="current-price">₱<?= $main_fee ?? '' ?></span>
                     </div>
                     <div class="enrollment-count">
                         <span>Down Payment:</span>
                     </div>
                     <div class="price-display">
-                        <span class="current-price">₱5,000.00</span>
+                        <span class="current-price">₱<?= $sub_fee ?? '' ?></span>
                     </div>
                 </div>
 

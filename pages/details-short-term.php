@@ -1,8 +1,26 @@
 <?php
 include '../includes/init.php';
 include '../header.php';
+$db = DB::getInstance();
 
 setActiveLink('index.php#programs');
+
+$id = 1;
+$program = $db->queryUniqueObject('SELECT * FROM tbl_short_term WHERE st_id = :st_id', ['st_id' => $id]);
+if ($program) {
+    $st_id          = encrypt_data($program->st_id);
+    $prog_title     = e($program->prog_title);
+    $training_title = e($program->training_title);
+    $description    = e($program->description);
+    $venue          = e($program->venue);
+    $objective      = json_decode($program->objective, true);
+    $outline        = json_decode($program->outline, true);
+    $status         = e($program->status);
+    $image          = $program->img;
+    $image_data     = base64_encode($image);
+    $image_type     = $program->img_type;
+    $image_src      = "data:{$image_type};base64,{$image_data}";
+}
 ?>
 <main class="main">
 
@@ -25,9 +43,9 @@ setActiveLink('index.php#programs');
             <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
                 <div class="banner-content">
                 <div class="banner-image">
-                    <img src="../assets/img/tesda/1.jpg" alt="Course Preview" class="img-fluid">
+                    <img src="<?= $image_src ?? '' ?>" alt="Course Preview" class="img-fluid">
                 </div>
-                <h1>BASICS OF FOOD AND BEVERAGE SERVICE OPERATIONS</h1>
+                <h1><?= strtoupper($prog_title) ?? '' ?></h1>
                 </div>
             </div><!-- End Course Banner -->
 
@@ -40,42 +58,50 @@ setActiveLink('index.php#programs');
                     <div class="tab-pane fade show active" id="program-detailsoverview" role="tabpanel">
                         <div class="details-section">
                             <h3>Training/Course Title</h3>
-                            <p>Restaurant Service Basics / Basics of Food and Beverage Service Operations</p>
+                            <p><?= $training_title ?? '' ?></p>
                         </div>
 
                         <div class="details-section">
                             <h3>Training Description</h3>
-                            <p>This course focuses on fundamental skills, concept and techniques of Restaurant Service. It covers basic knowledge napkin folding, table setting, restaurant service and room service procedures. Important terminologies will also be discussed.</p>
+                            <p><?= $description ?? '' ?></p>
                         </div>
 
                         <div class="details-section">
                             <h3>Training Venue</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>LPU SMART Room, LPU LE Café (UG SHL Bldg.)</li>
+                                <li><i class="bi bi-dash"></i><?= $venue ?? '' ?></li>
                             </ul>
                         </div>
 
                         <div class="details-section">
                             <h3>Training Objectives</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-check2"></i>Classify F & B service equipment.</li>
-                                <li><i class="bi bi-check2"></i>Handle food and beverage wares properly.</li>
-                                <li><i class="bi bi-check2"></i>Demonstrate the procedure in taking table reservation</li>
-                                <li><i class="bi bi-check2"></i>Demonstrate napkin folding following international standards.</li>
-                                <li><i class="bi bi-check2"></i>Demonstrate table setting based on given menu.</li>
-                                <li><i class="bi bi-check2"></i>Execute correct sequence of restaurant service.</li>
+                                <?php
+                                foreach ($objective as $item) {
+                                ?>
+                                <li>
+                                    <i class="bi bi-dash"></i>
+                                    <div style="white-space: pre-line;"><?= e($item) ?></div>
+                                </li>
+                                <?php
+                                }
+                                ?>
                             </ul>
                         </div>
 
                         <div class="details-section">
-                            <h3>Content Online</h3>
+                            <h3>Content Outline</h3>
                             <ul class="details-list">
-                                <li><span class="list-number">I.</span>Familiarization of Food and Beverage Service wares and Equipment</li>
-                                <li><span class="list-number">II.</span>Napkin Folding</li>
-                                <li><span class="list-number">III.</span>Table Setting</li>
-                                <li><span class="list-number">IV.</span>Restaurant Service Sequence</li>
-                                <li><span class="list-number">V.</span>Room Service</li>
-                                <li><span class="list-number">VI.</span>Customer Service</li>
+                                <?php
+                                    for ($i = 0; $i < count($outline); $i++) {
+                                ?>
+                                <li>
+                                    <span class="list-number"><?= intToRoman($i + 1) ?>.</span>
+                                    <div style="white-space: pre-line;"><?= e($outline[$i]) ?? '' ?></div>
+                                </li>
+                                <?php
+                                    }
+                                ?>
                             </ul>
                         </div>
                     </div><!-- End Overview Tab -->

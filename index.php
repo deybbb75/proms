@@ -1,6 +1,8 @@
 <?php
 include 'includes/init.php';
 include 'header.php';
+
+$db = DB::getInstance();
 ?>
 
 <main class="main index-main">

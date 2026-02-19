@@ -19,7 +19,10 @@
 <script src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/js/app.min.js"></script>
 
 <!-- 2️⃣ jQuery Validate -->
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+<script src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+
+<!-- (Optional but recommended) Additional methods -->
+<script src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/plugins/jquery-validation/dist/additional-methods.min.js"></script>
 
 <!-- Form Validation JS File -->
 <script src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/js/form-validation.js"></script>

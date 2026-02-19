@@ -1,8 +1,32 @@
 <?php
 include '../includes/init.php';
 include '../header.php';
+$db = DB::getInstance();
 
 setActiveLink('index.php#programs');
+
+$id = 1;
+$program = $db->queryUniqueObject('SELECT * FROM tbl_micro_course WHERE mc_id = :mc_id', ['mc_id' => $id]);
+if ($program) {
+    $mc_id              = encrypt_data($program->mc_id);
+    $prog_title         = e($program->prog_title);
+    $description        = e($program->description);
+    $course_title       = e($program->course_title);
+    $course_1           = e($program->course_1);
+    $course_2           = e($program->course_2);
+    $course_3           = e($program->course_3);
+    $duration           = e($program->duration);
+    $credit_unit        = e($program->credit_unit);
+    $developer          = e($program->developer);
+    $developer_email    = e($program->developer_email);
+    $objective          = e($program->objective);
+    $policy             = json_decode($program->policy, true);
+    $status             = e($program->status);
+    $image              = $program->img;
+    $image_data         = base64_encode($image);
+    $image_type         = $program->img_type;
+    $image_src          = "data:{$image_type};base64,{$image_data}";
+}
 ?>
 <main class="main">
 
@@ -25,9 +49,9 @@ setActiveLink('index.php#programs');
             <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
                 <div class="banner-content">
                 <div class="banner-image">
-                    <img src="../assets/img/tesda/1.jpg" alt="Course Preview" class="img-fluid">
+                    <img src="<?= $image_src ?? '' ?>" alt="Course Preview" class="img-fluid">
                 </div>
-                <h1>CERTIFICATE IN RESTAURANT AND BAR OPERATIONS</h1>
+                <h1><?= strtoupper($prog_title) ?? '' ?></h1>
                 </div>
             </div><!-- End Course Banner -->
 
@@ -39,57 +63,56 @@ setActiveLink('index.php#programs');
                     <!-- Overview Tab -->
                     <div class="tab-pane fade show active" id="program-detailsoverview" role="tabpanel">
                         <div class="overview-section">
-                            <p>The Certificate in Restaurant and Bar Services is an intensive, career-focused program designed to develop essential professional competencies for the hospitality, food and beverage service industry in partnership with The Bistro Group, a leading international hospitality casual dining brand with homegrown concepts in the restaurant industry. The curriculum offers in-depth training in key areas of food and beverage safety and sanitation, restaurant and bar management and service excellence – equipping students with the essential competencies to adapt in the dynamic and continuously evolving landscape of the hospitality industry.</p>
-                            <p>Students will engage in a blended learning approach, combining asynchronous online lectures and self-paced learning materials with face to-face practical assessments in a simulated hospitality setting. All course materials and activities are delivered through the institution’s official myLPU Learning Management System (LMS), ensuring accessibility, flexibility, and guided support throughout the learning process.</p>
-                            <p>Student performance is assessed through a variety of methods, including online quizzes, case analyses, online examination and practical performance assessments.</p>
-                            <p>As a stackable credential, this program may serve as a pathway to the Associate and/or Bachelor of Science in International Hospitality Management Specialized in Hotel and Restaurant Administration, with completed modules eligible for academic credit in accordance with institutional policies.</p>
+                           <p style="white-space: pre-line;"><?= $description ?? '' ?></p>
                         </div>
 
                         <div class="details-section">
                             <h3>Course Title</h3>
-                            <p>Restaurant and Bar Operations</p>
+                            <p><?= $course_title ?? '' ?></p>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i><b>Course 1: </b>Risk Management as Applied to Safety, Security and Sanitation</li>
-                                <li><i class="bi bi-dash"></i><b>Course 2: </b>Fundamentals in Food and Beverage Service Operations</li>
-                                <li><i class="bi bi-dash"></i><b>Course 3: </b>Bar and Beverage Management</li>
+                                <li><i class="bi bi-dash"></i><b>Course 1: </b><?= $course_1 ?? '' ?></li>
+                                <li><i class="bi bi-dash"></i><b>Course 2: </b><?= $course_2 ?? '' ?></li>
+                                <li><i class="bi bi-dash"></i><b>Course 3: </b><?= $course_3 ?? '' ?></li>
                             <ul class="details-list">
                         </div>
 
                         <div class="details-section">
                             <h3>Duration</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>19 days; 152 hours</li>
+                                <li><i class="bi bi-dash"></i><?= $duration ?? '' ?></li>
                             </ul>
                         </div>
 
                         <div class="details-section">
                             <h3>Credit Units</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>9 units</li>
+                                <li><i class="bi bi-dash"></i><?= !empty($credit_unit) ? $credit_unit . ' units' : 'Not Applicable' ?></li>
                             </ul>
                         </div>
 
                         <div class="details-section">
                             <h3>Developer</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>Dr. Kristine M. Manlapaz</li>
-                                <li><i class="bi bi-dash"></i><b>Email:</b> kmmanlapaz@lpubatangas.edu.ph</li>
+                                <li><i class="bi bi-dash"></i><?= $developer ?? '' ?></li>
+                                <li><i class="bi bi-dash"></i><b>Email: </b><?= $developer_email ?? '' ?></li>
                             </ul>
                         </div>
 
                         <div class="details-section">
                             <h3>Course Objective</h3>
-                            <p>At the end of the course, the learners are expected to demonstrate industry standard competencies in food and beverage and bar service operations by applying knowledge, technical skills and professional work values in accordance with the national certification standards, ensuring readiness for employment in hospitality establishments.</p>
+                            <p style="white-space: pre-line;"><?= $objective ?? '' ?></p>
                         </div>
 
                         <div class="details-section">
                             <h3>Course Policies</h3>
                             <ul class="details-list">
-                                <li><span class="list-number">1.</span>Student shall abide by the rules and procedures set by the university</li>
-                                <li><span class="list-number">2.</span>For cohort-based program, students are required to attend at least 80% of synchronous sessions.</li>
-                                <li><span class="list-number">3.</span>Posting or sharing negative comments, posts, messages, photos and any inappropriate material in the LMS is strictly prohibited.</li>
-                                <li><span class="list-number">4.</span>Students are expected to uphold respectful communication in all learning environments. </li>
-                                <li><span class="list-number">5.</span>Honesty and integrity are essential components of the program. Scholastic dishonesty (cheating in any form) is subject to sanctions stipulated in the Student Code</li>
+                                <?php
+                                    for ($i = 0; $i < count($policy); $i++) {
+                                ?>
+                                <li><span class="list-number"><?= $i + 1 ?>.</span><?= e($policy[$i]) ?></li>
+                                <?php
+                                    }
+                                ?>
                             </ul>
                         </div>
                     </div><!-- End Overview Tab -->
@@ -103,22 +126,6 @@ setActiveLink('index.php#programs');
 
             <!-- Enrollment Card -->
             <div class="enrollment-card" data-aos="fade-up" data-aos-delay="200">
-
-                <div class="card-header">
-                    <div class="enrollment-count">
-                        <span>Tuition Fee:</span>
-                    </div>
-                    <div class="price-display">
-                        <span class="current-price">₱10,000.00</span>
-                    </div>
-                    <div class="enrollment-count">
-                        <span>Down Payment:</span>
-                    </div>
-                    <div class="price-display">
-                        <span class="current-price">₱5,000.00</span>
-                    </div>
-                </div>
-
                 <div class="card-body">
                     <div class="action-buttons">
                         <button class="btn-primary" onclick="SubmitForm()">Reserve Now</button>

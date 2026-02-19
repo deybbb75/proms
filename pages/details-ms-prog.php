@@ -1,8 +1,33 @@
 <?php
 include '../includes/init.php';
 include '../header.php';
+$db = DB::getInstance();
 
 setActiveLink('index.php#programs');
+
+$id = 1;
+$program = $db->queryUniqueObject('SELECT * FROM tbl_ms_prog WHERE mp_id = :mp_id', ['mp_id' => $id]);
+if ($program) {
+    $mp_id              = encrypt_data($program->mp_id);
+    $title              = e($program->title);
+    $description        = e($program->description);
+    $cert_image         = $program->cert_img;
+    $cert_image_data    = base64_encode($cert_image);
+    $cert_image_type    = $program->cert_img_type;
+    $cert_image_src     = "data:{$cert_image_type};base64,{$cert_image_data}";
+    $yt_link            = e($program->yt_link);
+    $query              = parse_url($yt_link, PHP_URL_QUERY);
+    parse_str($query, $params);
+    $vid_id                 = $params['v'] ?? null;
+    $certification      = json_decode($program->certification, true);
+    $associate_cert     = json_decode($program->associate_cert, true);
+    $expert_cert        = json_decode($program->expert_cert, true);
+    $status             = e($program->status);
+    $image              = $program->img;
+    $image_data         = base64_encode($image);
+    $image_type         = $program->img_type;
+    $image_src          = "data:{$image_type};base64,{$image_data}";
+}
 ?>
 
 <style>
@@ -43,9 +68,9 @@ setActiveLink('index.php#programs');
             <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
                 <div class="banner-content">
                 <div class="banner-image">
-                    <img src="../assets/img/tesda/1.jpg" alt="Course Preview" class="img-fluid">
+                    <img src="<?= $image_src ?? '' ?>" alt="Course Preview" class="img-fluid">
                 </div>
-                <h1>MICROSOFT OFFICE SPECIALIST PROGRAM</h1>
+                <h1><?= strtoupper($title) ?? '' ?></h1>
                 </div>
             </div><!-- End Course Banner -->
 
@@ -57,11 +82,10 @@ setActiveLink('index.php#programs');
                     <!-- Overview Tab -->
                     <div class="tab-pane fade show active" id="program-detailsoverview" role="tabpanel">
                         <div class="overview-section">
-                            <p>The Certificate in Culinary Arts program aims to provide the students with practical and theoretical knowledge about basic culinary, basic food preparation and food presentation. It also provides the opportunity to apply the theoretical knowledge into practice commonly found in an operational environment. </p>
-                            <p>The program covers mise en place, food preparation, storage of food products, food infection and intoxication, hygiene and cleanliness, methods and techniques of cooking, stocks, sauces and soups, eggs, vegetables and farinaceous products, poultry and meat butchery and cooking, product knowledge and occupational health and safety, weight measure as applied to cooking, unit and temperature conversion, proper knife usage skills, basic cutting and butchering, standard kitchen hand tools, operations of equipment in a commercial kitchen and culinary terminology.</p>
+                            <p style="white-space: pre-line;"><?= $description ?? '' ?></p>
                         </div>
 
-                        <img src="../assets/img/cert.jpg" alt="Course Preview" class="img-fluid mb-5">
+                        <img src="<?= $cert_image_src ?? '' ?>" alt="Cert Preview" class="img-fluid mb-5">
                         
                         <div class="details-section">
                             <h3>Learning materials for Microsoft Office Specialist certifications</h3>
@@ -70,7 +94,7 @@ setActiveLink('index.php#programs');
                             <p>Watch this brief video to see how learning products can work for you.</p>
 
                             <div class="video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/aWP5NkoVKUg" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/<?= $vid_id ?? '' ?>" allowfullscreen></iframe>
                             </div>
                         </div>
 
@@ -80,15 +104,23 @@ setActiveLink('index.php#programs');
                             <p>Microsoft 365 Apps combines familiar Microsoft Office apps with cloud connectivity, collaboration tools, and intelligent services. These 50-minute certifications use Certiport’s Live-in-the-Application (LITA) testing for real-world skill validation. They are continually updated to reflect the latest Microsoft 365 features and workforce needs.</p>
                             <br>
                             <h5 class="mb-4">Microsoft 365 Apps Certifications</h5>
-
-                            <h6>I. Microsoft Excel</h6>
+                            <?php
+                                for ($i = 0; $i < count($certification); $i++) {
+                            ?>
+                            <h6><?= intToRoman($i + 1) ?>. <?= e($certification[$i]['title']) ?? '' ?></h6>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i><b>Excel Associate</b></li>
-                                <p class="ms-5">Builds and validates foundational Microsoft Excel skills, including creating and formatting spreadsheets, using basic formulas and functions, and visualizing data with charts—ideal for individuals starting careers in business, data analytics, human resources, marketing, and other major industries.</p>
-
-                                <li><i class="bi bi-dash"></i><b>Excel Associate</b></li>
-                                <p class="ms-5">Builds and validates foundational Microsoft Excel skills, including creating and formatting spreadsheets, using basic formulas and functions, and visualizing data with charts—ideal for individuals starting careers in business, data analytics, human resources, marketing, and other major industries.</p>
+                                <?php
+                                    for ($j = 0; $j < count($certification[$i]['ctg']); $j++) {
+                                ?>
+                                <li><i class="bi bi-dash"></i><b><?= e($certification[$i]['ctg'][$j]['title']) ?? '' ?></b></li>
+                                <p class="ms-5" style="white-space: pre-line;"><?= e($certification[$i]['ctg'][$j]['desc']) ?? '' ?></p>
+                                <?php
+                                    }
+                                ?>
                             </ul>
+                            <?php
+                                }
+                            ?>
                         </div>
 
                         <div class="details-section">
@@ -99,20 +131,26 @@ setActiveLink('index.php#programs');
                             <p>Pass three of the following exams*:</p>
 
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>Microsoft Word (Microsoft 365 Apps)</li>
-                                <li><i class="bi bi-dash"></i>Microsoft Excel (Microsoft 365 Apps)</li>
-                                <li><i class="bi bi-dash"></i>Microsoft PowerPoint (Microsoft 365 Apps)</li>
-                                <li><i class="bi bi-dash"></i>Microsoft Outlook (Microsoft 365 Apps) - To be released</li>
+                                <?php
+                                foreach ($associate_cert as $item) {
+                                ?>
+                                <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                <?php
+                                }
+                                ?>
                             </ul>
                             <br>
                             <h5>Earn a Microsoft Office Specialist: Expert (Microsoft 365 Apps) certification</h5>
                             <p>Earn your Microsoft Office Specialist: Associate certification (outlined above) plus pass two of the following exams*: </p>
 
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>Microsoft Word (Microsoft 365 Apps)</li>
-                                <li><i class="bi bi-dash"></i>Microsoft Excel (Microsoft 365 Apps)</li>
-                                <li><i class="bi bi-dash"></i>Microsoft PowerPoint (Microsoft 365 Apps)</li>
-                                <li><i class="bi bi-dash"></i>Microsoft Outlook (Microsoft 365 Apps) - To be released</li>
+                                <?php
+                                foreach ($expert_cert as $item) {
+                                ?>
+                                <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                <?php
+                                }
+                                ?>
                             </ul>
 
                             <p style="font-style: italic;">*All exams must be in different programs and at least one exam must be a Microsoft 365 Apps exam.</p>

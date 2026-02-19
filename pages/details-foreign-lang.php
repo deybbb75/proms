@@ -1,8 +1,26 @@
 <?php
 include '../includes/init.php';
 include '../header.php';
+$db = DB::getInstance();
 
 setActiveLink('index.php#programs');
+
+$id = 1;
+$program = $db->queryUniqueObject('SELECT * FROM tbl_foreign_lang WHERE fl_id = :fl_id', ['fl_id' => $id]);
+if ($program) {
+    $fl_id          = encrypt_data($program->fl_id);
+    $title          = e($program->title);
+    $offering       = json_decode($program->offering, true);
+    $level          = json_decode($program->level, true);
+    $duration       = json_decode($program->duration, true);
+    $mode           = json_decode($program->mode, true);
+    $note           = json_decode($program->note, true);
+    $status         = e($program->status);
+    $image          = $program->img;
+    $image_data     = base64_encode($image);
+    $image_type     = $program->img_type;
+    $image_src      = "data:{$image_type};base64,{$image_data}";
+}
 ?>
 <main class="main">
 
@@ -25,9 +43,9 @@ setActiveLink('index.php#programs');
             <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
                 <div class="banner-content">
                 <div class="banner-image">
-                    <img src="../assets/img/tesda/1.jpg" alt="Course Preview" class="img-fluid">
+                    <img src="<?= $image_src ?? '' ?>" alt="Course Preview" class="img-fluid">
                 </div>
-                <h1>FOREIGN LANGUAGE PROGRAM</h1>
+                <h1><?= strtoupper($title) ?? '' ?></h1>
                 </div>
             </div><!-- End Course Banner -->
 
@@ -41,11 +59,13 @@ setActiveLink('index.php#programs');
                         <div class="details-section">
                             <h3>Program Offerings</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>Mandarin</li>
-                                <li><i class="bi bi-dash"></i>French</li>
-                                <li><i class="bi bi-dash"></i>Spanish</li>
-                                <li><i class="bi bi-dash"></i>Nihongo</li>
-                                <li><i class="bi bi-dash"></i>English Proficiency Program</li>
+                                <?php
+                                foreach ($offering as $item) {
+                                ?>
+                                <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                <?php
+                                }
+                                ?>
                             </ul>
 
                             <p style="font-style: italic;">*In coordination with the Center for Language and Applied Media</p>
@@ -54,36 +74,52 @@ setActiveLink('index.php#programs');
                         <div class="details-section">
                             <h3>Competency Levels</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>Basic</li>
-                                <li><i class="bi bi-dash"></i>Intermediate</li>
-                                <li><i class="bi bi-dash"></i>Advance</li>
+                                <?php
+                                foreach ($level as $item) {
+                                ?>
+                                <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                <?php
+                                }
+                                ?>
                             </ul>
                         </div>
 
                         <div class="details-section">
                             <h3>Program Duration</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>20 hours</li>
-                                <li><i class="bi bi-dash"></i>40 hours</li>
-                                <li><i class="bi bi-dash"></i>60 hours</li>
-                                <li><i class="bi bi-dash"></i>** or depending upon the needs of the client</li>
+                                <?php
+                                foreach ($duration as $item) {
+                                ?>
+                                <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                <?php
+                                }
+                                ?>
                             </ul>
                         </div>
 
                         <div class="details-section">
                             <h3>Mode of Study</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>Tutorial (one-on-one session)</li>
-                                <li><i class="bi bi-dash"></i>Pair</li>
-                                <li><i class="bi bi-dash"></i>Group</li>
+                                <?php
+                                foreach ($mode as $item) {
+                                ?>
+                                <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                <?php
+                                }
+                                ?>
                             </ul>
                         </div>
 
                         <div class="details-section">
                             <h3>Note</h3>
                             <ul class="details-list">
-                                <li><i class="bi bi-dash"></i>The tuition fees are based on the competency levels, Program duration, and Mode of study.</li>
-                                <li><i class="bi bi-dash"></i>The schedule is based upon the process of application, availability of the students, and the proctor/tutor.</li>
+                                <?php
+                                foreach ($note as $item) {
+                                ?>
+                                <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                <?php
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div><!-- End Overview Tab -->

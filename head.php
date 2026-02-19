@@ -35,13 +35,13 @@
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/plugins/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" />
 
     <!-- FullCalendar API -->
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar/index.global.min.js'></script>
+    <script src='<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/plugins/fullcalendar/index.global.min.js'></script>
 
     <!-- JQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/plugins/jquery/jquery-3.7.1.min.js"></script>
 
     <!-- EmailJS API -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript" src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/plugins/emailjs/browser@4/dist/email.min.js"></script>
 
     <script type="text/javascript">
         (function(){

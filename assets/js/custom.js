@@ -11,19 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuItems.forEach(item => {
         const link = item.querySelector('a');
-        console.log(menuLink);
         
         if (link) {
             if (menuLink) {
                 const parsed = new URL(link.getAttribute('href'));
                 const result = parsed.pathname + parsed.hash;
-
-                console.log(result);
                 
                 localStoragePath = result.includes(menuLink);
             }
-
-            console.log(localStoragePath);
             
             if (localStoragePath) {
                 link.classList.add('active');
