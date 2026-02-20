@@ -31,6 +31,12 @@
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/programs.css" rel="stylesheet">
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/auth.css" rel="stylesheet" type="text/css" />
 
+    <!-- Preloader CSS -->
+    <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/preloader.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/css/custom.css" rel="stylesheet">
+
     <!-- Sweetalert Css -->
     <link href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/plugins/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" />
 
@@ -53,6 +59,6 @@
 </head>
 
 <body>
-    <!-- <div class="preloader" id="main-preloader">
+    <div class="preloader" id="main-preloader">
         <span class="loader"></span>
-    </div> -->
+    </div>

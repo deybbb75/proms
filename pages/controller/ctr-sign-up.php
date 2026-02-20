@@ -65,7 +65,7 @@ if (isset($_POST['terms'])) {
             'mobile_no' => $_POST['mobile_no'],
             'birthday' => $_POST['birthday'],
             'fb_link' => $_POST['fb_link'],
-            'create_password' => $hash,
+            'password' => $hash,
             'status' => 'Active',
         );
         // Execute the insert operation

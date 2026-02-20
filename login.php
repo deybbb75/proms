@@ -20,7 +20,7 @@ include 'head.php';
                         <div class="card-body p-4">
                             
                             <div class="text-center w-75 m-auto login-header">
-                                <h2 class="text-dark-50 text-center pb-0 fw-bold">Access Account</h2>
+                                <h2 class="text-dark-50 text-center pb-0 fw-bold">Log In</h2>
                                 <p class="text-muted mb-4">Enter your email address and password</p>
                             </div>
 
@@ -42,8 +42,11 @@ include 'head.php';
                                     </div>
                                 </div>
 
-                                <div class="mt-4 text-center">
-                                    <button type="submit" class="btn btn-primary btn-login"> Log In </button>
+                                <div class="mt-5 text-center">
+                                    <button type="submit" class="btn btn-primary btn-login">
+                                        <i class="bi bi-box-arrow-in-right me-2"></i>
+                                        LOG IN
+                                    </button>
                                 </div>
 
                             </form>

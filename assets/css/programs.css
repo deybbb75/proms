@@ -12,7 +12,7 @@
   background: var(--surface-color);
   border-radius: 20px;
   height: 100%;
-  box-shadow: 0 5px 20px color-mix(in srgb, var(--default-color), transparent 92%);
+  box-shadow: 0 5px 20px color-mix(in srgb, var(--default-color), transparent 50%);
   flex: 0 0 calc(33.333% - 30px); /* max 3 per row */
   max-width: calc(33.333% - 30px);
   text-align: center;
@@ -27,7 +27,7 @@
 
 .programs .steps-item:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px color-mix(in srgb, var(--secondary-color), transparent 85%);
+  /* box-shadow: 0 15px 30px color-mix(in srgb, var(--secondary-color), transparent 50%); */
 }
 
 .programs .steps-item:hover .steps-number {
@@ -119,6 +119,7 @@
   transition: all 0.3s ease;
   margin-top: auto;
   width: 100%;
+  border: 0;
 }
 
 .programs .btn-course:hover {
@@ -356,7 +357,7 @@
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   margin-bottom: 30px;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
 }
@@ -451,7 +452,7 @@
 }
 
 .program-list .programs-grid .course-content h3 {
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 600;
   margin-bottom: 15px;
   color: var(--primary-color);
@@ -542,74 +543,6 @@
   transform: translateY(-2px);
 }
 
-.program-list .pagination-wrapper {
-  margin-top: 40px;
-}
-
-.program-list .pagination-wrapper .pagination .page-item {
-  margin: 0 3px;
-}
-
-.program-list .pagination-wrapper .pagination .page-item .page-link {
-  border: none;
-  background-color: var(--surface-color);
-  color: var(--default-color);
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.program-list .pagination-wrapper .pagination .page-item .page-link:hover {
-  background-color: var(--primary-color);
-  color: var(--contrast-color);
-}
-
-.program-list .pagination-wrapper .pagination .page-item.active .page-link {
-  background-color: var(--primary-color);
-  color: var(--contrast-color);
-}
-
-.program-list .pagination-wrapper .pagination .page-item.disabled .page-link {
-  background-color: color-mix(in srgb, var(--surface-color), transparent 50%);
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  cursor: not-allowed;
-}
-
-.program-list .pagination-wrapper .pagination .page-item.disabled .page-link:hover {
-  background-color: color-mix(in srgb, var(--surface-color), transparent 50%);
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-}
-
-.program-list .card-padding {
-  padding-bottom: 20px;
-}
-
-@media (max-width: 992px) {
-  .program-list .course-filters {
-    margin-bottom: 20px;
-  }
-
-  .program-list .programs-header {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 15px;
-  }
-
-  .program-list .programs-header .search-box {
-    max-width: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .program-list .programs-grid .course-card {
-    margin-bottom: 20px;
-  }
-
-  .program-list .course-filters {
-    padding: 20px;
-  }
-}
 /*--------------------------------------------------------------
 # Program Details Section
 --------------------------------------------------------------*/
@@ -1401,4 +1334,8 @@
   .program-details .enrollment-card {
     position: static;
   }
+}
+
+.prog_title{
+  align-content: center;
 }

@@ -25,3 +25,104 @@
 #3 C:\xampp\htdocs\proms\pages\controller\ctr-login.php(28): DB->executeInsert(Array, 'tbl_login_logs')
 #4 {main}
 
+[2026-02-20 08:49:26] SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(103): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(137): DB->__construct(Array, 'default')
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\index.php(5): DB::getInstance()
+#3 {main}
+
+[2026-02-20 08:49:30] SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(103): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(137): DB->__construct(Array, 'default')
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\index.php(5): DB::getInstance()
+#3 {main}
+
+[2026-02-20 08:50:06] SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(103): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(137): DB->__construct(Array, 'default')
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\index.php(5): DB::getInstance()
+#3 {main}
+
+[2026-02-20 08:52:27] SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(103): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(137): DB->__construct(Array, 'default')
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\index.php(5): DB::getInstance()
+#3 {main}
+
+[2026-02-20 08:52:41] SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(103): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(137): DB->__construct(Array, 'default')
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\index.php(5): DB::getInstance()
+#3 {main}
+
+[2026-02-20 09:01:02] SQLSTATE[HY000] [2006] MySQL server has gone away
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(103): PDO->__construct('mysql:host=loca...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(137): DB->__construct(Array, 'default')
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\index.php(5): DB::getInstance()
+#3 {main}
+
+[2026-02-20 10:38:11] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'proms.tbl_prog' doesn't exist
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('SELECT prog_nam...')
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(300): DB->query('SELECT prog_nam...', Array)
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\pages\program-list.php(25): DB->queryUniqueValue('SELECT prog_nam...', Array)
+#3 {main}
+
+[2026-02-20 10:39:27] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'proms.article' doesn't exist
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('SELECT * FROM a...')
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\pages\program-list.php(18): DB->query('SELECT * FROM a...')
+#2 {main}
+
+[2026-02-20 13:44:51] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'proms.tbl_short_termasd' doesn't exist
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('SELECT * FROM t...')
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\pages\fetch\fetch-program.php(16): DB->query('SELECT * FROM t...')
+#2 {main}
+
+[2026-02-20 13:45:27] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'proms.tbl_short_termasd' doesn't exist
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('SELECT * FROM t...')
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\pages\fetch\fetch-program.php(16): DB->query('SELECT * FROM t...')
+#2 {main}
+
+[2026-02-20 13:57:47] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sub_prog_id' in 'where clause'
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('SELECT * FROM t...')
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(308): DB->query('SELECT * FROM t...', Array)
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\pages\details-short-term.php(9): DB->queryUniqueObject('SELECT * FROM t...', Array)
+#3 {main}
+
+[2026-02-20 13:58:38] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sub_prog_id' in 'where clause'
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('SELECT * FROM t...')
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(308): DB->query('SELECT * FROM t...', Array)
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\pages\details-short-term.php(9): DB->queryUniqueObject('SELECT * FROM t...', Array)
+#3 {main}
+
+[2026-02-20 13:58:38] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sub_prog_id' in 'where clause'
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('SELECT * FROM t...')
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(308): DB->query('SELECT * FROM t...', Array)
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\pages\details-short-term.php(9): DB->queryUniqueObject('SELECT * FROM t...', Array)
+#3 {main}
+
+[2026-02-20 13:59:54] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sub_prog_id' in 'where clause'
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('SELECT * FROM t...')
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(308): DB->query('SELECT * FROM t...', Array)
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\pages\details-short-term.php(13): DB->queryUniqueObject('SELECT * FROM t...', Array)
+#3 {main}
+
+[2026-02-20 13:59:54] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sub_prog_id' in 'where clause'
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('SELECT * FROM t...')
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(308): DB->query('SELECT * FROM t...', Array)
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\pages\details-short-term.php(13): DB->queryUniqueObject('SELECT * FROM t...', Array)
+#3 {main}
+
+[2026-02-20 14:06:08] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'proms.tbl_asess_cert' doesn't exist
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('SELECT COUNT(*)...')
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(300): DB->query('SELECT COUNT(*)...', Array)
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(320): DB->queryUniqueValue('SELECT COUNT(*)...', Array)
+#3 C:\Users\Dave\Documents\xampp\htdocs\proms\pages\program-list.php(16): DB->countOf('tbl_asess_cert', 'status = "Activ...')
+#4 {main}
+
+[2026-02-20 14:06:09] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'proms.tbl_asess_cert' doesn't exist
+#0 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(241): PDO->prepare('SELECT COUNT(*)...')
+#1 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(300): DB->query('SELECT COUNT(*)...', Array)
+#2 C:\Users\Dave\Documents\xampp\htdocs\proms\model\pdo.class.php(320): DB->queryUniqueValue('SELECT COUNT(*)...', Array)
+#3 C:\Users\Dave\Documents\xampp\htdocs\proms\pages\program-list.php(16): DB->countOf('tbl_asess_cert', 'status = "Activ...')
+#4 {main}
+

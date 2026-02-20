@@ -5,11 +5,15 @@ $db = DB::getInstance();
 
 setActiveLink('index.php#programs');
 
-$id = 1;
-$program = $db->queryUniqueObject('SELECT * FROM tbl_short_term WHERE st_id = :st_id', ['st_id' => $id]);
+if(isset($_POST['sub_prog_id'])){
+    $_SESSION['proms']['short_term_id'] = decrypt_data($_POST['sub_prog_id']);
+}
+
+$id = $_SESSION['proms']['short_term_id'];
+$program = $db->queryUniqueObject('SELECT * FROM tbl_short_term WHERE sub_prog_id = :sub_prog_id', ['sub_prog_id' => $id]);
 if ($program) {
-    $st_id          = encrypt_data($program->st_id);
-    $prog_title     = e($program->prog_title);
+    $sub_prog_id          = encrypt_data($program->sub_prog_id);
+    $title     = e($program->title);
     $training_title = e($program->training_title);
     $description    = e($program->description);
     $venue          = e($program->venue);
@@ -20,6 +24,12 @@ if ($program) {
     $image_data     = base64_encode($image);
     $image_type     = $program->img_type;
     $image_src      = "data:{$image_type};base64,{$image_data}";
+}
+
+if(isset($_SESSION['proms']['student_id'])){
+    $redirect = 'SubmitForm()';
+}else{
+    $redirect = "loginRedirect('../login.php')";
 }
 ?>
 <main class="main">
@@ -45,7 +55,7 @@ if ($program) {
                 <div class="banner-image">
                     <img src="<?= $image_src ?? '' ?>" alt="Course Preview" class="img-fluid">
                 </div>
-                <h1><?= strtoupper($prog_title) ?? '' ?></h1>
+                <h1><?= strtoupper($title) ?? '' ?></h1>
                 </div>
             </div><!-- End Course Banner -->
 
@@ -117,7 +127,7 @@ if ($program) {
             <div class="enrollment-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="card-body">
                     <div class="action-buttons">
-                        <button class="btn-primary" onclick="SubmitForm()">Reserve Now</button>
+                        <button class="btn-primary" onclick="<?= $redirect ?>">Reserve Now</button>
                         <button class="btn-secondary" onclick="window.location='program-list.php'">Go Back</button>
                     </div>
                 </div>

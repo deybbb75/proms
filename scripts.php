@@ -30,9 +30,12 @@
 <!-- Custom JS File -->
 <script src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/js/custom.js"></script>
 
+<!-- Pagination JS -->
+<script src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/js/pagination.js"></script>
+
 <?php
     Alert::render();
-    unset($_SESSION['img_input']);
+    unset($_SESSION['proms']['img_input']);
 ?>
 
 </html>

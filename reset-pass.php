@@ -87,7 +87,10 @@ if (!$token) {
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <button class="btn btn-primary btn-login" type="submit"> Reset </button>
+                                    <button class="btn btn-primary btn-login" type="submit">
+                                        <i class="bi bi-arrow-clockwise me-2"></i>
+                                        RESET
+                                    </button>
                                 </div>
 
                             </form>

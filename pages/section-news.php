@@ -9,88 +9,64 @@
 
     <div class="container">
 
-    <div class="row gy-5">
+        <div class="row gy-5">
+            <?php
+                $news_query = $db->query('SELECT * FROM tbl_news WHERE status = "Active" ORDER BY news_id DESC LIMIT 3');
+                $counter = 1;
+                while ($line = $db->fetchNextObject($news_query)) {
+                    $image          = $line->img;
+                    $image_data     = base64_encode($image);
+                    $image_type     = $line->img_type;
+                    $image_src      = "data:{$image_type};base64,{$image_data}";
+            ?>
+            <div class="col-xl-4 col-md-6">
+                <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="<?= $counter ?>00">
 
-        <div class="col-xl-4 col-md-6">
-        <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="post-img position-relative overflow-hidden">
+                        <img src="<?= $image_src ?? '' ?>" class="img-fluid" alt="">
+                    </div>
 
-            <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-post-1.webp" class="img-fluid" alt="">
-                <span class="post-date">December 12</span>
-            </div>
+                    <div class="post-content d-flex flex-column">
 
-            <div class="post-content d-flex flex-column">
+                    <h3 class="post-title news_title"><?= e($line->news_title) ?></h3>
 
-            <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
+                    <div class="meta d-flex align-items-center">
+                        <p style="white-space: pre-line;"><?= e(truncateText($line->news_content, 200)) ?></p>
+                    </div>
 
-            <div class="meta d-flex align-items-center">
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-            </div>
+                    <hr>
 
-            <hr>
+                    <a onclick="submitNews('<?= encrypt_data($line->news_id) ?>')" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
 
-            <a href="pages/news.php" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                    </div>
 
-            </div>
-
+                </div>
+            </div><!-- End post item -->
+            <?php
+                    $counter++;
+                }
+            ?>
         </div>
-        </div><!-- End post item -->
 
-        <div class="col-xl-4 col-md-6">
-        <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-post-2.webp" class="img-fluid" alt="">
-                <span class="post-date">July 17</span>
-            </div>
-
-            <div class="post-content d-flex flex-column">
-
-            <h3 class="post-title">Et repellendus molestiae qui est sed omnis</h3>
-
-            <div class="meta d-flex align-items-center">
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-            </div>
-
-            <hr>
-
-            <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-
-            </div>
-
+        <div class="more-news text-center" data-aos="fade-up" data-aos-delay="100">
+            <a href="pages/news-list.php" class="btn-more">View More News</a>
         </div>
-        </div><!-- End post item -->
-
-        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="post-item position-relative h-100">
-
-            <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-post-3.webp" class="img-fluid" alt="">
-                <span class="post-date">September 05</span>
-            </div>
-
-            <div class="post-content d-flex flex-column">
-
-            <h3 class="post-title">Quia assumenda est et veritati tirana ploder</h3>
-
-            <div class="meta d-flex align-items-center">
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam</p>
-            </div>
-
-            <hr>
-
-            <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-
-            </div>
-
-        </div>
-        </div><!-- End post item -->
-
-    </div>
-    <div class="more-news text-center" data-aos="fade-up" data-aos-delay="500">
-        <a href="pages/news-list.php" class="btn-more">View More News</a>
-    </div>
 
     </div>
 
 </section><!-- /News Section -->
+
+<script>
+    function submitNews(news_id){
+        $.ajax({
+            type: "post",
+            data: {
+                news_id: news_id,
+            },
+            url: 'pages/news.php',
+            success: function (data) {
+                window.location = "pages/news.php";
+            },
+        });
+    }
+</script>

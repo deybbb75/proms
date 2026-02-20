@@ -32,7 +32,10 @@ include 'head.php';
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <button class="btn btn-primary btn-login" type="submit"> Done </button>
+                                    <button class="btn btn-primary btn-login" type="submit">
+                                        <i class="bi bi-check-circle me-2"></i>
+                                        DONE
+                                    </button>
                                 </div>
 
                             </form>

@@ -5,10 +5,14 @@ $db = DB::getInstance();
 
 setActiveLink('index.php#programs');
 
-$id = 1;
-$program = $db->queryUniqueObject('SELECT * FROM tbl_foreign_lang WHERE fl_id = :fl_id', ['fl_id' => $id]);
+if(isset($_POST['sub_prog_id'])){
+    $_SESSION['proms']['foreign_lang_id'] = decrypt_data($_POST['sub_prog_id']);
+}
+
+$id = $_SESSION['proms']['foreign_lang_id'];
+$program = $db->queryUniqueObject('SELECT * FROM tbl_foreign_lang WHERE sub_prog_id = :sub_prog_id', ['sub_prog_id' => $id]);
 if ($program) {
-    $fl_id          = encrypt_data($program->fl_id);
+    $sub_prog_id          = encrypt_data($program->sub_prog_id);
     $title          = e($program->title);
     $offering       = json_decode($program->offering, true);
     $level          = json_decode($program->level, true);
@@ -20,6 +24,12 @@ if ($program) {
     $image_data     = base64_encode($image);
     $image_type     = $program->img_type;
     $image_src      = "data:{$image_type};base64,{$image_data}";
+}
+
+if(isset($_SESSION['proms']['student_id'])){
+    $redirect = 'SubmitForm()';
+}else{
+    $redirect = "loginRedirect('../login.php')";
 }
 ?>
 <main class="main">
@@ -135,7 +145,7 @@ if ($program) {
             <div class="enrollment-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="card-body">
                     <div class="action-buttons">
-                        <button class="btn-primary" onclick="SubmitForm()">Reserve Now</button>
+                        <button class="btn-primary" onclick="<?= $redirect ?>">Reserve Now</button>
                         <button class="btn-secondary" onclick="window.location='program-list.php'">Go Back</button>
                     </div>
                 </div>

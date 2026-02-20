@@ -35,13 +35,14 @@
         <div class="team-grid">
             <?php
                 $member_query = $db->query('SELECT * FROM tbl_member WHERE status = "Active" AND member_id != 1');
+                $counter = 1;
                 while ($line = $db->fetchNextObject($member_query)) {
                     $image          = $line->img;
                     $image_data     = base64_encode($image);
                     $image_type     = $line->img_type;
                     $image_src      = "data:{$image_type};base64,{$image_data}";
             ?>
-            <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member" data-aos="fade-up" data-aos-delay="<?= $counter ?>00">
                 <div class="member-img">
                     <img src="<?= $image_src ?? '' ?>" class="img-fluid" loading="lazy">
                 </div>
@@ -51,6 +52,7 @@
                 </div>
             </div><!-- End Team Member -->
             <?php
+                    $counter++;
                 }
             ?>
         </div>

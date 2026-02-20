@@ -9,7 +9,7 @@
 // Report all errors
 // error_reporting(E_ALL);
 
-session_name('PromsSession');
+session_name('PromsUserSession');
 session_set_cookie_params(0, '/proms/', $_SERVER['HTTP_HOST'], isset($_SERVER['HTTPS']), true);
 session_start();
 

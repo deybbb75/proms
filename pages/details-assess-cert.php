@@ -5,10 +5,14 @@ $db = DB::getInstance();
 
 setActiveLink('index.php#programs');
 
-$id = 1;
-$program = $db->queryUniqueObject('SELECT * FROM tbl_assess_cert WHERE ac_id = :ac_id', ['ac_id' => $id]);
+if(isset($_POST['sub_prog_id'])){
+    $_SESSION['proms']['assess_cert_id'] = decrypt_data($_POST['sub_prog_id']);
+}
+
+$id = $_SESSION['proms']['assess_cert_id'];
+$program = $db->queryUniqueObject('SELECT * FROM tbl_assess_cert WHERE sub_prog_id = :sub_prog_id', ['sub_prog_id' => $id]);
 if ($program) {
-    $ac_id          = encrypt_data($program->ac_id);
+    $sub_prog_id    = encrypt_data($program->sub_prog_id);
     $title          = e($program->title);
     $description    = e($program->description);
     $main_fee       = e(number_format($program->main_fee, 2, '.', ','));
@@ -19,6 +23,12 @@ if ($program) {
     $image_data     = base64_encode($image);
     $image_type     = $program->img_type;
     $image_src      = "data:{$image_type};base64,{$image_data}";
+}
+
+if(isset($_SESSION['proms']['student_id'])){
+    $redirect = 'SubmitForm()';
+}else{
+    $redirect = "loginRedirect('../login.php')";
 }
 ?>
 
@@ -32,11 +42,11 @@ if ($program) {
 }
 
 .fc-day-today {
-  background: none !important;
+  background-color: none !important;
 }
 
 .fc-day-disabled-custom {
-  background-color: #f9fafb;
+  background-color: #e2e2e2 !important;
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none; /* THIS makes it unclickable */
@@ -172,7 +182,7 @@ if ($program) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="save_changes" onclick="SubmitForm()">Submit</button>
+                        <button type="button" class="btn btn-primary" id="save_changes" onclick="<?= $redirect ?>">Submit</button>
                     </div>
                     <input type="hidden" id="delete_id" value="">
                 </form>

@@ -5,10 +5,14 @@ $db = DB::getInstance();
 
 setActiveLink('index.php#programs');
 
-$id = 1;
-$program = $db->queryUniqueObject('SELECT * FROM tbl_ms_prog WHERE mp_id = :mp_id', ['mp_id' => $id]);
+if(isset($_POST['sub_prog_id'])){
+    $_SESSION['proms']['ms_prog_id'] = decrypt_data($_POST['sub_prog_id']);
+}
+
+$id = $_SESSION['proms']['ms_prog_id'];
+$program = $db->queryUniqueObject('SELECT * FROM tbl_ms_prog WHERE sub_prog_id = :sub_prog_id', ['sub_prog_id' => $id]);
 if ($program) {
-    $mp_id              = encrypt_data($program->mp_id);
+    $sub_prog_id              = encrypt_data($program->sub_prog_id);
     $title              = e($program->title);
     $description        = e($program->description);
     $cert_image         = $program->cert_img;
@@ -27,6 +31,12 @@ if ($program) {
     $image_data         = base64_encode($image);
     $image_type         = $program->img_type;
     $image_src          = "data:{$image_type};base64,{$image_data}";
+}
+
+if(isset($_SESSION['proms']['student_id'])){
+    $redirect = 'SubmitForm()';
+}else{
+    $redirect = "loginRedirect('../login.php')";
 }
 ?>
 
@@ -168,7 +178,7 @@ if ($program) {
             <div class="enrollment-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="card-body">
                     <div class="action-buttons">
-                        <button class="btn-primary" onclick="SubmitForm()">Reserve Now</button>
+                        <button class="btn-primary" onclick="<?= $redirect ?>">Reserve Now</button>
                         <button class="btn-secondary" onclick="window.location='program-list.php'">Go Back</button>
                     </div>
                 </div>
