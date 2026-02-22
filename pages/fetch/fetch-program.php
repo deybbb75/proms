@@ -40,7 +40,7 @@ while ($line = $db->fetchNextObject($program_query)) {
     <div class="course-content">
         <h3 class="prog_title"><?= e($line->title) ?></h3>
         <div class="button-section">
-            <a onclick="submitSubProgram('<?= encrypt_data($line->sub_prog_id) ?>')" class="btn-course">View Details</a>
+            <button onclick="submitSubProgram('<?= encrypt_data($line->sub_prog_id) ?>')" class="btn-course">View Details</button>
         </div>
     </div>
     </div><!-- End Course Card -->

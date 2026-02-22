@@ -20,6 +20,7 @@ function validateForm() {
             fields: [
                 "fname",
                 "lname",
+                "name"
             ],
             rules: { required: true, noWhitespace: true, namePattern: true }
         },
@@ -59,7 +60,7 @@ function validateForm() {
             rules: { required: true, digits: true }
         },
         {
-            fields: [],
+            fields: ["subject", "message"],
             rules: { required: true, noWhitespace: true, descPattern: true }
         },
         {
@@ -208,8 +209,8 @@ function validateForm() {
     }, "Please enter a credit card in the format XXXX-XXXX-XXXX-XXXX.");
 
     $.validator.addMethod("namePattern", function (value, element) {
-        return this.optional(element) || /^[a-zA-Z\s.\-]+$/.test(value);
-    }, "Please enter a valid name (letters, spaces, period, and dash only).");
+        return this.optional(element) || /^[a-zA-ZÑñ\s.\-]+$/.test(value);
+    }, "Please enter a valid name (letters, spaces, Ñ/ñ, period, and dash only).");
 
     $.validator.addMethod("letters", function (value, element) {
         return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);

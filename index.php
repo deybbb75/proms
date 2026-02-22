@@ -19,3 +19,15 @@ include 'pages/section-contact.php';
 <?php
 include 'footer.php';
 ?>
+
+<script>
+<?php
+    if(isset($_SESSION['proms']['swal_object'])) {
+?>
+    let swalObject = <?= json_encode($_SESSION['proms']['swal_object']); ?>;
+    Swal.fire(swalObject);
+<?php
+    unset($_SESSION['proms']['swal_object']);
+    }
+?>
+</script>

@@ -48,14 +48,6 @@
 
     <!-- EmailJS API -->
     <script type="text/javascript" src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/plugins/emailjs/browser@4/dist/email.min.js"></script>
-
-    <script type="text/javascript">
-        (function(){
-            emailjs.init({
-                publicKey: "pr94tQJGbGM6rvPgo",
-            });
-        })();
-    </script>
 </head>
 
 <body>

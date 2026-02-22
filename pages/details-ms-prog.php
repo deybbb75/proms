@@ -9,6 +9,10 @@ if(isset($_POST['sub_prog_id'])){
     $_SESSION['proms']['ms_prog_id'] = decrypt_data($_POST['sub_prog_id']);
 }
 
+if(!isset($_SESSION['proms']['ms_prog_id'])){
+    safe_redirect('../program-list.php');
+}
+
 $id = $_SESSION['proms']['ms_prog_id'];
 $program = $db->queryUniqueObject('SELECT * FROM tbl_ms_prog WHERE sub_prog_id = :sub_prog_id', ['sub_prog_id' => $id]);
 if ($program) {
@@ -37,6 +41,30 @@ if(isset($_SESSION['proms']['student_id'])){
     $redirect = 'SubmitForm()';
 }else{
     $redirect = "loginRedirect('../login.php')";
+}
+
+$has_reservation = $db->hasDuplicate(
+    'SELECT student_id, prog_id, sub_prog_id 
+    FROM tbl_reservation 
+    WHERE student_id = :student_id 
+    AND ay_id = :ay_id 
+    AND prog_id = :prog_id 
+    AND sub_prog_id = :sub_prog_id 
+    AND status = "Pending" ', 
+    [
+        'student_id'        => $_SESSION['proms']['student_id'] ?? 0, 
+        'ay_id'             => $_SESSION['proms']['ay_id'],
+        'prog_id'           => $_SESSION['proms']['prog_id'], 
+        'sub_prog_id'       => $id,
+    ]
+);
+
+if($has_reservation){
+    $button_status = "disabled";
+    $button_name = "Existing Reservation";
+}else{
+    $button_status = "";
+    $button_name = "Reserve Now";
 }
 ?>
 
@@ -71,123 +99,123 @@ if(isset($_SESSION['proms']['student_id'])){
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row">
-            <div class="col-lg-8">
+            <div class="row">
+                <div class="col-lg-8">
 
-            <!-- Course Banner -->
-            <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
-                <div class="banner-content">
-                <div class="banner-image">
-                    <img src="<?= $image_src ?? '' ?>" alt="Course Preview" class="img-fluid">
-                </div>
-                <h1><?= strtoupper($title) ?? '' ?></h1>
-                </div>
-            </div><!-- End Course Banner -->
+                <!-- Course Banner -->
+                <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
+                    <div class="banner-content">
+                    <div class="banner-image">
+                        <img src="<?= $image_src ?? '' ?>" alt="Course Preview" class="img-fluid">
+                    </div>
+                    <h1><?= strtoupper($title) ?? '' ?></h1>
+                    </div>
+                </div><!-- End Course Banner -->
 
-            <!-- Course Navigation Tabs -->
-            <div class="course-nav-tabs" data-aos="fade-up" data-aos-delay="300">
+                <!-- Course Navigation Tabs -->
+                <div class="course-nav-tabs" data-aos="fade-up" data-aos-delay="300">
 
-                <div class="tab-content" id="program-detailsCourseTabContent">
+                    <div class="tab-content" id="program-detailsCourseTabContent">
 
-                    <!-- Overview Tab -->
-                    <div class="tab-pane fade show active" id="program-detailsoverview" role="tabpanel">
-                        <div class="overview-section">
-                            <p style="white-space: pre-line;"><?= $description ?? '' ?></p>
-                        </div>
-
-                        <img src="<?= $cert_image_src ?? '' ?>" alt="Cert Preview" class="img-fluid mb-5">
-                        
-                        <div class="details-section">
-                            <h3>Learning materials for Microsoft Office Specialist certifications</h3>
-                            <h5>The pathway to certification success</h5>
-                            <p>Preparing your students for certification is a big responsibility, so let Certiport make your job easier and more effective with specially selected course materials and practice tests.</p>
-                            <p>Watch this brief video to see how learning products can work for you.</p>
-
-                            <div class="video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/<?= $vid_id ?? '' ?>" allowfullscreen></iframe>
+                        <!-- Overview Tab -->
+                        <div class="tab-pane fade show active" id="program-detailsoverview" role="tabpanel">
+                            <div class="overview-section">
+                                <p style="white-space: pre-line;"><?= $description ?? '' ?></p>
                             </div>
-                        </div>
 
-                        <div class="details-section">
-                            <h3>Certify in Microsoft Office</h3>
-                            <h5>Microsoft 365 Apps</h5>
-                            <p>Microsoft 365 Apps combines familiar Microsoft Office apps with cloud connectivity, collaboration tools, and intelligent services. These 50-minute certifications use Certiport’s Live-in-the-Application (LITA) testing for real-world skill validation. They are continually updated to reflect the latest Microsoft 365 features and workforce needs.</p>
-                            <br>
-                            <h5 class="mb-4">Microsoft 365 Apps Certifications</h5>
-                            <?php
-                                for ($i = 0; $i < count($certification); $i++) {
-                            ?>
-                            <h6><?= intToRoman($i + 1) ?>. <?= e($certification[$i]['title']) ?? '' ?></h6>
-                            <ul class="details-list">
+                            <img src="<?= $cert_image_src ?? '' ?>" alt="Cert Preview" class="img-fluid mb-5">
+                            
+                            <div class="details-section">
+                                <h3>Learning materials for Microsoft Office Specialist certifications</h3>
+                                <h5>The pathway to certification success</h5>
+                                <p>Preparing your students for certification is a big responsibility, so let Certiport make your job easier and more effective with specially selected course materials and practice tests.</p>
+                                <p>Watch this brief video to see how learning products can work for you.</p>
+
+                                <div class="video-wrapper">
+                                    <iframe src="https://www.youtube.com/embed/<?= $vid_id ?? '' ?>" allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                            <div class="details-section">
+                                <h3>Certify in Microsoft Office</h3>
+                                <h5>Microsoft 365 Apps</h5>
+                                <p>Microsoft 365 Apps combines familiar Microsoft Office apps with cloud connectivity, collaboration tools, and intelligent services. These 50-minute certifications use Certiport’s Live-in-the-Application (LITA) testing for real-world skill validation. They are continually updated to reflect the latest Microsoft 365 features and workforce needs.</p>
+                                <br>
+                                <h5 class="mb-4">Microsoft 365 Apps Certifications</h5>
                                 <?php
-                                    for ($j = 0; $j < count($certification[$i]['ctg']); $j++) {
+                                    for ($i = 0; $i < count($certification); $i++) {
                                 ?>
-                                <li><i class="bi bi-dash"></i><b><?= e($certification[$i]['ctg'][$j]['title']) ?? '' ?></b></li>
-                                <p class="ms-5" style="white-space: pre-line;"><?= e($certification[$i]['ctg'][$j]['desc']) ?? '' ?></p>
+                                <h6><?= intToRoman($i + 1) ?>. <?= e($certification[$i]['title']) ?? '' ?></h6>
+                                <ul class="details-list">
+                                    <?php
+                                        for ($j = 0; $j < count($certification[$i]['ctg']); $j++) {
+                                    ?>
+                                    <li><i class="bi bi-dash"></i><b><?= e($certification[$i]['ctg'][$j]['title']) ?? '' ?></b></li>
+                                    <p class="ms-5" style="white-space: pre-line;"><?= e($certification[$i]['ctg'][$j]['desc']) ?? '' ?></p>
+                                    <?php
+                                        }
+                                    ?>
+                                </ul>
                                 <?php
                                     }
                                 ?>
-                            </ul>
-                            <?php
-                                }
-                            ?>
-                        </div>
+                            </div>
 
-                        <div class="details-section">
-                            <h3>Advance with Stackable Certifications</h3>
-                            <p>Maximize your Microsoft Office proficiency with MOS Associate or Expert certifications, showcasing advanced skills through stacked credentials.</p>
-                            <br>
-                            <h5>Earn a Microsoft Office Specialist: Associate (Microsoft 365 Apps) certification</h5>
-                            <p>Pass three of the following exams*:</p>
+                            <div class="details-section">
+                                <h3>Advance with Stackable Certifications</h3>
+                                <p>Maximize your Microsoft Office proficiency with MOS Associate or Expert certifications, showcasing advanced skills through stacked credentials.</p>
+                                <br>
+                                <h5>Earn a Microsoft Office Specialist: Associate (Microsoft 365 Apps) certification</h5>
+                                <p>Pass three of the following exams*:</p>
 
-                            <ul class="details-list">
-                                <?php
-                                foreach ($associate_cert as $item) {
-                                ?>
-                                <li><i class="bi bi-dash"></i><?= e($item) ?></li>
-                                <?php
-                                }
-                                ?>
-                            </ul>
-                            <br>
-                            <h5>Earn a Microsoft Office Specialist: Expert (Microsoft 365 Apps) certification</h5>
-                            <p>Earn your Microsoft Office Specialist: Associate certification (outlined above) plus pass two of the following exams*: </p>
+                                <ul class="details-list">
+                                    <?php
+                                    foreach ($associate_cert as $item) {
+                                    ?>
+                                    <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                    <?php
+                                    }
+                                    ?>
+                                </ul>
+                                <br>
+                                <h5>Earn a Microsoft Office Specialist: Expert (Microsoft 365 Apps) certification</h5>
+                                <p>Earn your Microsoft Office Specialist: Associate certification (outlined above) plus pass two of the following exams*: </p>
 
-                            <ul class="details-list">
-                                <?php
-                                foreach ($expert_cert as $item) {
-                                ?>
-                                <li><i class="bi bi-dash"></i><?= e($item) ?></li>
-                                <?php
-                                }
-                                ?>
-                            </ul>
+                                <ul class="details-list">
+                                    <?php
+                                    foreach ($expert_cert as $item) {
+                                    ?>
+                                    <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                    <?php
+                                    }
+                                    ?>
+                                </ul>
 
-                            <p style="font-style: italic;">*All exams must be in different programs and at least one exam must be a Microsoft 365 Apps exam.</p>
-                        </div>
-                    </div><!-- End Overview Tab -->
+                                <p style="font-style: italic;">*All exams must be in different programs and at least one exam must be a Microsoft 365 Apps exam.</p>
+                            </div>
+                        </div><!-- End Overview Tab -->
 
-                </div>
-            </div><!-- End Course Navigation Tabs -->
-
-            </div>
-
-            <div class="col-lg-4">
-
-            <!-- Enrollment Card -->
-            <div class="enrollment-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="card-body">
-                    <div class="action-buttons">
-                        <button class="btn-primary" onclick="<?= $redirect ?>">Reserve Now</button>
-                        <button class="btn-secondary" onclick="window.location='program-list.php'">Go Back</button>
                     </div>
+                </div><!-- End Course Navigation Tabs -->
+
                 </div>
 
-            </div><!-- End Enrollment Card -->
+                <div class="col-lg-4">
+
+                    <!-- Enrollment Card -->
+                    <div class="enrollment-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-body">
+                            <div class="action-buttons">
+                                <button class="btn-primary" onclick="<?= $redirect ?>" <?= $button_status ?>><?= $button_name ?></button>
+                                <button class="btn-secondary" onclick="window.location='program-list.php'">Go Back</button>
+                            </div>
+                        </div>
+
+                    </div><!-- End Enrollment Card -->
+
+                </div>
 
             </div>
-
-        </div>
 
         </div>
 
@@ -205,12 +233,36 @@ function SubmitForm(){
         cancelButtonText: 'Cancel'
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire({
-                title: 'Successfully Reserved!',
-                text: 'Kindly proceed to the CTEL office for more information.',
-                icon: 'success'
-            }).then(() => {
-                window.location.href = '../index.php';
+            $.ajax({
+                type: "POST",
+                url: "controller/ctr-reserve.php",
+                data: {
+                    sub_prog_id: '<?= encrypt_data($id) ?>',
+                }
+            }).done(function(data) {
+                Swal.fire({
+                    allowOutsideClick: false,
+                    padding: '5em 0em',
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
+                var params = {
+                    name: '<?= $_SESSION['proms']['fullname'] ?>',
+                    email: '<?= $_SESSION['proms']['email'] ?>',
+                    program: '<?= $title ?? '' ?>',
+                };
+
+                emailjs.send("service_8au48ns", "template_duzsgyg", params)
+                .then(function(response) {
+                    console.log("Success:", response);
+                    window.location.href = "../index.php";
+                }, function(error) {
+                    console.error("Error:", error);
+                });
+            }).fail(function(error) {
+                console.error("Failed to fetch data", error);
             });
         }
     });

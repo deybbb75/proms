@@ -510,6 +510,10 @@
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
+.program-list .programs-grid .course-content .button-section button{
+  border: 0;
+}
+
 .program-list .programs-grid .course-content .button-section .instructor-avatar {
   width: 35px;
   height: 35px;
@@ -1185,6 +1189,18 @@
   font-weight: 600;
   margin-bottom: 12px;
   transition: all 0.3s;
+}
+
+.program-details .enrollment-card .card-body .action-buttons .btn-primary:disabled {
+  background: #ccc; /* light gray */
+  color: #666;            /* darker gray text */
+  cursor: not-allowed;    /* show “not allowed” cursor */
+  opacity: 0.6;           /* slightly faded */
+}
+
+.program-details .enrollment-card .card-body .action-buttons .btn-primary:disabled:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 .program-details .enrollment-card .card-body .action-buttons .btn-primary:hover {

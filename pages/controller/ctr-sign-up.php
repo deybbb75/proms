@@ -34,8 +34,8 @@ if (isset($_POST['terms'])) {
         ]);
         if ($message) {
             Alert::error(array(
-                'title' => 'Duplicate Entry',
-                'html'  => $message,
+                'title' => 'Error!',
+                'html'  => 'Duplicate account detected.',
                 'path'  => $redirect_path
             ));
         }

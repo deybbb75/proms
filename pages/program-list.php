@@ -7,6 +7,13 @@ setActiveLink('index.php#programs');
 
 if(isset($_POST['prog_id'])){
     $_SESSION['proms']['prog_id'] = decrypt_data($_POST['prog_id']);
+}else if(isset($_GET['prog_id'])){
+    $_SESSION['proms']['prog_id'] = decrypt_data($_GET['prog_id']);
+    safe_redirect('program-list.php');
+}
+
+if(!isset($_SESSION['proms']['prog_id'])){
+    safe_redirect('../index.php');
 }
 
 $page_size = 9;

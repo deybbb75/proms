@@ -1,9 +1,12 @@
 <?php
 include 'head.php';
+$db = DB::getInstance();
 
 if (strpos($_SERVER['REQUEST_URI'], 'index.php') !== false) {
 $page_type = 'index-page';
 }
+
+$_SESSION['proms']['ay_id'] = $db->queryUniqueValue('SELECT ay_id FROM tbl_academic_year WHERE status = "Active"');
 ?>
 <header id="header" class="header d-flex align-items-center fixed-top <?php echo isset($page_type) ? $page_type : ''; ?>">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
@@ -56,3 +59,11 @@ $page_type = 'index-page';
 
     </div>
 </header>
+
+<script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "Cx0RcBfIfvAxqiLan",
+        });
+    })();
+</script> 

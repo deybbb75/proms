@@ -100,6 +100,8 @@ h6 {
     color: #fff;
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    --bs-btn-active-bg: var(--primary-border-color);
+    --bs-btn-active-border-color: var(--primary-active-border-color);
 }
 
 .btn-primary:hover {
@@ -2249,11 +2251,11 @@ section,
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-.contact .php-email-form input[type=text]:focus,
+/* .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
 .contact .php-email-form textarea:focus {
-  border-color: var(--secondary-color);
-}
+  border-color: var(--info-color);
+} */
 
 .contact .php-email-form input[type=text]::placeholder,
 .contact .php-email-form input[type=email]::placeholder,
@@ -2272,6 +2274,14 @@ section,
 
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--primary-color), transparent 25%);
+}
+
+.contact .form-control.is-invalid{
+  border-color: var(--primary-color) !important;
+}
+
+.contact .form-control.is-valid{
+  border-color: var(--success-color) !important;
 }
 
 /*--------------------------------------------------------------

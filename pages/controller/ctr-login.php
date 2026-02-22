@@ -10,7 +10,7 @@ $enteredPassword = $_POST['password'];
 try {
     $student = $db->queryUniqueObject("SELECT * FROM tbl_student WHERE email = :email", ['email' => $email]);
     if ($student) {
-        $_SESSION['proms']['student_id']   = $student->student_id;
+        $_SESSION['proms']['student_id']    = $student->student_id;
         $_SESSION['proms']['fullname']      = $student->fname . ' ' . $student->mname . ' ' . $student->lname;
         $_SESSION['proms']['email']         = $student->email;
         $_SESSION['proms']['mobile_no']     = $student->mobile_no;

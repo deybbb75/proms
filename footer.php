@@ -2,7 +2,7 @@
         <div class="container footer-top">
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
-            <a href="index.html" class="d-flex align-items-center">
+            <a href="$GLOBALS['INF_CONFIG']['sitehost'] ?>/index.php" class="d-flex align-items-center">
                 <span class="sitename">Center for Technical Education and Lifelong Learning (CTEL)</span>
             </a>
             <div class="footer-contact pt-3">
@@ -18,6 +18,7 @@
             <ul>
                 <li><i class="bi bi-chevron-right"></i> <a href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/index.php#banner">Home</a></li>
                 <li><i class="bi bi-chevron-right"></i> <a href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/index.php#about">About us</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/index.php#team">Our Team</a></li>
                 <li><i class="bi bi-chevron-right"></i> <a href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/index.php#programs">Programs</a></li>
                 <li><i class="bi bi-chevron-right"></i> <a href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/index.php#news">News & Events</a></li>
             </ul>
@@ -26,12 +27,14 @@
             <div class="col-lg-3 col-md-3 footer-links">
             <h4>Our Programs</h4>
             <ul>
-                <li><i class="bi bi-chevron-right"></i> <a href="pages/program-list.php">Assessment and Certification</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="pages/program-list.php">Foreign Language Program</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="pages/program-list.php">Certificate Programs</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="pages/program-list.php">Short-Term Programs/Courses</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="pages/program-list.php">Microcredentials Programs</a></li>
-                <li><i class="bi bi-chevron-right"></i> <a href="pages/program-list.php">Microsoft Office Specialist</a></li>
+                <?php
+                    $program_query = $db->query("SELECT * FROM tbl_program WHERE status = 'Active'");
+                    while ($line = $db->fetchNextObject($program_query)) {
+                ?>
+                <li><i class="bi bi-chevron-right"></i> <a href="pages/program-list.php?prog_id=<?= encrypt_data($line->prog_id) ?>"><?= e($line->prog_name) ?></a></li>
+                <?php
+                    }
+                ?>
             </ul>
             </div>
 

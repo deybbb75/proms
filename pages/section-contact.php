@@ -12,70 +12,65 @@
     <div class="row gy-4">
 
         <div class="col-lg-5">
+            <div class="info-wrap">
+                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                    <h3>Address</h3>
+                    <p>Rm. 105 SHL Bldg. LPU-Batangas Main Campus, Kumintang Ibaba, Batangas City, 4200</p>
+                </div>
+                </div><!-- End Info Item -->
 
-        <div class="info-wrap">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <i class="bi bi-geo-alt flex-shrink-0"></i>
-            <div>
-                <h3>Address</h3>
-                <p>Rm. 105 SHL Bldg. LPU-Batangas Main Campus, Kumintang Ibaba, Batangas City, 4200</p>
+                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-telephone flex-shrink-0"></i>
+                <div>
+                    <h3>Call Us</h3>
+                    <p>+63 945 319 0678 / +63 918 640 0837</p>
+                </div>
+                </div><!-- End Info Item -->
+
+                <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                    <h3>Email Us</h3>
+                    <p>cted@lpubatangas.edu.ph</p>
+                </div>
+                </div><!-- End Info Item -->
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.2450735512944!2d121.0602959783868!3d13.76408915215294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd055b2f338c13%3A0x4fd4bdbf4228299f!2sLyceum%20of%20the%20Philippines%20University%20-%20Batangas!5e0!3m2!1sen!2sph!4v1770685342471!5m2!1sen!2sph" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <i class="bi bi-telephone flex-shrink-0"></i>
-            <div>
-                <h3>Call Us</h3>
-                <p>+63 945 319 0678 / +63 918 640 0837</p>
-            </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <i class="bi bi-envelope flex-shrink-0"></i>
-            <div>
-                <h3>Email Us</h3>
-                <p>cted@lpubatangas.edu.ph</p>
-            </div>
-            </div><!-- End Info Item -->
-
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.2450735512944!2d121.0602959783868!3d13.76408915215294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd055b2f338c13%3A0x4fd4bdbf4228299f!2sLyceum%20of%20the%20Philippines%20University%20-%20Batangas!5e0!3m2!1sen!2sph!4v1770685342471!5m2!1sen!2sph" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
         </div>
 
         <div class="col-lg-7">
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-            <div class="row gy-4">
+            <form id="form_validation" action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                <div class="row gy-4">
 
-            <div class="col-md-6">
-                <label for="name-field" class="pb-2">Your Name</label>
-                <input type="text" name="name" id="name-field" class="form-control" required="">
-            </div>
+                    <div class="col-md-6">
+                        <label for="name-field" class="pb-2">Your Name</label>
+                        <input type="text" name="name" id="name-field" class="form-control">
+                    </div>
 
-            <div class="col-md-6">
-                <label for="email-field" class="pb-2">Your Email</label>
-                <input type="email" class="form-control" name="email" id="email-field" required="">
-            </div>
+                    <div class="col-md-6">
+                        <label for="email-field" class="pb-2">Your Email</label>
+                        <input type="email" class="form-control" name="email" id="email-field">
+                    </div>
 
-            <div class="col-md-12">
-                <label for="subject-field" class="pb-2">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject-field" required="">
-            </div>
+                    <div class="col-md-12">
+                        <label for="subject-field" class="pb-2">Subject</label>
+                        <input type="text" class="form-control" name="subject" id="subject-field">
+                    </div>
 
-            <div class="col-md-12">
-                <label for="message-field" class="pb-2">Message</label>
-                <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-            </div>
+                    <div class="col-md-12">
+                        <label for="message-field" class="pb-2">Message</label>
+                        <textarea class="form-control" name="message" rows="10" id="message-field"></textarea>
+                    </div>
 
-            <div class="col-md-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                    <div class="col-md-12 text-center">
+                        <button type="submit" onclick="sendEmail()">Send Message</button>
+                    </div>
 
-                <button type="submit">Send Message</button>
-            </div>
-
-            </div>
-        </form>
+                </div>
+            </form>
         </div><!-- End Contact Form -->
 
     </div>
@@ -84,3 +79,62 @@
 
 </section>
 <!-- /Contact Section -->
+
+<script>
+function sendEmail(){
+    const form = document.getElementById("form_validation");
+    const name = document.getElementById("name-field");
+    const email = document.getElementById("email-field");
+    const subject = document.getElementById("subject-field");
+    const message = document.getElementById("message-field");
+    const now = new Date();
+    const formattedDateTime = now.toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+    });
+    
+    if($("#form_validation").valid()){
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+        });
+
+        Swal.fire({
+            title: 'Sending email...',
+            allowOutsideClick: false,
+            padding: '3em 0em 5em 0em',
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        var params = {
+            subject: subject.value,
+            name: name.value,
+            datetime: formattedDateTime,
+            message: message.value,
+            email: email.value
+        };
+
+        emailjs.send("service_8au48ns", "template_6bhykps", params)
+        .then(function(response) {
+            console.log("Success:", response);
+            Swal.fire({
+                title: 'Sent Successful!',
+                text: 'Email sent successfully',
+                allowOutsideClick: false,
+                icon: 'success',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload();
+                }
+            });
+        }, function(error) {
+            console.error("Error:", error);
+        });
+    }
+}
+</script>

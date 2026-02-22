@@ -3,7 +3,7 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
+        <h2>Our Team</h2>
         <p>Meet the people behind our mission. Our team brings together diverse skills, experience, and passion to drive impact and deliver meaningful results.</p>
     </div><!-- End Section Title -->
 

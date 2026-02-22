@@ -2,7 +2,14 @@
 include 'includes/init.php';
 include 'head.php';
 ?>
-    
+<script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "pr94tQJGbGM6rvPgo",
+        });
+    })();
+</script>   
+
 <main class="loading authentication-bg login" data-layout-config='{"darkMode":false}'>
     <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
         <div class="container">
