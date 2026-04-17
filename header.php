@@ -11,9 +11,13 @@ $_SESSION['proms']['ay_id'] = $db->queryUniqueValue('SELECT ay_id FROM tbl_acade
 <header id="header" class="header d-flex align-items-center fixed-top <?php echo isset($page_type) ? $page_type : ''; ?>">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-        <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <a href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/index.php" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/img/logo/logo1-white.png" width="120" alt="">
+        <img src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/img/logo/logo1-white.png" id="lpu-logo-name" width="120" alt="">
+        <img src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/img/logo/ctel-logo-name.png" id="ctel-logo-name" width="140" alt="">
+
+        <img src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/img/logo/logo-small.png" id="lpu-logo" width="50" alt="">
+        <img src="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/assets/img/logo/ctel-logo.png" id="ctel-logo" width="40" alt="">
         <!-- <h1 class="sitename">Arsha</h1> -->
         </a>
 
@@ -29,6 +33,7 @@ $_SESSION['proms']['ay_id'] = $db->queryUniqueValue('SELECT ay_id FROM tbl_acade
             <?php
                 if(isset($_SESSION['proms']['student_id'])){
             ?>
+            <li><a href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/pages/profile.php">Profile</a></li>
             <li><a class="menu-logout" href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/clear.php">Logout</a></li>
             <?php
                 }
@@ -41,7 +46,7 @@ $_SESSION['proms']['ay_id'] = $db->queryUniqueValue('SELECT ay_id FROM tbl_acade
         if(isset($_SESSION['proms']['student_id'])){
             $redirect = 'href="' . $GLOBALS['INF_CONFIG']['sitehost'] . '/index.php#programs"';
         }else{
-            $redirect = 'onclick="loginRedirect(\'login.php\')"';
+            $redirect = 'onclick="loginRedirect()"';
         }
         ?>
 

@@ -17,6 +17,7 @@ set_time_limit(36000);
 define('__SITE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/proms');
 date_default_timezone_set('Asia/Kuala_Lumpur');
 define('IS_DEV', true);  // set to false in production
+require_once __DIR__ . '/../assets/plugins/dotenv/vendor/autoload.php';
 
 $GLOBALS['INF_CONFIG']['sitehost']   = 'http://localhost/proms';
 $GLOBALS['INF_CONFIG']['root']       = '/proms/';
@@ -30,6 +31,9 @@ $inf_dbhost  = $GLOBALS['INF_CONFIG']['dbHost'];
 $inf_dbname  = $GLOBALS['INF_CONFIG']['dbDatabase'];
 $inf_dbpass  = $GLOBALS['INF_CONFIG']['dbPass'];
 $inf_dblogin = $GLOBALS['INF_CONFIG']['dbUser'];
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 
 /* include the controller class */
 /* MODEL */

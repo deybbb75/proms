@@ -33,7 +33,7 @@ if ($program) {
 if(isset($_SESSION['proms']['student_id'])){
     $redirect = 'SubmitForm()';
 }else{
-    $redirect = "loginRedirect('../login.php')";
+    $redirect = "loginRedirect()";
 }
 
 $has_reservation = $db->hasDuplicate(
@@ -154,6 +154,9 @@ if($has_reservation){
                     <!-- Enrollment Card -->
                     <div class="enrollment-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-body">
+                            <form action="controller/ctr-reserve.php" method="POST" id="reserve-form">
+                                <input type="hidden" name="sub_prog_id" value="<?= encrypt_data($id) ?>">
+                            </form>
                             <div class="action-buttons">
                                 <button class="btn-primary" onclick="<?= $redirect ?>" <?= $button_status ?>><?= $button_name ?></button>
                                 <button class="btn-secondary" onclick="window.location='program-list.php'">Go Back</button>
@@ -182,37 +185,8 @@ function SubmitForm(){
         cancelButtonText: 'Cancel'
     }).then((result) => {
         if (result.isConfirmed) {
-            $.ajax({
-                type: "POST",
-                url: "controller/ctr-reserve.php",
-                data: {
-                    sub_prog_id: '<?= encrypt_data($id) ?>',
-                }
-            }).done(function(data) {
-                Swal.fire({
-                    allowOutsideClick: false,
-                    padding: '5em 0em',
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
-
-                var params = {
-                    name: '<?= $_SESSION['proms']['fullname'] ?>',
-                    email: '<?= $_SESSION['proms']['email'] ?>',
-                    program: '<?= $title ?? '' ?>',
-                };
-
-                emailjs.send("service_8au48ns", "template_duzsgyg", params)
-                .then(function(response) {
-                    console.log("Success:", response);
-                    window.location.href = "../index.php";
-                }, function(error) {
-                    console.error("Error:", error);
-                });
-            }).fail(function(error) {
-                console.error("Failed to fetch data", error);
-            });
+            const form = document.getElementById('reserve-form');
+            form.submit();
         }
     });
 }

@@ -3,10 +3,10 @@ include '../../includes/init.php';
 $db = DB::getInstance();
 
 $page_number = $_POST['page'];
-$page_size = $_POST['page_size'];
+$page_size = decrypt_data($_POST['page_size']);
 $offset = ($page_number - 1) * $page_size;
 
-$news_query = $db->query('SELECT * FROM tbl_news WHERE status = "Active" ORDER BY news_id DESC LIMIT :page_size OFFSET :offset', ['page_size' => $page_size, 'offset' => $offset]);
+$news_query = $db->query('SELECT * FROM tbl_news WHERE status = "Active" ORDER BY news_id DESC LIMIT '. $page_size .' OFFSET :offset', ['offset' => $offset]);
       
 while ($line = $db->fetchNextObject($news_query)) {
     $image          = $line->img;
@@ -17,7 +17,7 @@ while ($line = $db->fetchNextObject($news_query)) {
 <div class="col-lg-4">
     <article>
         <div class="post-img">
-            <img src="<?= $image_src ?? '' ?>" alt="" class="img-fluid">
+            <img src="<?= $image_src ?? '' ?>" alt="">
         </div>
 
         <h2 class="title news_title"><?= e($line->news_title) ?></h2>

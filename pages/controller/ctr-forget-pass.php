@@ -9,7 +9,7 @@ $email = $_POST['email'];
 try {
     $student = $db->queryUniqueObject("SELECT * FROM tbl_student WHERE email = :email", ['email' => $email]);
     if ($student) {
-        $active_reset = $db->queryUniqueObject("SELECT * FROM tbl_pass_reset WHERE email = :email AND status = 'Active'", ['email' => $email]);
+        $active_reset = $db->queryUniqueObject("SELECT * FROM tbl_pass_reset WHERE email = :email AND account_type = 'Student' AND status = 'Active'", ['email' => $email]);
 
         if($active_reset) {
             if($active_reset->expire_datetime > date('Y-m-d H:i:s')) {
@@ -44,24 +44,21 @@ try {
         $expire_datetime = $date->format('Y-m-d H:i:s');
 
         $sqlArray = array(
-            'student_id'       => $student->student_id,
+            'account_id'        => $student->student_id,
+            'account_type'      => 'Student',
             'email'             => $student->email,
             'token'             => $hash,
-            'expire_datetime'    => $expire_datetime,
+            'expire_datetime'   => $expire_datetime,
             'status'            => 'Active'
         );
         $db->executeInsert($sqlArray, 'tbl_pass_reset');
 
         if ($db->affectedRows > 0) {
             $_SESSION['proms']['reset_email']['email'] = $student->email;
+            $_SESSION['proms']['reset_email']['name'] = $student->fname . " " . $student->mname . " " . $student->lname;
             $_SESSION['proms']['reset_email']['token'] = $token;
 
-            Alert::success(array(
-                'title' => 'Reset Link Sent',
-                'text'  => 'A password reset link has been sent to your email address. Please check your inbox.',
-                'timer' => 3000,
-                'path'  => $redirect_path
-            ));
+            safe_redirect('../../email/forget-pass.php');
         }
     } else {
         Alert::error(array(

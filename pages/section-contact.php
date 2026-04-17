@@ -42,7 +42,7 @@
         </div>
 
         <div class="col-lg-7">
-            <form id="form_validation" action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form id="form_validation" action="pages/controller/ctr-contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                 <div class="row gy-4">
 
                     <div class="col-md-6">
@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="col-md-12 text-center">
-                        <button type="submit" onclick="sendEmail()">Send Message</button>
+                        <button type="submit">Send Message</button>
                     </div>
 
                 </div>

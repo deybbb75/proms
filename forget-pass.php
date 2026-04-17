@@ -28,7 +28,7 @@ include 'head.php';
 
                                 <div class="mb-4">
                                     <label for="emailaddress" class="form-label">Email address</label>
-                                    <input class="form-control" type="email" name="email" id="emailaddress" required="" placeholder="Enter your email">
+                                    <input class="form-control" type="email" name="email" id="emailaddress" placeholder="Enter your email">
                                 </div>
 
                                 <div class="mt-4 text-center">

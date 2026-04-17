@@ -76,14 +76,15 @@ const pagination = new Pagination({
     containerId: "pagination-section",
     prevButtonId: "prev_button",
     nextButtonId: "next_button",
-    onPageChange: (page) => fetchNews(page, '<?= $page_size ?>'),
-    onPrev: (page) => fetchNews(page, '<?= $page_size ?>'),
-    onNext: (page) => fetchNews(page, '<?= $page_size ?>')
+    onPageChange: (page) => fetchNews(page, '<?= encrypt_data($page_size) ?>'),
+    onPrev: (page) => fetchNews(page, '<?= encrypt_data($page_size) ?>'),
+    onNext: (page) => fetchNews(page, '<?= encrypt_data($page_size) ?>')
 });
 
 function fetchNews(page, page_size){
+    $('#news-section').empty();
     $('#pagination-container').css('display', 'none');
-    $('#menu-loader-section').css('display', 'block');
+    $('#menu-loader-section').css('display', 'flex');
 
     $.ajax({
         type: "POST",
@@ -93,7 +94,6 @@ function fetchNews(page, page_size){
             page_size: page_size,
         }
     }).done(function(data) {
-        $('#news-section').empty();
         $('#menu-loader-section').css('display', 'none');
         $('#news-section').html(data);
         runMatchHeight();
@@ -104,5 +104,5 @@ function fetchNews(page, page_size){
     });
 }
 
-fetchNews(1, '<?= $page_size ?>');
+fetchNews(1, '<?= encrypt_data($page_size) ?>');
 </script>

@@ -23,7 +23,7 @@
                 <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="<?= $counter ?>00">
 
                     <div class="post-img position-relative overflow-hidden">
-                        <img src="<?= $image_src ?? '' ?>" class="img-fluid" alt="">
+                        <img src="<?= $image_src ?? '' ?>" alt="">
                     </div>
 
                     <div class="post-content d-flex flex-column">

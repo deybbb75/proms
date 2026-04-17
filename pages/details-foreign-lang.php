@@ -33,7 +33,7 @@ if ($program) {
 if(isset($_SESSION['proms']['student_id'])){
     $redirect = 'SubmitForm()';
 }else{
-    $redirect = "loginRedirect('../login.php')";
+    $redirect = "loginRedirect()";
 }
 
 $has_reservation = $db->hasDuplicate(
@@ -77,101 +77,102 @@ if($has_reservation){
             <div class="row">
                 <div class="col-lg-8">
 
-                <!-- Course Banner -->
-                <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
-                    <div class="banner-content">
-                    <div class="banner-image">
-                        <img src="<?= $image_src ?? '' ?>" alt="Course Preview" class="img-fluid">
-                    </div>
-                    <h1><?= strtoupper($title) ?? '' ?></h1>
-                    </div>
-                </div><!-- End Course Banner -->
+                    <!-- Course Banner -->
+                    <div class="course-banner" data-aos="fade-up" data-aos-delay="200">
+                        <div class="banner-content">
+                        <div class="banner-image">
+                            <img src="<?= $image_src ?? '' ?>" alt="Course Preview" class="img-fluid">
+                        </div>
+                        <h1><?= strtoupper($title) ?? '' ?></h1>
+                        </div>
+                    </div><!-- End Course Banner -->
 
-                <!-- Course Navigation Tabs -->
-                <div class="course-nav-tabs" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Course Navigation Tabs -->
+                    <div class="course-nav-tabs" data-aos="fade-up" data-aos-delay="300">
 
-                    <div class="tab-content" id="program-detailsCourseTabContent">
+                        <div class="tab-content" id="program-detailsCourseTabContent">
 
-                        <!-- Overview Tab -->
-                        <div class="tab-pane fade show active" id="program-detailsoverview" role="tabpanel">
-                            <div class="details-section">
-                                <h3>Program Offerings</h3>
-                                <ul class="details-list">
-                                    <?php
-                                    foreach ($offering as $item) {
-                                    ?>
-                                    <li><i class="bi bi-dash"></i><?= e($item) ?></li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
+                            <!-- Overview Tab -->
+                            <div class="tab-pane fade show active" id="program-detailsoverview" role="tabpanel">
+                                <div class="details-section">
+                                    <h3>Program Offerings</h3>
+                                    <ul class="details-list">
+                                        <?php
+                                        foreach ($offering as $item) {
+                                        ?>
+                                        <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                        <?php
+                                        }
+                                        ?>
+                                    </ul>
 
-                                <p style="font-style: italic;">*In coordination with the Center for Language and Applied Media</p>
-                            </div>
+                                    <p style="font-style: italic;">*In coordination with the Center for Language and Applied Media</p>
+                                </div>
 
-                            <div class="details-section">
-                                <h3>Competency Levels</h3>
-                                <ul class="details-list">
-                                    <?php
-                                    foreach ($level as $item) {
-                                    ?>
-                                    <li><i class="bi bi-dash"></i><?= e($item) ?></li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
+                                <div class="details-section">
+                                    <h3>Competency Levels</h3>
+                                    <ul class="details-list">
+                                        <?php
+                                        foreach ($level as $item) {
+                                        ?>
+                                        <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                        <?php
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
 
-                            <div class="details-section">
-                                <h3>Program Duration</h3>
-                                <ul class="details-list">
-                                    <?php
-                                    foreach ($duration as $item) {
-                                    ?>
-                                    <li><i class="bi bi-dash"></i><?= e($item) ?></li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
+                                <div class="details-section">
+                                    <h3>Program Duration</h3>
+                                    <ul class="details-list">
+                                        <?php
+                                        foreach ($duration as $item) {
+                                        ?>
+                                        <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                        <?php
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
 
-                            <div class="details-section">
-                                <h3>Mode of Study</h3>
-                                <ul class="details-list">
-                                    <?php
-                                    foreach ($mode as $item) {
-                                    ?>
-                                    <li><i class="bi bi-dash"></i><?= e($item) ?></li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
+                                <div class="details-section">
+                                    <h3>Mode of Study</h3>
+                                    <ul class="details-list">
+                                        <?php
+                                        foreach ($mode as $item) {
+                                        ?>
+                                        <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                        <?php
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
 
-                            <div class="details-section">
-                                <h3>Note</h3>
-                                <ul class="details-list">
-                                    <?php
-                                    foreach ($note as $item) {
-                                    ?>
-                                    <li><i class="bi bi-dash"></i><?= e($item) ?></li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
-                        </div><!-- End Overview Tab -->
+                                <div class="details-section">
+                                    <h3>Note</h3>
+                                    <ul class="details-list">
+                                        <?php
+                                        foreach ($note as $item) {
+                                        ?>
+                                        <li><i class="bi bi-dash"></i><?= e($item) ?></li>
+                                        <?php
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
+                            </div><!-- End Overview Tab -->
 
-                    </div>
-                </div><!-- End Course Navigation Tabs -->
-
+                        </div>
+                    </div><!-- End Course Navigation Tabs -->
                 </div>
 
                 <div class="col-lg-4">
-
                     <!-- Enrollment Card -->
                     <div class="enrollment-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-body">
+                            <form action="controller/ctr-reserve.php" method="POST" id="reserve-form">
+                                <input type="hidden" name="sub_prog_id" value="<?= encrypt_data($id) ?>">
+                            </form>
                             <div class="action-buttons">
                                 <button class="btn-primary" onclick="<?= $redirect ?>" <?= $button_status ?>><?= $button_name ?></button>
                                 <button class="btn-secondary" onclick="window.location='program-list.php'">Go Back</button>
@@ -200,37 +201,8 @@ function SubmitForm(){
         cancelButtonText: 'Cancel'
     }).then((result) => {
         if (result.isConfirmed) {
-            $.ajax({
-                type: "POST",
-                url: "controller/ctr-reserve.php",
-                data: {
-                    sub_prog_id: '<?= encrypt_data($id) ?>',
-                }
-            }).done(function(data) {
-                Swal.fire({
-                    allowOutsideClick: false,
-                    padding: '5em 0em',
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
-
-                var params = {
-                    name: '<?= $_SESSION['proms']['fullname'] ?>',
-                    email: '<?= $_SESSION['proms']['email'] ?>',
-                    program: '<?= $title ?? '' ?>',
-                };
-
-                emailjs.send("service_8au48ns", "template_duzsgyg", params)
-                .then(function(response) {
-                    console.log("Success:", response);
-                    window.location.href = "../index.php";
-                }, function(error) {
-                    console.error("Error:", error);
-                });
-            }).fail(function(error) {
-                console.error("Failed to fetch data", error);
-            });
+            const form = document.getElementById('reserve-form');
+            form.submit();
         }
     });
 }

@@ -31,7 +31,7 @@ if (!$token) {
                 'path'  => 'login.php'
             ));
         }else{
-            $student_id = encrypt_data($active_reset->student_id);
+            $student_id = encrypt_data($active_reset->account_id);
         }
     }else{
         Alert::error(array(

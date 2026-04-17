@@ -8,7 +8,7 @@ $email = $_POST['email'];
 $enteredPassword = $_POST['password'];
 
 try {
-    $student = $db->queryUniqueObject("SELECT * FROM tbl_student WHERE email = :email", ['email' => $email]);
+    $student = $db->queryUniqueObject("SELECT * FROM tbl_student WHERE email = :email AND status = 'Active'", ['email' => $email]);
     if ($student) {
         $_SESSION['proms']['student_id']    = $student->student_id;
         $_SESSION['proms']['fullname']      = $student->fname . ' ' . $student->mname . ' ' . $student->lname;
@@ -20,7 +20,8 @@ try {
 
         if (password_verify($enteredPassword, $_SESSION['proms']['password'])) {
             $sqlArray = array(
-                'student_id'       => $_SESSION['proms']['student_id'],
+                'account_id'   => $_SESSION['proms']['student_id'],
+                'account_type' => 'Student',
                 'email'        => $_SESSION['proms']['email'],
                 'fullname'     => $_SESSION['proms']['fullname'],
                 'log_datetime' => date('Y-m-d H:i:s'),

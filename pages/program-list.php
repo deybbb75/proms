@@ -31,6 +31,8 @@ if($_SESSION['proms']['prog_id'] == 1){
     $prog_count = $db->countOf('tbl_micro_course', 'status = "Active"');
 }else if($_SESSION['proms']['prog_id'] == 6){
     $prog_count = $db->countOf('tbl_ms_prog', 'status = "Active"');
+}else{
+    $prog_count = $db->countOf('tbl_other_prog', 'prog_id = :prog_id AND status = "Active"', ['prog_id' => $_SESSION['proms']['prog_id']]);
 }
 
 $page_count = ceil($prog_count/$page_size)
@@ -108,14 +110,15 @@ const pagination = new Pagination({
     containerId: "pagination-section",
     prevButtonId: "prev_button",
     nextButtonId: "next_button",
-    onPageChange: (page) => fetchPrograms(page, '<?= $page_size ?>'),
-    onPrev: (page) => fetchPrograms(page, '<?= $page_size ?>'),
-    onNext: (page) => fetchPrograms(page, '<?= $page_size ?>')
+    onPageChange: (page) => fetchPrograms(page, '<?= encrypt_data($page_size) ?>'),
+    onPrev: (page) => fetchPrograms(page, '<?= encrypt_data($page_size) ?>'),
+    onNext: (page) => fetchPrograms(page, '<?= encrypt_data($page_size) ?>')
 });
 
 function fetchPrograms(page, page_size){
+    $('#program-section').empty();
     $('#pagination-container').css('display', 'none');
-    $('#menu-loader-section').css('display', 'block');
+    $('#menu-loader-section').css('display', 'flex');
 
     $.ajax({
         type: "POST",
@@ -125,7 +128,7 @@ function fetchPrograms(page, page_size){
             page_size: page_size,
         }
     }).done(function(data) {
-        $('#program-section').empty();
+        
         $('#menu-loader-section').css('display', 'none');
         $('#program-section').html(data);
         runMatchHeight();
@@ -136,5 +139,5 @@ function fetchPrograms(page, page_size){
     });
 }
 
-fetchPrograms(1, '<?= $page_size ?>');
+fetchPrograms(1, '<?= encrypt_data($page_size) ?>');
 </script>

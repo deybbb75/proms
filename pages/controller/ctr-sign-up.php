@@ -3,41 +3,46 @@ include '../../includes/init.php';
 $db = DB::getInstance();
 
 $redirect_path = '../../login.php';
+$error_redirect_path = '../../sign-up.php';
 
 if (isset($_POST['terms'])) {
     try {
         // Check if the required fields are set
         $requiredFields = [
-            'fname' => 'First Name', 
-            'lname' => 'Last Name', 
-            'email' => 'Email',
-            'mobile_no' => 'Mobile Number',
-            'birthday' => 'Birthday',
-            'fb_link' => 'Facebook Link',
-            'create_password' => 'Password',
-            'terms' => 'Terms and Conditions'
+            'fname'             => 'First Name', 
+            'lname'             => 'Last Name', 
+            'email'             => 'Email',
+            'mobile_no'         => 'Mobile Number',
+            'birthday'          => 'Birthday',
+            'fb_link'           => 'Facebook Link',
+            'create_password'   => 'Password',
+            'terms'             => 'Terms and Conditions'
         ];
         $missing        = validateRequiredFields($requiredFields, $_POST);
         if ($missing) {
-            Alert::error(array(
-                'title' => 'Validation Error',
-                'html'  => 'Missing required fields: ' . implode(', ', $missing),
-                'path'  => $redirect_path
-            ));
+            echo json_encode([
+                'swal' => sweetAlert([
+                    'title' => 'Validation Error',
+                    'html' => 'Missing required fields: ' . implode(', ', $missing),
+                    'icon' => 'error',
+                ]),
+            ]);
+            exit;
         }
 
         // Check for duplicate emp_no or email
-        $message = $db->hasDuplicate('SELECT fname, lname, email FROM tbl_student WHERE (fname = :fname AND lname = :lname) OR LOWER(email) = LOWER(:email)', [
-            'fname' => $_POST['fname'],
-            'lname' => $_POST['lname'],
+        $message = $db->hasDuplicate('SELECT email FROM tbl_student WHERE LOWER(email) = LOWER(:email)', [
             'email'  => $_POST['email']
         ]);
         if ($message) {
-            Alert::error(array(
-                'title' => 'Error!',
-                'html'  => 'Duplicate account detected.',
-                'path'  => $redirect_path
-            ));
+            echo json_encode([
+                'swal' => sweetAlert([
+                    'title' => 'Email Already Registered',
+                    'html' => 'An account with this email already exists. Please use a different email or log in.',
+                    'icon' => 'error',
+                ]),
+            ]);
+            exit;
         }
 
         $password = $_POST['create_password'];
@@ -58,9 +63,9 @@ if (isset($_POST['terms'])) {
 
         // Prepare the SQL array for insertion
         $sqlArray = array(
-            'fname'   => ucwords($_POST['fname']),
-            'mname'   => !empty($_POST['mname']) ? ucwords($_POST['mname']) : null,
-            'lname'   => ucwords($_POST['lname']),
+            'fname'   => ucwords(strtolower($_POST['fname'])),
+            'mname'   => !empty($_POST['mname']) ? ucwords(strtolower($_POST['mname'])) : null,
+            'lname'   => ucwords(strtolower($_POST['lname'])),
             'email'   => $_POST['email'],
             'mobile_no' => $_POST['mobile_no'],
             'birthday' => $_POST['birthday'],
@@ -73,27 +78,38 @@ if (isset($_POST['terms'])) {
         
         // Check if the insert was successful
         if ($db->affectedRows > 0) {
-            Alert::success(array(
-                'title' => 'Sign-up Successful',
-                'html'  => 'Account successfully created.',
-                'path'  => $redirect_path
-            ));
+            echo json_encode([
+                'swal' => sweetAlert([
+                    'title' => 'Success',
+                    'html' => 'Account successfully created.',
+                    'icon' => 'success',
+                ]),
+            ]);
+            exit; 
         }
     } catch (DBException $e) {
         // Handle the database error
-        Alert::error(array(
-            'title' => 'Server Error',
-            'html'  => 'Something went wrong on our end.',
-            'path'  => $redirect_path
-        ));
+        echo json_encode([
+            'swal' => sweetAlert([
+                'title' => 'Server Error',
+                'html' => 'Something went wrong on our end.',
+                'icon' => 'error',
+            ]),
+            'debug' => $e->getMessage()
+        ]);
+        exit;
 
         // echo $e->getMessage();
     } catch (Exception $e) {
         // Handle other exceptions
-        Alert::error(array(
-            'title' => 'Error',
-            'html'  => 'Something went wrong with your request.',
-            'path'  => $redirect_path
-        ));
+        echo json_encode([
+            'swal' => sweetAlert([
+                'title' => 'Error',
+                'html'  => 'Something went wrong with your request.',
+                'icon' => 'error',
+            ]),
+            'debug' => $e->getMessage()
+        ]);
+        exit;
     }
 }

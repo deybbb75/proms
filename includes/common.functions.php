@@ -319,4 +319,32 @@ function intToRoman($number) {
     return $result;
 }
 
+function sweetAlert(array $options = []): array
+{
+    $defaults = [
+        "title" => "",
+        "html" => "",
+        "icon" => "error",
+        "showConfirmButton" => true,
+        "confirmButtonColor" => "var(--primary-color)",
+    ];
+
+    $config = array_merge($defaults, $options);
+
+    // Rule 1: if showConfirmButton = true → remove timer
+    if (($config['showConfirmButton'] ?? false) === true) {
+        unset($config['timer']);
+    }
+
+    // Rule 2: if showConfirmButton = false AND no timer → default timer 3000
+    if (
+        ($config['showConfirmButton'] ?? false) === false &&
+        !array_key_exists('timer', $config)
+    ) {
+        $config['timer'] = 3000;
+    }
+
+    return $config;
+}
+
 ?>

@@ -65,8 +65,8 @@ class Pagination {
 
     render() {
         this.container.innerHTML = this.generatePagination();
-        this.prevButton.classList.toggle("disabled", this.currentPage === 1);
-        this.nextButton.classList.toggle("disabled", this.currentPage === this.totalPages);
+        this.prevButton.classList.toggle("disabled", this.currentPage == 1);
+        this.nextButton.classList.toggle("disabled", this.currentPage == this.totalPages);
     }
 
     attachEvents() {

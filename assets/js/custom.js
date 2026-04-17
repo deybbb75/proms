@@ -13,11 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const link = item.querySelector('a');
         
         if (link) {
+            const parsed = new URL(link.getAttribute('href'));
+            const result = parsed.pathname + parsed.hash;
+            
             if (menuLink) {
-                const parsed = new URL(link.getAttribute('href'));
-                const result = parsed.pathname + parsed.hash;
-                
                 localStoragePath = result.includes(menuLink);
+            }else{
+                localStoragePath = result.includes(currentPath);
             }
             
             if (localStoragePath) {
@@ -65,15 +67,18 @@ window.addEventListener("load", runMatchHeight);
 window.addEventListener("resize", runMatchHeight);
 
 function loginRedirect(url){
+    const baseUrl = window.location.origin;
     Swal.fire({
         icon: 'warning',
         title: 'Login Required',
         text: 'Please log in first before you can proceed.',
         confirmButtonText: 'Go to Login',
+        showCancelButton: true,
+        cancelButtonText: 'Cancel',  
         allowOutsideClick: false
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = url; // change to your login route
+            window.location.href = baseUrl + "/proms/login.php"; // change to your login route
         }
     });
 }

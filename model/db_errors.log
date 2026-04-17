@@ -126,3 +126,41 @@
 #3 C:\Users\Dave\Documents\xampp\htdocs\proms\pages\program-list.php(16): DB->countOf('tbl_asess_cert', 'status = "Activ...')
 #4 {main}
 
+[2026-03-18 17:52:28] SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+#0 C:\xampp\htdocs\proms\model\pdo.class.php(227): PDOStatement->bindValue(':fname', 'Dave', 2)
+#1 C:\xampp\htdocs\proms\model\pdo.class.php(242): DB->bindAllValues(Object(PDOStatement), Array)
+#2 C:\xampp\htdocs\proms\model\pdo.class.php(300): DB->query('SELECT email FR...', Array)
+#3 C:\xampp\htdocs\proms\model\pdo.class.php(406): DB->queryUniqueValue('SELECT email FR...', Array)
+#4 C:\xampp\htdocs\proms\pages\controller\ctr-sign-up.php(30): DB->hasDuplicate('SELECT email FR...', Array)
+#5 {main}
+
+[2026-03-19 20:43:48] Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''9' OFFSET 0' at line 1
+Trace: #0 C:\xampp\htdocs\proms\model\pdo.class.php(352): PDOStatement->execute()
+#1 C:\xampp\htdocs\proms\pages\fetch\fetch-program.php(10): DB->query('SELECT * FROM t...', Array)
+#2 {main}
+
+[2026-03-19 20:52:29] Error: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''9' OFFSET 0' at line 1
+Trace: #0 C:\xampp\htdocs\proms\model\pdo.class.php(352): PDOStatement->execute()
+#1 C:\xampp\htdocs\proms\pages\fetch\fetch-program.php(10): DB->query('SELECT * FROM t...', Array)
+#2 {main}
+
+[2026-03-29 18:05:12] Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'proms.tbl_assess_cert2' doesn't exist
+Trace: #0 C:\xampp\htdocs\proms\model\pdo.class.php(352): PDOStatement->execute()
+#1 C:\xampp\htdocs\proms\pages\fetch\fetch-program.php(10): DB->query('SELECT * FROM t...', Array)
+#2 {main}
+
+[2026-04-08 19:28:46] Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'proms.tbl_student2' doesn't exist
+Trace: #0 C:\xampp\htdocs\proms\model\pdo.class.php(716): PDOStatement->execute()
+#1 C:\xampp\htdocs\proms\pages\controller\ctr-sign-up.php(79): DB->executeInsert(Array, 'tbl_student2')
+#2 {main}
+
+[2026-04-08 19:29:31] Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'proms.tbl_student2' doesn't exist
+Trace: #0 C:\xampp\htdocs\proms\model\pdo.class.php(716): PDOStatement->execute()
+#1 C:\xampp\htdocs\proms\pages\controller\ctr-sign-up.php(79): DB->executeInsert(Array, 'tbl_student2')
+#2 {main}
+
+[2026-04-12 18:21:44] Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'proms.tbl_student2' doesn't exist
+Trace: #0 C:\xampp\htdocs\proms\model\pdo.class.php(716): PDOStatement->execute()
+#1 C:\xampp\htdocs\proms\pages\controller\ctr-sign-up.php(77): DB->executeInsert(Array, 'tbl_student2')
+#2 {main}
+

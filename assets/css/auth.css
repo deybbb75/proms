@@ -1,5 +1,5 @@
 main.authentication-bg{
-    background-image:url(../img/login-bg.jpg);
+    background-image:url(../img/login-bg.png);
     background-size:cover;
     background-position:center
 }
@@ -186,19 +186,19 @@ label.required::after {
   line-height: 1.6;
 }
 
-.signup .signup-form .form-group {
+.form-group {
   margin-bottom: 1.5rem;
 }
 
-.signup .signup-form .form-group .form-label {
+.form-group .form-label {
   font-weight: 600;
   /* color: var(--primary-color); */
   margin-bottom: 8px;
   font-size: 0.95rem;
 }
 
-.signup .signup-form .form-group .form-control,
-.signup .signup-form .form-group .form-select {
+.form-group .form-control,
+.form-group .form-select {
   background-color: var(--surface-color);
   border: 2px solid color-mix(in srgb, var(--default-color), transparent 85%);
   border-radius: 10px;
@@ -208,43 +208,43 @@ label.required::after {
   color: var(--default-color);
 }
 
-/* .signup .signup-form .form-group .form-control:focus,
-.signup .signup-form .form-group .form-select:focus {
+/* .form-group .form-control:focus,
+.form-group .form-select:focus {
   border-color: var(--secondary-color);
   box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--secondary-color), transparent 80%);
   outline: none;
 } */
 
-.signup .signup-form .form-group .form-control.is-valid,
-.signup .signup-form .form-group .form-select.is-valid,
-.signup .signup-form .form-group .form-control.is-valid:focus,
-.signup .signup-form .form-group .form-selectis-valid:focus{
+.form-group .form-control.is-valid,
+.form-group .form-select.is-valid,
+.form-group .form-control.is-valid:focus,
+.form-group .form-selectis-valid:focus{
   border-color: var(--bs-success);
   box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--bs-success), transparent 80%);
   outline: none;
   padding-right: calc(1.5em + .75rem) !important;
 }
 
-.signup .signup-form .form-group .form-control.is-invalid,
-.signup .signup-form .form-group .form-select.is-invalid,
-.signup .signup-form .form-group .form-control.is-invalid:focus,
-.signup .signup-form .form-group .form-select.is-invalid:focus {
+.form-group .form-control.is-invalid,
+.form-group .form-select.is-invalid,
+.form-group .form-control.is-invalid:focus,
+.form-group .form-select.is-invalid:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--primary-color), transparent 80%);
   outline: none;
   padding-right: calc(1.5em + .75rem) !important;
 }
 
-.signup .signup-form .form-group .form-check-input.is-invalid~.form-check-label{
+.form-group .form-check-input.is-invalid~.form-check-label{
   color: unset !important;
 }
 
-.signup .signup-form .form-group .form-control::placeholder,
-.signup .signup-form .form-group .form-select::placeholder {
+.form-group .form-control::placeholder,
+.form-group .form-select::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 60%);
 }
 
-.signup .signup-form .form-group textarea.form-control {
+.form-group textarea.form-control {
   resize: vertical;
   min-height: 120px;
 }
@@ -311,7 +311,7 @@ label.required::after {
 }
 
 .signup .signup-form .agreement-section .form-check .form-check-label a:hover {
-  color: var(--primary-color);
+  color: rgba(var(--secondary-rgb), 0.7);
 }
 
 .signup .signup-form .btn-signup {
@@ -370,13 +370,6 @@ label.required::after {
 
 .signup #login-link {
   color:var(--primary-color) !important;
-}
-
-main .error-404{
-  background-image:url(../img/login-bg.jpg);
-  background-size:cover;
-  background-position:center;
-  height: 100vh;
 }
 
 .logout-icon{

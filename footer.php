@@ -31,7 +31,7 @@
                     $program_query = $db->query("SELECT * FROM tbl_program WHERE status = 'Active'");
                     while ($line = $db->fetchNextObject($program_query)) {
                 ?>
-                <li><i class="bi bi-chevron-right"></i> <a href="pages/program-list.php?prog_id=<?= encrypt_data($line->prog_id) ?>"><?= e($line->prog_name) ?></a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="<?= $GLOBALS['INF_CONFIG']['sitehost'] ?>/pages/program-list.php?prog_id=<?= encrypt_data($line->prog_id) ?>"><?= e($line->prog_name) ?></a></li>
                 <?php
                     }
                 ?>

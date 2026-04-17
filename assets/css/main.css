@@ -2074,8 +2074,16 @@ section,
   transition: 0.3s;
 }
 
+.news .post-item .post-img {
+  height: 250px;
+}
+
 .news .post-item .post-img img {
   transition: 0.5s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
 }
 
 .news .post-item .post-date {
@@ -2423,9 +2431,17 @@ section,
 }
 
 .news-list .post-img {
-  max-height: 440px;
+  height: 250px;
   margin: -30px -30px 0 -30px;
   overflow: hidden;
+}
+
+.news-list .post-img img {
+  transition: 0.5s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
 }
 
 .news-list .title {
@@ -3352,6 +3368,10 @@ section,
 .error-404 {
   padding: 80px 0;
   margin: 0 auto;
+  background-image:url(../img/login-bg.png);
+  background-size:cover;
+  background-position:center;
+  height: 100vh;
 }
 
 .error-404 .error-icon {
@@ -3744,3 +3764,228 @@ section,
   }
 }
 
+/* Logos */
+#lpu-logo, #ctel-logo{
+  display: none;
+}
+
+@media (max-width: 500px) {
+  #lpu-logo, #ctel-logo{
+    display: block;
+  }
+
+  #lpu-logo-name, #ctel-logo-name{
+    display: none;
+  }
+}
+
+/*--------------------------------------------------------------
+# Modal
+--------------------------------------------------------------*/
+.modal-title{
+    color:#fff !important;
+}
+
+.modal-body {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+/*--------------------------------------------------------------
+# Profile Section
+--------------------------------------------------------------*/
+.profile {
+  background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
+}
+
+.profile .profile-form-wrapper {
+  background: var(--surface-color);
+  border-radius: 20px;
+  padding: 50px 40px;
+  box-shadow: 0 20px 60px color-mix(in srgb, var(--default-color), transparent 85%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+@media (max-width: 768px) {
+  .profile .profile-form-wrapper {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+}
+
+.profile .profile-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, var(--heading-color), var(--accent-color));
+  -webkit-background-clip: text;
+  /* -webkit-text-fill-color: transparent; */
+  background-clip: text;
+}
+
+@media (max-width: 768px) {
+  .profile .profile-header h2 {
+    font-size: 2rem;
+  }
+}
+
+.profile .profile-header p {
+  font-size: 1.1rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  line-height: 1.6;
+}
+
+.profile .profile-form .btn-profile {
+  background: var(--primary-color);
+  color: var(--contrast-color);
+  border: none;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile .profile-form .btn-profile:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, color-mix(in srgb, var(--contrast-color), transparent 80%), transparent);
+  transition: left 0.5s;
+}
+
+.profile .profile-form .btn-profile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px color-mix(in srgb, var(--accent-color), transparent 60%);
+}
+
+.profile .profile-form .btn-profile:hover:before {
+  left: 100%;
+}
+
+.profile .profile-form .btn-profile:active {
+  transform: translateY(-1px);
+}
+
+.profile .profile-form .btn-profile .bi {
+  font-size: 1.2rem;
+}
+
+.profile .profile-form .profile-note {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  font-style: italic;
+}
+
+.profile .profile-form .profile-note .bi {
+  color: var(--accent-color);
+  margin-right: 5px;
+}
+
+.profile .profile-benefits {
+  background: var(--surface-color);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 15px 50px color-mix(in srgb, var(--default-color), transparent 90%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.profile .profile-benefits h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: var(--heading-color);
+  text-align: center;
+}
+
+.profile .profile-benefits .benefit-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.profile .profile-benefits .benefit-item:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  transform: translateX(5px);
+}
+
+.profile .profile-benefits .benefit-item .benefit-icon {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.profile .profile-benefits .benefit-item .benefit-content h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--heading-color);
+}
+
+.profile .profile-benefits .benefit-item .benefit-content p {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.profile .profile-benefits .profile-stats {
+  background: var(--accent-color);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.profile .profile-benefits .profile-stats .stat-item {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.profile .profile-benefits .profile-stats .stat-item:last-child {
+  margin-bottom: 0;
+}
+
+.profile .profile-benefits .profile-stats .stat-item .stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--contrast-color);
+  line-height: 1;
+}
+
+.profile .profile-benefits .profile-stats .stat-item .stat-label {
+  display: block;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--contrast-color), transparent 20%);
+  margin-top: 5px;
+}
+
+@media (max-width: 992px) {
+  .profile .profile-benefits {
+    margin-top: 50px;
+    position: static;
+    top: auto;
+  }
+}

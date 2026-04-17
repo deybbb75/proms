@@ -32,7 +32,7 @@ if ($program) {
 if(isset($_SESSION['proms']['student_id'])){
     $redirect = 'SubmitForm()';
 }else{
-    $redirect = "loginRedirect('../login.php')";
+    $redirect = "loginRedirect()";
 }
 
 $has_reservation = $db->hasDuplicate(
@@ -58,6 +58,22 @@ if($has_reservation){
     $button_status = "";
     $button_name = "Apply Now";
 }
+
+$events = [];
+
+$schedule = $db->query('SELECT * FROM tbl_schedule WHERE sub_prog_id = :sub_prog_id', ['sub_prog_id' => $id]);
+while ($line = $db->fetchNextObject($schedule)) {
+    $events[] = ["date" => $line->sched_date, "slots" => $line->slot_count];
+}
+
+// Convert PHP array to JSON for JS
+$js_events = json_encode(array_map(function($event) {
+    return [
+        "title" => "Available Slots: " . $event['slots'],
+        "start" => $event['date'],
+        "color" => "#356fbf"
+    ];
+}, $events));
 ?>
 
 <style>
@@ -87,6 +103,15 @@ if($has_reservation){
 .fc-day-selected .fc-daygrid-day-number {
   color: white;
   font-weight: bold;
+}
+
+.fc-daygrid-event {
+    white-space: normal !important;
+}
+
+.fc-daygrid-event .fc-event-title {
+    white-space: normal !important;
+    text-align: center;
 }
 
 .modal-title {
@@ -226,13 +251,14 @@ if($has_reservation){
 <script>
 
 let calendar;
-let selectedDate = null; 
-let selectedDayEl = null; 
+let selectedDate = null;
+let selectedDayEl = null;
 
 const dateField = document.getElementById('date_scheduled');
 const modalEl = document.getElementById('primary-header-modal');
 
 modalEl.addEventListener('shown.bs.modal', function () {
+
     if (selectedDayEl) {
         selectedDayEl.classList.remove('fc-day-selected');
         selectedDayEl = null;
@@ -246,50 +272,83 @@ modalEl.addEventListener('shown.bs.modal', function () {
     const calendarEl = document.getElementById('calendar');
 
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    today.setHours(0,0,0,0);
 
-    const blockedUntil = new Date(today);
-    blockedUntil.setDate(today.getDate() + 5);
+    function getBlockedUntilDate(startDate, days) {
+        const d = new Date(startDate);
+        let added = 0;
+
+        while (added <= days) {
+            d.setDate(d.getDate() + 1);
+
+            const day = d.getDay();
+            const isWeekend = day === 0 || day === 6;
+
+            if (!isWeekend) {
+                added++;
+            }
+        }
+
+        return d;
+    }
+
+    const blockedUntil = getBlockedUntilDate(today, 15);
+
+    function isDisabledDate(date){
+        const d = new Date(date);
+        d.setHours(0,0,0,0);
+
+        const day = d.getDay();
+        const isWeekend = day === 0 || day === 6;
+
+        return d < blockedUntil || isWeekend;
+    }
 
     calendar = new FullCalendar.Calendar(calendarEl, {
+
         initialView: 'dayGridMonth',
         showNonCurrentDates: false,
         fixedWeekCount: false,
 
-        dateClick(info) {
-            const clickedDate = new Date(info.date);
-            clickedDate.setHours(0, 0, 0, 0);
+        events: <?= $js_events; ?>,
 
-            if (clickedDate < blockedUntil) return;
+        dateClick(info){
 
-            // remove previous selection
+            if (isDisabledDate(info.date)) return;
+
             if (selectedDayEl) {
                 selectedDayEl.classList.remove('fc-day-selected');
             }
 
-            // mark current selection
             info.dayEl.classList.add('fc-day-selected');
             selectedDayEl = info.dayEl;
 
-            // store the selected date
             selectedDate = info.dateStr;
+            dateField.value = selectedDate;
 
-            console.log('Selected date:', selectedDate);
+            console.log("Selected date:", selectedDate);
         },
 
-        dayCellDidMount(info) {
-            const cellDate = new Date(info.date);
-            cellDate.setHours(0, 0, 0, 0);
+        dayCellClassNames(info){
 
-            if (cellDate < blockedUntil) {
-                info.el.classList.add('fc-day-disabled-custom');
+            if (isDisabledDate(info.date)) {
+                return ['fc-day-disabled-custom'];
             }
+
+            return [];
         },
 
-        datesSet() {
+        datesSet(){
+
             selectedDate = null;
             dateField.value = '';
+
+            if (selectedDayEl){
+                selectedDayEl.classList.remove('fc-day-selected');
+                selectedDayEl = null;
+            }
         }
+
     });
 
     calendar.render();
